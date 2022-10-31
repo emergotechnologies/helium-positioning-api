@@ -1,4 +1,4 @@
-Praxisprojekt LoraWan Positionierung
+Helium Positioning API
 ==============================
 
 A short description of the project.
