@@ -1,0 +1,14 @@
+{
+  "_output_dir": "/Users/lukashuber/dev/temp",
+  "_template": "gh:cjolowicz/cookiecutter-hypermodern-python",
+  "author": "Lukas Huber",
+  "copyright_year": "2022",
+  "development_status": "Development Status :: 3 - Alpha",
+  "email": "lukas.huber@fh-kufstein.ac.at",
+  "friendly_name": "Helium Positioning API",
+  "github_user": "g4challenge",
+  "license": "MIT",
+  "package_name": "helium_positioning_api",
+  "project_name": "helium-positioning-api",
+  "version": "0.0.0"
+}

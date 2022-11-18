@@ -1,0 +1,42 @@
+{
+    "app_eui": "6948A4B59F4666AD",
+    "dev_eui": "1C29FBD1D2084E21",
+    "devaddr": "B5A44869",
+    "fcnt": 19,
+    "hotspots": [
+        {
+            "frequency": 912.2999877929688,
+            "id": "11KHJW1ePkfhLYptMwKyDzn4opLc62daahbi35uxhH3wwi7p6xr",
+            "name": "icy-fiery-hippo",
+            "reported_at": 15868685461234,
+            "rssi": -54,
+            "snr": 9.800000190734863,
+            "spreading": "SF9BW125",
+            "status": "success"
+        },
+        {
+            "frequency": 912.2999877929688,
+            "id": "11ni2CACdVUAshDvXif2pYUduAsvoawoxvVub6aqgHjSNsPEapZ",
+            "name": "cool-chiffon-hornet",
+            "reported_at": 15868685461235,
+            "rssi": -51,
+            "snr": 9,
+            "spreading": "SF9BW125",
+            "status": "success"
+        }
+    ],
+    "id": "7c523974-4ce7-4a92-948b-55171a6e4d77",
+    "metadata": {
+        "labels": [
+            {
+                "id": "7d11aef4-4daf-4caf-b72a-f789b191ebe4",
+                "name": "DontLabelMe",
+                "organization_id": "d724b93a-895a-4175-9852-8738ae31050b"
+            }
+        ]
+    },
+    "name": "Test Me",
+    "payload": "SGVsbG8sIHdvcmxkIQ==",
+    "port": 1,
+    "reported_at": 15868685461234
+}
