@@ -59,13 +59,13 @@ class Hotspot(DataObject):
     snr: float
     spreading: str
     lat: float = None
-    lng: float = None
+    long: float = None
 
     def load_location(self):
-        hotspot = load_hotspot(self.id)
-        self.lat = hotspot["lat"]
-        self.lng = hotspot["lng"]
-        
+        if not self.lat or not self.long:
+            hotspot = load_hotspot(self.id)
+            self.lat = hotspot["lat"]
+            self.long = hotspot["lng"]
 
     
 

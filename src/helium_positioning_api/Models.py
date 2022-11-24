@@ -15,7 +15,7 @@ class Model:
     def get_hotspots(self, uuid: str) -> List[Hotspot]:
         """Load hotspots, which interacted with the given device from the last integration event."""
         integration = load_last_integration(uuid)
-        return [Hotspot(**h) for h in integration["hotspots"]]
+        return [Hotspot(**h) for h in integration["data"]["req"]["body"]["hotspots"]]
 
 
 class NearestNeighborModel(Model):
@@ -29,4 +29,4 @@ class NearestNeighborModel(Model):
         sorted_hotspots = sorted(hotspots, key=lambda h: h.rssi)
         nearest_neighbor = sorted_hotspots[0]
         nearest_neighbor.load_location()
-        return Prediction(uuid=uuid, lat=nearest_neighbor.lat, lng=nearest_neighbor.lng)
+        return Prediction(uuid=uuid, lat=nearest_neighbor.lat, lng=nearest_neighbor.long)
