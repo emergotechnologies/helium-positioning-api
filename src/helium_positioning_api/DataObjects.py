@@ -2,7 +2,7 @@
 from typing import List, Dict, Any, Optional
 from pydantic import BaseModel
 from helium_api_wrapper.helpers import load_hotspot
-
+from datetime import datetime
 class DataObject(BaseModel):
     """Base class for all data objects."""
 
@@ -19,12 +19,17 @@ class DataObject(BaseModel):
         return data
 
 
+
 class Prediction(DataObject):
     """Class to describe a Prediction Object."""
     uuid: str
     lat: float
     lng: float
+    timestamp: datetime
     conf: float = None
+    
+    def __str__(self):
+        return f"\nuuid: {self.uuid}\nlast connection: {self.timestamp.isoformat()}\nlat: {self.lat}  lng: {self.lng}"
 
 class Hotspot(DataObject):
     """Hotspots which received the same packet.
@@ -39,7 +44,7 @@ class Hotspot(DataObject):
     :type name: str
 
     :param reported_at: Timestamp in milliseconds
-    :type reported_at: float
+    :type reported_at: int
 
     :param rssi: Received Signal Strength Indicator is reported by the hotspot and indicates how strong the signal device's radio signal was
     :type rssi: float
@@ -54,12 +59,20 @@ class Hotspot(DataObject):
     frequency: float
     id: str
     name: str
-    reported_at: str
+    reported_at: datetime
     rssi: float
     snr: float
     spreading: str
     lat: float = None
     long: float = None
+
+    def __post_init__(self):
+        if isinstance(self.reported_at, int):
+            self.reported_at = datetime.fromtimestamp(self.reported_at)
+        elif isinstance(self.reported_at, str):
+            self.reported_at = datetime.fromtimestamp(int(self.reported_at))
+        else:
+            raise Exception("Timestamp has to be type 'int' or 'str'.")
 
     def load_location(self):
         if not self.lat or not self.long:

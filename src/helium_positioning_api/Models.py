@@ -29,4 +29,4 @@ class NearestNeighborModel(Model):
         sorted_hotspots = sorted(hotspots, key=lambda h: h.rssi)
         nearest_neighbor = sorted_hotspots[0]
         nearest_neighbor.load_location()
-        return Prediction(uuid=uuid, lat=nearest_neighbor.lat, lng=nearest_neighbor.long)
+        return Prediction(uuid=uuid, lat=nearest_neighbor.lat, lng=nearest_neighbor.long, timestamp=nearest_neighbor.reported_at)
