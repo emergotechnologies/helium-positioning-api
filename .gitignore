@@ -10,3 +10,15 @@
 __pycache__/
 /.venv/
 .env
+src/helium_api_wrapper/__init__.py
+src/helium_api_wrapper/__main__.py
+src/helium_api_wrapper/build.py
+src/helium_api_wrapper/ChallengeApi.py
+src/helium_api_wrapper/DataObjects.py
+src/helium_api_wrapper/DeviceApi.py
+src/helium_api_wrapper/Endpoint.py
+src/helium_api_wrapper/helpers.py
+src/helium_api_wrapper/HotspotApi.py
+src/helium_api_wrapper/ResultHandler.py
+src/helium_api_wrapper/TransactionApi.py
+
