@@ -22,3 +22,4 @@ src/helium_api_wrapper/HotspotApi.py
 src/helium_api_wrapper/ResultHandler.py
 src/helium_api_wrapper/TransactionApi.py
 
+requests.http
