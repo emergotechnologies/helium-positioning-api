@@ -58,8 +58,9 @@ class Hotspot(DataObject):
     rssi: float
     snr: float
     spreading: str
-    lat: float = None
-    long: float = None
+    lat: Optional[float] = None
+    long: Optional[float] = None
+
 
     def load_location(self):
         if not self.lat or not self.long:
