@@ -8,11 +8,12 @@ app = FastAPI(title="Helium Positioning API")
 class Device(BaseModel):
     uuid: str
 
-@app.post("/predict/", status_code=200)
-async def predict_tf(request: Device):
-    prediction = NearestNeighborModel().predict(uuid=request.uuid)
+@app.get("/predict/{uuid}", status_code=200)
+async def predict(uuid: str):
+    prediction = NearestNeighborModel().predict(uuid=uuid)
     if not prediction:
         raise HTTPException(
             status_code=404, detail="Device not found."
         )
     return prediction
+
