@@ -2,7 +2,7 @@ from abc import ABCMeta, abstractmethod
 from typing import List
 from helium_positioning_api.DataObjects import Prediction, Hotspot
 from helium_api_wrapper.helpers import load_last_integration
-from auxilary import midpoint
+from helium_positioning_api.auxilary import midpoint
 
 
 class Model:
@@ -17,6 +17,7 @@ class Model:
         """Load hotspots, which interacted with the given device from the last integration event."""
         integration = load_last_integration(uuid)
         return [Hotspot(**h) for h in integration["data"]["req"]["body"]["hotspots"]]
+        
 
 
 class NearestNeighborModel(Model):
