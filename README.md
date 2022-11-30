@@ -37,6 +37,19 @@ You can install _Helium Positioning API_ via [pip] from [PyPI]:
 $ pip install helium-positioning-api
 ```
 
+### Developer install
+
+The following allows a user to create a developer install of the positioning.
+
+You need to create a `.env` file for now and add the `API_KEY=XXX` from Helium Console to the file.
+
+```console
+pip install git+https://github.com/emergotechnologies/helium-api-wrapper
+pip install .
+# Test with Device
+python -m helium_positioning_api predict --uuid 92f23793-6647-40aa-b255-fa1d4baec75d
+```
+
 ## Usage
 
 Please see the [Command-line Reference] for details.
