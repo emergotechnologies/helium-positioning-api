@@ -8,15 +8,19 @@
 
 """
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
+from fastapi import HTTPException
 from pydantic import BaseModel
 
 from helium_positioning_api.Models import NearestNeighborModel
 
+
 app = FastAPI(title="Helium Positioning API")
+
 
 class Device(BaseModel):
     uuid: str
+
 
 @app.get("/predict/{uuid}", status_code=200)
 async def predict(uuid: str):
@@ -30,8 +34,5 @@ async def predict(uuid: str):
     """
     prediction = NearestNeighborModel().predict(uuid=uuid)
     if not prediction:
-        raise HTTPException(
-            status_code=404, detail="Device not found."
-        )
+        raise HTTPException(status_code=404, detail="Device not found.")
     return prediction
-

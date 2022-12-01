@@ -8,10 +8,16 @@
 
 """
 
-from typing import List, Dict, Any, Optional
-from pydantic import BaseModel
-from helium_api_wrapper.helpers import load_hotspot
 from datetime import datetime
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Optional
+
+from helium_api_wrapper.helpers import load_hotspot
+from pydantic import BaseModel
+
+
 class DataObject(BaseModel):
     """Base class for all data objects."""
 
@@ -28,21 +34,22 @@ class DataObject(BaseModel):
         return data
 
 
-
 class Prediction(DataObject):
     """Class to describe a Prediction Object."""
+
     uuid: str
     lat: float
     lng: float
     timestamp: datetime
     conf: float = None
-    
+
     def __str__(self):
         return f"\nuuid: {self.uuid}\nlast connection: {self.timestamp.isoformat()}\nlat: {self.lat}  lng: {self.lng}"
 
+
 class Hotspot(DataObject):
     """Hotspots which received the same packet.
-    
+
     :param frequency: In MHz, the frequency which the packet was received upon.
     :type frequency: float
 
@@ -65,6 +72,7 @@ class Hotspot(DataObject):
     :type spreading: str
 
     """
+
     frequency: float
     id: str
     name: str
@@ -88,7 +96,3 @@ class Hotspot(DataObject):
             hotspot = load_hotspot(self.id)
             self.lat = hotspot["lat"]
             self.long = hotspot["lng"]
-
-    
-
-
