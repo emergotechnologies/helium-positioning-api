@@ -33,8 +33,6 @@ Currently, only the **nearest-hotspot-prediction** method is implemented. This m
 
 The following allows a user to create a developer install of the positioning api.
 
-You need to create a `.env` file for now and add the `API_KEY=XXX` from Helium Console to the file.
-
 ```console
 pip install -r requirements.txt
 poetry install
