@@ -1,7 +1,11 @@
-from abc import ABCMeta, abstractmethod
+from abc import ABCMeta
+from abc import abstractmethod
 from typing import List
-from helium_positioning_api.DataObjects import Prediction, Hotspot
+
 from helium_api_wrapper.helpers import load_last_integration
+
+from helium_positioning_api.DataObjects import Hotspot
+from helium_positioning_api.DataObjects import Prediction
 
 
 class Model:
@@ -29,4 +33,9 @@ class NearestNeighborModel(Model):
         sorted_hotspots = sorted(hotspots, key=lambda h: h.rssi)
         nearest_neighbor = sorted_hotspots[0]
         nearest_neighbor.load_location()
-        return Prediction(uuid=uuid, lat=nearest_neighbor.lat, lng=nearest_neighbor.long, timestamp=nearest_neighbor.reported_at)
+        return Prediction(
+            uuid=uuid,
+            lat=nearest_neighbor.lat,
+            lng=nearest_neighbor.long,
+            timestamp=nearest_neighbor.reported_at,
+        )
