@@ -1,3 +1,13 @@
+"""Models Module.
+
+.. module:: Models
+
+:synopsis: Classes and functions for the prediction of device positions
+
+.. moduleauthor:: DSIA21
+
+"""
+
 from abc import ABCMeta, abstractmethod
 from typing import List
 from helium_positioning_api.DataObjects import Prediction, Hotspot
@@ -15,6 +25,7 @@ class Model:
     def get_hotspots(self, uuid: str) -> List[Hotspot]:
         """Load hotspots, which interacted with the given device from the last integration event."""
         integration = load_last_integration(uuid)
+        print(integration)
         return [Hotspot(**h) for h in integration["data"]["req"]["body"]["hotspots"]]
 
 

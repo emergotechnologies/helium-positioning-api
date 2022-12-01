@@ -1,3 +1,13 @@
+"""API Module.
+
+.. module:: api
+
+:synopsis: REST api functions for the prediction of device position. 
+
+.. moduleauthor:: DSIA21
+
+"""
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
@@ -10,6 +20,14 @@ class Device(BaseModel):
 
 @app.get("/predict/{uuid}", status_code=200)
 async def predict(uuid: str):
+    """Hotspots which received the same packet.
+    
+    :param uuid: UUID of the device.
+    :type uuid: str
+
+    :return: Prediction of device position.
+    :rtype: dict
+    """
     prediction = NearestNeighborModel().predict(uuid=uuid)
     if not prediction:
         raise HTTPException(

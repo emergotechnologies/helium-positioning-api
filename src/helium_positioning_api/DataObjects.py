@@ -1,3 +1,12 @@
+"""Data Objects module.
+
+.. module:: DataObjects
+
+:synopsis: Classes for data from Helium API
+
+.. moduleauthor:: DSIA21
+
+"""
 
 from typing import List, Dict, Any, Optional
 from pydantic import BaseModel

@@ -1,4 +1,13 @@
-"""Command-line interface."""
+"""Main module.
+
+.. module:: __main__
+
+:synopsis: Command-line interface
+
+.. moduleauthor:: DSIA21
+
+"""
+
 import click
 import uvicorn
 
