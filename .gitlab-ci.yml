@@ -1,0 +1,14 @@
+image: "python:3.10-slim"
+
+before_script:
+  - python --version
+  - python -m pip install -r requirements.txt
+
+build:
+  script:
+    - poetry install
+    - poetry build --ansi
+    - TWINE_PASSWORD=${CI_JOB_TOKEN} TWINE_USERNAME=gitlab-ci-token python -m twine upload --repository-url ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/pypi dist/*
+  artifacts:
+    paths:
+      - dist/

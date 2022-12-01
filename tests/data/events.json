@@ -1,0 +1,2707 @@
+[
+  {
+    "category": "downlink",
+    "data": {
+      "devaddr": "18000048",
+      "fcnt": 4,
+      "hotspot": {
+        "channel": 7,
+        "frequency": 869.525,
+        "id": "11eEedQiW4iCY3oeA1saw15jtyjjKPp1vESdE3wXehznj1XL32q",
+        "lat": 47.47771443776213,
+        "long": 12.053189171302527,
+        "name": "passive-inky-whale",
+        "rssi": 27,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "mac": [],
+      "payload": "YBgAAEigBAAb6hMM",
+      "payload_size": 12,
+      "port": 0
+    },
+    "description": "Ack sent",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": 4,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669299359092",
+    "router_uuid": "56089819-92d8-41bc-9817-c1ecf744290a",
+    "sub_category": "downlink_ack"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "integration": {
+        "id": "4e22ca86-00f7-48f4-b020-e28f4959af0f",
+        "name": "SenseCAP",
+        "status": "success"
+      },
+      "res": {
+        "body": "ok",
+        "code": 200,
+        "headers": {
+          "Connection": "keep-alive",
+          "Content-Language": "en",
+          "Content-Length": "2",
+          "Content-Type": "text/html; charset=utf-8",
+          "Date": "Thu, 24 Nov 2022 14:15:59 GMT",
+          "Referrer-Policy": "same-origin",
+          "Strict-Transport-Security": "max-age=15724800; includeSubDomains",
+          "Vary": "Origin, Accept-Language, Cookie",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "DENY"
+        }
+      }
+    },
+    "description": "Response received from <<\"SenseCAP\">>",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669299359373",
+    "router_uuid": "e6866b79-5657-4b63-aad3-8071dfff6c35",
+    "sub_category": "uplink_integration_res"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "integration": {
+        "id": "4e22ca86-00f7-48f4-b020-e28f4959af0f",
+        "name": "SenseCAP",
+        "status": "success"
+      },
+      "req": {
+        "body": {
+          "app_eui": "8000000000000009",
+          "dc": {
+            "balance": 215,
+            "nonce": 1
+          },
+          "dev_eui": "2CF7F1C043400020",
+          "devaddr": "18000048",
+          "downlink_url": "https://console.helium.com/api/v1/down/4e22ca86-00f7-48f4-b020-e28f4959af0f/8gzxQ1H3fz6OoLWJ-kbz15wl_jxFRZow/92f23793-6647-40aa-b255-fa1d4baec75d",
+          "fcnt": 6,
+          "hotspots": [
+            {
+              "channel": 7,
+              "frequency": 868.5,
+              "hold_time": 0,
+              "id": "11eEedQiW4iCY3oeA1saw15jtyjjKPp1vESdE3wXehznj1XL32q",
+              "lat": 47.47771443776213,
+              "long": 12.053189171302527,
+              "name": "passive-inky-whale",
+              "reported_at": 1669299358691,
+              "rssi": -138.0,
+              "snr": -22.200000762939453,
+              "spreading": "SF12BW125",
+              "status": "success"
+            }
+          ],
+          "id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+          "metadata": {
+            "adr_allowed": false,
+            "cf_list_enabled": false,
+            "labels": [
+              {
+                "id": "057daf06-045b-49a4-b8bd-d0dc87919d1c",
+                "name": "SenseCAP Devices",
+                "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25"
+              }
+            ],
+            "multi_buy": 1,
+            "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+            "preferred_hotspots": [],
+            "rx_delay": 1,
+            "rx_delay_actual": 1,
+            "rx_delay_state": "rx_delay_established"
+          },
+          "name": "Vision-AI-Sensor",
+          "payload": "AU8QAAAAAM0U",
+          "payload_size": 9,
+          "port": 2,
+          "raw_packet": "gBgAAEiABgACof+lNP7GWtUxXpi34g==",
+          "replay": false,
+          "reported_at": 1669299358691,
+          "type": "uplink",
+          "uuid": "e6866b79-5657-4b63-aad3-8071dfff6c35"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Key": "Authentication",
+          "Value": "Token b9c82905cb19f81d36cc3dab0cf0ccbafdcd7a4f"
+        },
+        "method": "post",
+        "url": "https://api.datacake.co/integrations/lorawan/helium/",
+        "url_params": []
+      }
+    },
+    "description": "Request sent to <<\"SenseCAP\">>",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669299359373",
+    "router_uuid": "e6866b79-5657-4b63-aad3-8071dfff6c35",
+    "sub_category": "uplink_integration_req"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "dc": {
+        "balance": 215,
+        "nonce": 1,
+        "used": 1
+      },
+      "devaddr": "18000048",
+      "fcnt": 6,
+      "hold_time": 0,
+      "hotspot": {
+        "channel": 7,
+        "frequency": 868.5,
+        "id": "11eEedQiW4iCY3oeA1saw15jtyjjKPp1vESdE3wXehznj1XL32q",
+        "lat": 47.47771443776213,
+        "long": 12.053189171302527,
+        "name": "passive-inky-whale",
+        "rssi": -138.0,
+        "snr": -22.200000762939453,
+        "spreading": "SF12BW125"
+      },
+      "mac": [],
+      "payload": "AU8QAAAAAM0U",
+      "payload_size": 9,
+      "port": 2,
+      "raw_packet": "gBgAAEiABgACof+lNP7GWtUxXpi34g=="
+    },
+    "description": "Confirmed data up received",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 6,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669299358691",
+    "router_uuid": "e6866b79-5657-4b63-aad3-8071dfff6c35",
+    "sub_category": "uplink_confirmed"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "integration": {
+        "id": "4e22ca86-00f7-48f4-b020-e28f4959af0f",
+        "name": "SenseCAP",
+        "status": "success"
+      },
+      "res": {
+        "body": "ok",
+        "code": 200,
+        "headers": {
+          "Connection": "keep-alive",
+          "Content-Language": "en",
+          "Content-Length": "2",
+          "Content-Type": "text/html; charset=utf-8",
+          "Date": "Thu, 24 Nov 2022 14:15:53 GMT",
+          "Referrer-Policy": "same-origin",
+          "Strict-Transport-Security": "max-age=15724800; includeSubDomains",
+          "Vary": "Origin, Accept-Language, Cookie",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "DENY"
+        }
+      }
+    },
+    "description": "Response received from <<\"SenseCAP\">>",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669299353357",
+    "router_uuid": "5187254e-c090-45fd-9ef3-b098c9b81c26",
+    "sub_category": "uplink_integration_res"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "integration": {
+        "id": "4e22ca86-00f7-48f4-b020-e28f4959af0f",
+        "name": "SenseCAP",
+        "status": "success"
+      },
+      "req": {
+        "body": {
+          "app_eui": "8000000000000009",
+          "dc": {
+            "balance": 216,
+            "nonce": 1
+          },
+          "dev_eui": "2CF7F1C043400020",
+          "devaddr": "18000048",
+          "downlink_url": "https://console.helium.com/api/v1/down/4e22ca86-00f7-48f4-b020-e28f4959af0f/8gzxQ1H3fz6OoLWJ-kbz15wl_jxFRZow/92f23793-6647-40aa-b255-fa1d4baec75d",
+          "fcnt": 5,
+          "hotspots": [
+            {
+              "channel": 7,
+              "frequency": 868.5,
+              "hold_time": 0,
+              "id": "11eEedQiW4iCY3oeA1saw15jtyjjKPp1vESdE3wXehznj1XL32q",
+              "lat": 47.47771443776213,
+              "long": 12.053189171302527,
+              "name": "passive-inky-whale",
+              "reported_at": 1669299352510,
+              "rssi": -139.0,
+              "snr": -22.5,
+              "spreading": "SF12BW125",
+              "status": "success"
+            }
+          ],
+          "id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+          "metadata": {
+            "adr_allowed": false,
+            "cf_list_enabled": false,
+            "labels": [
+              {
+                "id": "057daf06-045b-49a4-b8bd-d0dc87919d1c",
+                "name": "SenseCAP Devices",
+                "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25"
+              }
+            ],
+            "multi_buy": 1,
+            "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+            "preferred_hotspots": [],
+            "rx_delay": 1,
+            "rx_delay_actual": 1,
+            "rx_delay_state": "rx_delay_established"
+          },
+          "name": "Vision-AI-Sensor",
+          "payload": "AU8QAAAAAM0U",
+          "payload_size": 9,
+          "port": 2,
+          "raw_packet": "gBgAAEiABQACAACxv5fPTAEh16ARGw==",
+          "replay": false,
+          "reported_at": 1669299352510,
+          "type": "uplink",
+          "uuid": "5187254e-c090-45fd-9ef3-b098c9b81c26"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Key": "Authentication",
+          "Value": "Token b9c82905cb19f81d36cc3dab0cf0ccbafdcd7a4f"
+        },
+        "method": "post",
+        "url": "https://api.datacake.co/integrations/lorawan/helium/",
+        "url_params": []
+      }
+    },
+    "description": "Request sent to <<\"SenseCAP\">>",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669299353356",
+    "router_uuid": "5187254e-c090-45fd-9ef3-b098c9b81c26",
+    "sub_category": "uplink_integration_req"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "dc": {
+        "balance": 216,
+        "nonce": 1,
+        "used": 1
+      },
+      "devaddr": "18000048",
+      "fcnt": 5,
+      "hold_time": 0,
+      "hotspot": {
+        "channel": 7,
+        "frequency": 868.5,
+        "id": "11eEedQiW4iCY3oeA1saw15jtyjjKPp1vESdE3wXehznj1XL32q",
+        "lat": 47.47771443776213,
+        "long": 12.053189171302527,
+        "name": "passive-inky-whale",
+        "rssi": -139.0,
+        "snr": -22.5,
+        "spreading": "SF12BW125"
+      },
+      "mac": [],
+      "payload": "AU8QAAAAAM0U",
+      "payload_size": 9,
+      "port": 2,
+      "raw_packet": "gBgAAEiABQACAACxv5fPTAEh16ARGw=="
+    },
+    "description": "Confirmed data up received",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 5,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669299352510",
+    "router_uuid": "5187254e-c090-45fd-9ef3-b098c9b81c26",
+    "sub_category": "uplink_confirmed"
+  },
+  {
+    "category": "downlink",
+    "data": {
+      "devaddr": "18000048",
+      "fcnt": 3,
+      "hotspot": {
+        "channel": 7,
+        "frequency": 869.525,
+        "id": "11eEedQiW4iCY3oeA1saw15jtyjjKPp1vESdE3wXehznj1XL32q",
+        "lat": 47.47771443776213,
+        "long": 12.053189171302527,
+        "name": "passive-inky-whale",
+        "rssi": 27,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "mac": [],
+      "payload": "YBgAAEigAwCDq0SE",
+      "payload_size": 12,
+      "port": 0
+    },
+    "description": "Ack sent",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": 3,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669299352911",
+    "router_uuid": "cfbd4e56-6c4b-4f52-b678-3ac3bc98d6a6",
+    "sub_category": "downlink_ack"
+  },
+  {
+    "category": "downlink",
+    "data": {
+      "devaddr": "18000048",
+      "fcnt": 2,
+      "hotspot": {
+        "channel": 7,
+        "frequency": 869.525,
+        "id": "11eEedQiW4iCY3oeA1saw15jtyjjKPp1vESdE3wXehznj1XL32q",
+        "lat": 47.47771443776213,
+        "long": 12.053189171302527,
+        "name": "passive-inky-whale",
+        "rssi": 27,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "mac": [],
+      "payload": "YBgAAEigAgCp0jeX",
+      "payload_size": 12,
+      "port": 0
+    },
+    "description": "Ack sent",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": 2,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669295751082",
+    "router_uuid": "824cef72-412e-4416-9388-c2f79059c7c8",
+    "sub_category": "downlink_ack"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "integration": {
+        "id": "4e22ca86-00f7-48f4-b020-e28f4959af0f",
+        "name": "SenseCAP",
+        "status": "success"
+      },
+      "req": {
+        "body": {
+          "app_eui": "8000000000000009",
+          "dc": {
+            "balance": 217,
+            "nonce": 1
+          },
+          "dev_eui": "2CF7F1C043400020",
+          "devaddr": "18000048",
+          "downlink_url": "https://console.helium.com/api/v1/down/4e22ca86-00f7-48f4-b020-e28f4959af0f/8gzxQ1H3fz6OoLWJ-kbz15wl_jxFRZow/92f23793-6647-40aa-b255-fa1d4baec75d",
+          "fcnt": 3,
+          "hotspots": [
+            {
+              "channel": 7,
+              "frequency": 868.5,
+              "hold_time": 0,
+              "id": "11eEedQiW4iCY3oeA1saw15jtyjjKPp1vESdE3wXehznj1XL32q",
+              "lat": 47.47771443776213,
+              "long": 12.053189171302527,
+              "name": "passive-inky-whale",
+              "reported_at": 1669295750681,
+              "rssi": -133.0,
+              "snr": -17.0,
+              "spreading": "SF12BW125",
+              "status": "success"
+            }
+          ],
+          "id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+          "metadata": {
+            "adr_allowed": false,
+            "cf_list_enabled": false,
+            "labels": [
+              {
+                "id": "057daf06-045b-49a4-b8bd-d0dc87919d1c",
+                "name": "SenseCAP Devices",
+                "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25"
+              }
+            ],
+            "multi_buy": 1,
+            "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+            "preferred_hotspots": [],
+            "rx_delay": 1,
+            "rx_delay_actual": 1,
+            "rx_delay_state": "rx_delay_established"
+          },
+          "name": "Vision-AI-Sensor",
+          "payload": "AU8QAAAAAM0U",
+          "payload_size": 9,
+          "port": 2,
+          "raw_packet": "gBgAAEiAAwAC44KcTjFxFz8d1OuC9Q==",
+          "replay": false,
+          "reported_at": 1669295750681,
+          "type": "uplink",
+          "uuid": "ef441b54-8094-42d0-b65e-84968815d808"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Key": "Authentication",
+          "Value": "Token b9c82905cb19f81d36cc3dab0cf0ccbafdcd7a4f"
+        },
+        "method": "post",
+        "url": "https://api.datacake.co/integrations/lorawan/helium/",
+        "url_params": []
+      }
+    },
+    "description": "Request sent to <<\"SenseCAP\">>",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669295751369",
+    "router_uuid": "ef441b54-8094-42d0-b65e-84968815d808",
+    "sub_category": "uplink_integration_req"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "integration": {
+        "id": "4e22ca86-00f7-48f4-b020-e28f4959af0f",
+        "name": "SenseCAP",
+        "status": "success"
+      },
+      "res": {
+        "body": "ok",
+        "code": 200,
+        "headers": {
+          "Connection": "keep-alive",
+          "Content-Language": "en",
+          "Content-Length": "2",
+          "Content-Type": "text/html; charset=utf-8",
+          "Date": "Thu, 24 Nov 2022 13:15:51 GMT",
+          "Referrer-Policy": "same-origin",
+          "Strict-Transport-Security": "max-age=15724800; includeSubDomains",
+          "Vary": "Origin, Accept-Language, Cookie",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "DENY"
+        }
+      }
+    },
+    "description": "Response received from <<\"SenseCAP\">>",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669295751369",
+    "router_uuid": "ef441b54-8094-42d0-b65e-84968815d808",
+    "sub_category": "uplink_integration_res"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "dc": {
+        "balance": 217,
+        "nonce": 1,
+        "used": 1
+      },
+      "devaddr": "18000048",
+      "fcnt": 3,
+      "hold_time": 0,
+      "hotspot": {
+        "channel": 7,
+        "frequency": 868.5,
+        "id": "11eEedQiW4iCY3oeA1saw15jtyjjKPp1vESdE3wXehznj1XL32q",
+        "lat": 47.47771443776213,
+        "long": 12.053189171302527,
+        "name": "passive-inky-whale",
+        "rssi": -133.0,
+        "snr": -17.0,
+        "spreading": "SF12BW125"
+      },
+      "mac": [],
+      "payload": "AU8QAAAAAM0U",
+      "payload_size": 9,
+      "port": 2,
+      "raw_packet": "gBgAAEiAAwAC44KcTjFxFz8d1OuC9Q=="
+    },
+    "description": "Confirmed data up received",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 3,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669295750681",
+    "router_uuid": "ef441b54-8094-42d0-b65e-84968815d808",
+    "sub_category": "uplink_confirmed"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "dc": {
+        "balance": 218,
+        "nonce": 1,
+        "used": 1
+      },
+      "devaddr": "18000048",
+      "fcnt": 2,
+      "hold_time": 0,
+      "hotspot": {
+        "channel": 7,
+        "frequency": 868.5,
+        "id": "11eEedQiW4iCY3oeA1saw15jtyjjKPp1vESdE3wXehznj1XL32q",
+        "lat": 47.47771443776213,
+        "long": 12.053189171302527,
+        "name": "passive-inky-whale",
+        "rssi": -134.0,
+        "snr": -18.0,
+        "spreading": "SF12BW125"
+      },
+      "mac": [],
+      "payload": "AU8QAAAAAM0U",
+      "payload_size": 9,
+      "port": 2,
+      "raw_packet": "gBgAAEiAAgACrMyKKEQnhNxsZf6QfQ=="
+    },
+    "description": "Confirmed data up received",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 2,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669295745094",
+    "router_uuid": "cab64427-05b2-4442-ac64-47b8d12278dc",
+    "sub_category": "uplink_confirmed"
+  },
+  {
+    "category": "downlink",
+    "data": {
+      "devaddr": "18000048",
+      "fcnt": 1,
+      "hotspot": {
+        "channel": 7,
+        "frequency": 869.525,
+        "id": "11eEedQiW4iCY3oeA1saw15jtyjjKPp1vESdE3wXehznj1XL32q",
+        "lat": 47.47771443776213,
+        "long": 12.053189171302527,
+        "name": "passive-inky-whale",
+        "rssi": 27,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "mac": [],
+      "payload": "YBgAAEigAQBZNWGE",
+      "payload_size": 12,
+      "port": 0
+    },
+    "description": "Ack sent",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": 1,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669295745495",
+    "router_uuid": "e14294c7-3e31-4104-b3e7-4129c593e3b4",
+    "sub_category": "downlink_ack"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "integration": {
+        "id": "4e22ca86-00f7-48f4-b020-e28f4959af0f",
+        "name": "SenseCAP",
+        "status": "success"
+      },
+      "req": {
+        "body": {
+          "app_eui": "8000000000000009",
+          "dc": {
+            "balance": 218,
+            "nonce": 1
+          },
+          "dev_eui": "2CF7F1C043400020",
+          "devaddr": "18000048",
+          "downlink_url": "https://console.helium.com/api/v1/down/4e22ca86-00f7-48f4-b020-e28f4959af0f/8gzxQ1H3fz6OoLWJ-kbz15wl_jxFRZow/92f23793-6647-40aa-b255-fa1d4baec75d",
+          "fcnt": 2,
+          "hotspots": [
+            {
+              "channel": 7,
+              "frequency": 868.5,
+              "hold_time": 0,
+              "id": "11eEedQiW4iCY3oeA1saw15jtyjjKPp1vESdE3wXehznj1XL32q",
+              "lat": 47.47771443776213,
+              "long": 12.053189171302527,
+              "name": "passive-inky-whale",
+              "reported_at": 1669295745094,
+              "rssi": -134.0,
+              "snr": -18.0,
+              "spreading": "SF12BW125",
+              "status": "success"
+            }
+          ],
+          "id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+          "metadata": {
+            "adr_allowed": false,
+            "cf_list_enabled": false,
+            "labels": [
+              {
+                "id": "057daf06-045b-49a4-b8bd-d0dc87919d1c",
+                "name": "SenseCAP Devices",
+                "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25"
+              }
+            ],
+            "multi_buy": 1,
+            "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+            "preferred_hotspots": [],
+            "rx_delay": 1,
+            "rx_delay_actual": 1,
+            "rx_delay_state": "rx_delay_established"
+          },
+          "name": "Vision-AI-Sensor",
+          "payload": "AU8QAAAAAM0U",
+          "payload_size": 9,
+          "port": 2,
+          "raw_packet": "gBgAAEiAAgACrMyKKEQnhNxsZf6QfQ==",
+          "replay": false,
+          "reported_at": 1669295745094,
+          "type": "uplink",
+          "uuid": "cab64427-05b2-4442-ac64-47b8d12278dc"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Key": "Authentication",
+          "Value": "Token b9c82905cb19f81d36cc3dab0cf0ccbafdcd7a4f"
+        },
+        "method": "post",
+        "url": "https://api.datacake.co/integrations/lorawan/helium/",
+        "url_params": []
+      }
+    },
+    "description": "Request sent to <<\"SenseCAP\">>",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669295745843",
+    "router_uuid": "cab64427-05b2-4442-ac64-47b8d12278dc",
+    "sub_category": "uplink_integration_req"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "integration": {
+        "id": "4e22ca86-00f7-48f4-b020-e28f4959af0f",
+        "name": "SenseCAP",
+        "status": "success"
+      },
+      "res": {
+        "body": "ok",
+        "code": 200,
+        "headers": {
+          "Connection": "keep-alive",
+          "Content-Language": "en",
+          "Content-Length": "2",
+          "Content-Type": "text/html; charset=utf-8",
+          "Date": "Thu, 24 Nov 2022 13:15:45 GMT",
+          "Referrer-Policy": "same-origin",
+          "Strict-Transport-Security": "max-age=15724800; includeSubDomains",
+          "Vary": "Origin, Accept-Language, Cookie",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "DENY"
+        }
+      }
+    },
+    "description": "Response received from <<\"SenseCAP\">>",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669295745843",
+    "router_uuid": "cab64427-05b2-4442-ac64-47b8d12278dc",
+    "sub_category": "uplink_integration_res"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "integration": {
+        "id": "4e22ca86-00f7-48f4-b020-e28f4959af0f",
+        "name": "SenseCAP",
+        "status": "success"
+      },
+      "res": {
+        "body": "ok",
+        "code": 200,
+        "headers": {
+          "Connection": "keep-alive",
+          "Content-Language": "en",
+          "Content-Length": "2",
+          "Content-Type": "text/html; charset=utf-8",
+          "Date": "Thu, 24 Nov 2022 12:15:53 GMT",
+          "Referrer-Policy": "same-origin",
+          "Strict-Transport-Security": "max-age=15724800; includeSubDomains",
+          "Vary": "Origin, Accept-Language, Cookie",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "DENY"
+        }
+      }
+    },
+    "description": "Response received from <<\"SenseCAP\">>",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669292154045",
+    "router_uuid": "e290d7c2-4cf5-4d9e-83b5-c5fa71a80d70",
+    "sub_category": "uplink_integration_res"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "integration": {
+        "id": "4e22ca86-00f7-48f4-b020-e28f4959af0f",
+        "name": "SenseCAP",
+        "status": "success"
+      },
+      "req": {
+        "body": {
+          "app_eui": "8000000000000009",
+          "dc": {
+            "balance": 219,
+            "nonce": 1
+          },
+          "dev_eui": "2CF7F1C043400020",
+          "devaddr": "18000048",
+          "downlink_url": "https://console.helium.com/api/v1/down/4e22ca86-00f7-48f4-b020-e28f4959af0f/8gzxQ1H3fz6OoLWJ-kbz15wl_jxFRZow/92f23793-6647-40aa-b255-fa1d4baec75d",
+          "fcnt": 1,
+          "hotspots": [
+            {
+              "channel": 5,
+              "frequency": 868.0999755859375,
+              "hold_time": 0,
+              "id": "119aQxCaVCEbZmh4vAroFt7WxoLoKAdL9MWF3SsBiMCfSZj7PSh",
+              "lat": 47.47929776167038,
+              "long": 11.972818993840143,
+              "name": "oblong-daffodil-eagle",
+              "reported_at": 1669292150307,
+              "rssi": -116.0,
+              "snr": -5.5,
+              "spreading": "SF12BW125",
+              "status": "success"
+            }
+          ],
+          "id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+          "metadata": {
+            "adr_allowed": false,
+            "cf_list_enabled": false,
+            "labels": [
+              {
+                "id": "057daf06-045b-49a4-b8bd-d0dc87919d1c",
+                "name": "SenseCAP Devices",
+                "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25"
+              }
+            ],
+            "multi_buy": 1,
+            "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+            "preferred_hotspots": [],
+            "rx_delay": 1,
+            "rx_delay_actual": 1,
+            "rx_delay_state": "rx_delay_established"
+          },
+          "name": "Vision-AI-Sensor",
+          "payload": "AAAABwECAQAHAGIAPAABCQAAABEAAU8QAAAAAABE",
+          "payload_size": 30,
+          "port": 2,
+          "raw_packet": "gBgAAEiAAQAC62w4+3RA16PQNgfcLYjfarwvrm5bJTK9sB/9LfLE2AKRzQ==",
+          "replay": false,
+          "reported_at": 1669292150307,
+          "type": "uplink",
+          "uuid": "e290d7c2-4cf5-4d9e-83b5-c5fa71a80d70"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Key": "Authentication",
+          "Value": "Token b9c82905cb19f81d36cc3dab0cf0ccbafdcd7a4f"
+        },
+        "method": "post",
+        "url": "https://api.datacake.co/integrations/lorawan/helium/",
+        "url_params": []
+      }
+    },
+    "description": "Request sent to <<\"SenseCAP\">>",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669292154045",
+    "router_uuid": "e290d7c2-4cf5-4d9e-83b5-c5fa71a80d70",
+    "sub_category": "uplink_integration_req"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "dc": {
+        "balance": 219,
+        "nonce": 1,
+        "used": 2
+      },
+      "devaddr": "18000048",
+      "fcnt": 1,
+      "hold_time": 0,
+      "hotspot": {
+        "channel": 5,
+        "frequency": 868.0999755859375,
+        "id": "119aQxCaVCEbZmh4vAroFt7WxoLoKAdL9MWF3SsBiMCfSZj7PSh",
+        "lat": 47.47929776167038,
+        "long": 11.972818993840143,
+        "name": "oblong-daffodil-eagle",
+        "rssi": -116.0,
+        "snr": -5.5,
+        "spreading": "SF12BW125"
+      },
+      "mac": [],
+      "payload": "AAAABwECAQAHAGIAPAABCQAAABEAAU8QAAAAAABE",
+      "payload_size": 30,
+      "port": 2,
+      "raw_packet": "gBgAAEiAAQAC62w4+3RA16PQNgfcLYjfarwvrm5bJTK9sB/9LfLE2AKRzQ=="
+    },
+    "description": "Confirmed data up received",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 1,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669292150307",
+    "router_uuid": "e290d7c2-4cf5-4d9e-83b5-c5fa71a80d70",
+    "sub_category": "uplink_confirmed"
+  },
+  {
+    "category": "downlink",
+    "data": {
+      "devaddr": "18000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 7,
+        "frequency": 869.525,
+        "id": "119aQxCaVCEbZmh4vAroFt7WxoLoKAdL9MWF3SsBiMCfSZj7PSh",
+        "lat": 47.47929776167038,
+        "long": 11.972818993840143,
+        "name": "oblong-daffodil-eagle",
+        "rssi": 27,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "mac": [],
+      "payload": "YBgAAEigAAC4Zo/p",
+      "payload_size": 12,
+      "port": 0
+    },
+    "description": "Ack sent",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": 0,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669292150707",
+    "router_uuid": "d2726d61-ba0c-49f4-be0d-337ee37d80be",
+    "sub_category": "downlink_ack"
+  },
+  {
+    "category": "join_accept",
+    "data": {
+      "devaddr": "18000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 6,
+        "frequency": 868.3,
+        "id": "119aQxCaVCEbZmh4vAroFt7WxoLoKAdL9MWF3SsBiMCfSZj7PSh",
+        "lat": 47.47929776167038,
+        "long": 11.972818993840143,
+        "name": "oblong-daffodil-eagle",
+        "rssi": 16,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "payload": "ILLVVZM6+qiRvjKn0AZmOCg=",
+      "payload_size": 17,
+      "port": 0
+    },
+    "description": "Join accept from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669292135241",
+    "router_uuid": "3e9f530a-46da-483c-9426-31f732c071d1",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_request",
+    "data": {
+      "dc": {
+        "balance": 221,
+        "nonce": 1,
+        "used": 1
+      },
+      "devaddr": "18000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 6,
+        "frequency": 868.2999877929688,
+        "id": "119aQxCaVCEbZmh4vAroFt7WxoLoKAdL9MWF3SsBiMCfSZj7PSh",
+        "lat": 47.47929776167038,
+        "long": 11.972818993840143,
+        "name": "oblong-daffodil-eagle",
+        "rssi": -113.0,
+        "snr": -6.199999809265137,
+        "spreading": "SF12BW125"
+      },
+      "payload": "",
+      "payload_size": 0,
+      "port": 0,
+      "raw_packet": "AAkAAAAAAACAIABAQ8Dx9yyJUt3iaQc="
+    },
+    "description": "Join request from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669292133240",
+    "router_uuid": "c7fb72c1-0a38-4bf2-b38c-1d036e809bc9",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_accept",
+    "data": {
+      "devaddr": "17000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 7,
+        "frequency": 868.5,
+        "id": "11cJyiAw1VduYsXf7eqAGzZHe4CcVD9bRCxPPHn9ucmfEp1QNUP",
+        "lat": 47.51820303078284,
+        "long": 12.09816463028092,
+        "name": "kind-currant-orca",
+        "rssi": 16,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "payload": "IAAogITy3i1dDyvGwS9I9j4=",
+      "payload_size": 17,
+      "port": 0
+    },
+    "description": "Join accept from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669291955127",
+    "router_uuid": "a5aee1e3-5222-42f3-b946-757d206fa8f7",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_request",
+    "data": {
+      "dc": {
+        "balance": 222,
+        "nonce": 1,
+        "used": 1
+      },
+      "devaddr": "17000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 7,
+        "frequency": 868.5,
+        "id": "11cJyiAw1VduYsXf7eqAGzZHe4CcVD9bRCxPPHn9ucmfEp1QNUP",
+        "lat": 47.51820303078284,
+        "long": 12.09816463028092,
+        "name": "kind-currant-orca",
+        "rssi": -115.0,
+        "snr": -17.5,
+        "spreading": "SF12BW125"
+      },
+      "payload": "",
+      "payload_size": 0,
+      "port": 0,
+      "raw_packet": "AAkAAAAAAACAIABAQ8Dx9yxTazKnLLY="
+    },
+    "description": "Join request from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669291953124",
+    "router_uuid": "2ff3689b-7e7f-4545-925d-dc94df065840",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_accept",
+    "data": {
+      "devaddr": "16000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 5,
+        "frequency": 868.1,
+        "id": "11eEedQiW4iCY3oeA1saw15jtyjjKPp1vESdE3wXehznj1XL32q",
+        "lat": 47.47771443776213,
+        "long": 12.053189171302527,
+        "name": "passive-inky-whale",
+        "rssi": 16,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "payload": "IGDkBCKwdZyjuanWioxn5y0=",
+      "payload_size": 17,
+      "port": 0
+    },
+    "description": "Join accept from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669291775288",
+    "router_uuid": "b6ed8175-a4a1-4eeb-ba7e-12f3e0c1a900",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_request",
+    "data": {
+      "dc": {
+        "balance": 223,
+        "nonce": 1,
+        "used": 1
+      },
+      "devaddr": "16000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 5,
+        "frequency": 868.0999755859375,
+        "id": "11eEedQiW4iCY3oeA1saw15jtyjjKPp1vESdE3wXehznj1XL32q",
+        "lat": 47.47771443776213,
+        "long": 12.053189171302527,
+        "name": "passive-inky-whale",
+        "rssi": -133.0,
+        "snr": -16.799999237060547,
+        "spreading": "SF12BW125"
+      },
+      "payload": "",
+      "payload_size": 0,
+      "port": 0,
+      "raw_packet": "AAkAAAAAAACAIABAQ8Dx9yyVakGeHR4="
+    },
+    "description": "Join request from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669291773287",
+    "router_uuid": "87df6f0a-6cdc-4891-9f13-56c2c72ef5f4",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_accept",
+    "data": {
+      "devaddr": "15000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 5,
+        "frequency": 868.1,
+        "id": "11cJyiAw1VduYsXf7eqAGzZHe4CcVD9bRCxPPHn9ucmfEp1QNUP",
+        "lat": 47.51820303078284,
+        "long": 12.09816463028092,
+        "name": "kind-currant-orca",
+        "rssi": 16,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "payload": "IFhEFWb6OvLb9MdDR7QkCuM=",
+      "payload_size": 17,
+      "port": 0
+    },
+    "description": "Join accept from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669291156549",
+    "router_uuid": "ead15e2e-faa4-4a2a-8de1-29695a838d9e",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_request",
+    "data": {
+      "dc": {
+        "balance": 224,
+        "nonce": 1,
+        "used": 1
+      },
+      "devaddr": "15000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 5,
+        "frequency": 868.0999755859375,
+        "id": "11cJyiAw1VduYsXf7eqAGzZHe4CcVD9bRCxPPHn9ucmfEp1QNUP",
+        "lat": 47.51820303078284,
+        "long": 12.09816463028092,
+        "name": "kind-currant-orca",
+        "rssi": -113.0,
+        "snr": -17.200000762939453,
+        "spreading": "SF12BW125"
+      },
+      "payload": "",
+      "payload_size": 0,
+      "port": 0,
+      "raw_packet": "AAkAAAAAAACAIABAQ8Dx9ywSebQSi90="
+    },
+    "description": "Join request from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669291154548",
+    "router_uuid": "b8f6d03b-4b3c-4861-ae80-b24ec8ec467a",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_accept",
+    "data": {
+      "devaddr": "14000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 5,
+        "frequency": 868.1,
+        "id": "11eEedQiW4iCY3oeA1saw15jtyjjKPp1vESdE3wXehznj1XL32q",
+        "lat": 47.47771443776213,
+        "long": 12.053189171302527,
+        "name": "passive-inky-whale",
+        "rssi": 16,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "payload": "IOLNRaA//8cv7S2EC1eAq7c=",
+      "payload_size": 17,
+      "port": 0
+    },
+    "description": "Join accept from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669290983812",
+    "router_uuid": "c473c19c-1b54-4e9d-a6f3-5fbd49a61a8e",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_request",
+    "data": {
+      "dc": {
+        "balance": 225,
+        "nonce": 1,
+        "used": 1
+      },
+      "devaddr": "14000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 5,
+        "frequency": 868.0999755859375,
+        "id": "11eEedQiW4iCY3oeA1saw15jtyjjKPp1vESdE3wXehznj1XL32q",
+        "lat": 47.47771443776213,
+        "long": 12.053189171302527,
+        "name": "passive-inky-whale",
+        "rssi": -111.0,
+        "snr": 1.2000000476837158,
+        "spreading": "SF12BW125"
+      },
+      "payload": "",
+      "payload_size": 0,
+      "port": 0,
+      "raw_packet": "AAkAAAAAAACAIABAQ8Dx9yy0UvlcevU="
+    },
+    "description": "Join request from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669290981811",
+    "router_uuid": "5c7f4319-9d1b-4bc8-b271-a82c93b268bc",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_accept",
+    "data": {
+      "devaddr": "13000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 6,
+        "frequency": 868.3,
+        "id": "11eEedQiW4iCY3oeA1saw15jtyjjKPp1vESdE3wXehznj1XL32q",
+        "lat": 47.47771443776213,
+        "long": 12.053189171302527,
+        "name": "passive-inky-whale",
+        "rssi": 16,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "payload": "IOGUcnZuwoxXUNHgMwE4zBg=",
+      "payload_size": 17,
+      "port": 0
+    },
+    "description": "Join accept from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669290583437",
+    "router_uuid": "40328003-47c5-4d29-92c7-1e4b68ddcfec",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_request",
+    "data": {
+      "dc": {
+        "balance": 226,
+        "nonce": 1,
+        "used": 1
+      },
+      "devaddr": "13000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 6,
+        "frequency": 868.2999877929688,
+        "id": "11eEedQiW4iCY3oeA1saw15jtyjjKPp1vESdE3wXehznj1XL32q",
+        "lat": 47.47771443776213,
+        "long": 12.053189171302527,
+        "name": "passive-inky-whale",
+        "rssi": -137.0,
+        "snr": -20.799999237060547,
+        "spreading": "SF12BW125"
+      },
+      "payload": "",
+      "payload_size": 0,
+      "port": 0,
+      "raw_packet": "AAkAAAAAAACAIABAQ8Dx9yzSmaGOD3k="
+    },
+    "description": "Join request from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669290581436",
+    "router_uuid": "e4c8a8bd-8384-4ab5-a5d6-84e7a6724e71",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_accept",
+    "data": {
+      "devaddr": "12000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 5,
+        "frequency": 868.1,
+        "id": "11cJyiAw1VduYsXf7eqAGzZHe4CcVD9bRCxPPHn9ucmfEp1QNUP",
+        "lat": 47.51820303078284,
+        "long": 12.09816463028092,
+        "name": "kind-currant-orca",
+        "rssi": 16,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "payload": "IIrrQwkZCASUPotGduX4m/c=",
+      "payload_size": 17,
+      "port": 0
+    },
+    "description": "Join accept from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669290463697",
+    "router_uuid": "7fa9d438-2c40-4b5d-bd3a-8fbd428a431e",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_request",
+    "data": {
+      "dc": {
+        "balance": 227,
+        "nonce": 1,
+        "used": 1
+      },
+      "devaddr": "12000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 5,
+        "frequency": 868.0999755859375,
+        "id": "11cJyiAw1VduYsXf7eqAGzZHe4CcVD9bRCxPPHn9ucmfEp1QNUP",
+        "lat": 47.51820303078284,
+        "long": 12.09816463028092,
+        "name": "kind-currant-orca",
+        "rssi": -115.0,
+        "snr": -8.5,
+        "spreading": "SF12BW125"
+      },
+      "payload": "",
+      "payload_size": 0,
+      "port": 0,
+      "raw_packet": "AAkAAAAAAACAIABAQ8Dx9yy3WrH0OkU="
+    },
+    "description": "Join request from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669290461696",
+    "router_uuid": "8995680a-e1db-4908-9a9a-431a86a9fc05",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_accept",
+    "data": {
+      "devaddr": "11000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 6,
+        "frequency": 868.3,
+        "id": "112LMYcrTXKCZMtsvr7ZobEdNXFK1gDs9aqBTK3agwiuXepNr9zZ",
+        "lat": 47.51639134436992,
+        "long": 12.098411667167564,
+        "name": "rhythmic-pebble-cyborg",
+        "rssi": 16,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "payload": "IJkAld7jWhtZXPKKn3RZur4=",
+      "payload_size": 17,
+      "port": 0
+    },
+    "description": "Join accept from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669290375150",
+    "router_uuid": "b7ad81bf-069d-4985-bea4-54335e6c9cb5",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_request",
+    "data": {
+      "dc": {
+        "balance": 228,
+        "nonce": 1,
+        "used": 1
+      },
+      "devaddr": "11000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 6,
+        "frequency": 868.2999877929688,
+        "id": "112LMYcrTXKCZMtsvr7ZobEdNXFK1gDs9aqBTK3agwiuXepNr9zZ",
+        "lat": 47.51639134436992,
+        "long": 12.098411667167564,
+        "name": "rhythmic-pebble-cyborg",
+        "rssi": -133.0,
+        "snr": -16.200000762939453,
+        "spreading": "SF12BW125"
+      },
+      "payload": "",
+      "payload_size": 0,
+      "port": 0,
+      "raw_packet": "AAkAAAAAAACAIABAQ8Dx9yz/8k+xFjY="
+    },
+    "description": "Join request from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669290373149",
+    "router_uuid": "956db558-dcf1-40ed-8b06-9b31e20cbea7",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_accept",
+    "data": {
+      "devaddr": "10000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 7,
+        "frequency": 868.5,
+        "id": "11Zj76d6DfN6uDNwUj9ZpLPfwW1GnpzXSFghPjt6St82t5iZCur",
+        "lat": 47.57346828187689,
+        "long": 12.153954511448553,
+        "name": "urban-crimson-robin",
+        "rssi": 16,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "payload": "IBtwDuWnruR5+BtHFMkyZ2o=",
+      "payload_size": 17,
+      "port": 0
+    },
+    "description": "Join accept from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669290151793",
+    "router_uuid": "9e75b4df-2dbd-4e77-b8b4-af9f3b5a6747",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_request",
+    "data": {
+      "dc": {
+        "balance": 229,
+        "nonce": 1,
+        "used": 1
+      },
+      "devaddr": "10000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 7,
+        "frequency": 868.5,
+        "id": "11Zj76d6DfN6uDNwUj9ZpLPfwW1GnpzXSFghPjt6St82t5iZCur",
+        "lat": 47.57346828187689,
+        "long": 12.153954511448553,
+        "name": "urban-crimson-robin",
+        "rssi": -126.0,
+        "snr": -11.199999809265137,
+        "spreading": "SF12BW125"
+      },
+      "payload": "",
+      "payload_size": 0,
+      "port": 0,
+      "raw_packet": "AAkAAAAAAACAIABAQ8Dx9ywkmSyq+OY="
+    },
+    "description": "Join request from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669290149792",
+    "router_uuid": "8f4e124e-1128-4297-bc47-a70f235cdad3",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_accept",
+    "data": {
+      "devaddr": "0F000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 6,
+        "frequency": 868.3,
+        "id": "11Zj76d6DfN6uDNwUj9ZpLPfwW1GnpzXSFghPjt6St82t5iZCur",
+        "lat": 47.57346828187689,
+        "long": 12.153954511448553,
+        "name": "urban-crimson-robin",
+        "rssi": 16,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "payload": "IJO8rtzxbNuZZki0ARc/R50=",
+      "payload_size": 17,
+      "port": 0
+    },
+    "description": "Join accept from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289905673",
+    "router_uuid": "cc8d6fb3-6c60-4153-860e-062c26664b75",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_request",
+    "data": {
+      "dc": {
+        "balance": 230,
+        "nonce": 1,
+        "used": 1
+      },
+      "devaddr": "0F000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 6,
+        "frequency": 868.2999877929688,
+        "id": "11Zj76d6DfN6uDNwUj9ZpLPfwW1GnpzXSFghPjt6St82t5iZCur",
+        "lat": 47.57346828187689,
+        "long": 12.153954511448553,
+        "name": "urban-crimson-robin",
+        "rssi": -132.0,
+        "snr": -16.799999237060547,
+        "spreading": "SF12BW125"
+      },
+      "payload": "",
+      "payload_size": 0,
+      "port": 0,
+      "raw_packet": "AAkAAAAAAACAIABAQ8Dx9yzmUrsNnw4="
+    },
+    "description": "Join request from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289903672",
+    "router_uuid": "50929dad-2120-4495-b7db-0374b011f139",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_accept",
+    "data": {
+      "devaddr": "0E000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 5,
+        "frequency": 868.1,
+        "id": "11Zj76d6DfN6uDNwUj9ZpLPfwW1GnpzXSFghPjt6St82t5iZCur",
+        "lat": 47.57346828187689,
+        "long": 12.153954511448553,
+        "name": "urban-crimson-robin",
+        "rssi": 16,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "payload": "IDdVkc4fkMtqN+oEGWHQ0kY=",
+      "payload_size": 17,
+      "port": 0
+    },
+    "description": "Join accept from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289729579",
+    "router_uuid": "646fd1eb-0c34-47dd-976f-bf36819e71f5",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_request",
+    "data": {
+      "dc": {
+        "balance": 231,
+        "nonce": 1,
+        "used": 1
+      },
+      "devaddr": "0E000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 5,
+        "frequency": 868.0999755859375,
+        "id": "11Zj76d6DfN6uDNwUj9ZpLPfwW1GnpzXSFghPjt6St82t5iZCur",
+        "lat": 47.57346828187689,
+        "long": 12.153954511448553,
+        "name": "urban-crimson-robin",
+        "rssi": -127.0,
+        "snr": -11.5,
+        "spreading": "SF12BW125"
+      },
+      "payload": "",
+      "payload_size": 0,
+      "port": 0,
+      "raw_packet": "AAkAAAAAAACAIABAQ8Dx9yyZcqenjyc="
+    },
+    "description": "Join request from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289727579",
+    "router_uuid": "dd9e17f5-171b-4f3c-b435-43f05cb7e59e",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "downlink",
+    "data": {
+      "devaddr": "0D000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 7,
+        "frequency": 869.525,
+        "id": "112GB4jasNHg7pD7DkF95zZS5ZdNSLCwTrwaMHEHjDWYsSqcvNm4",
+        "lat": 47.584432151162616,
+        "long": 12.166671067212503,
+        "name": "orbiting-nylon-wren",
+        "rssi": 27,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "mac": [],
+      "payload": "YA0AAEigAADBDe5+",
+      "payload_size": 12,
+      "port": 0
+    },
+    "description": "Ack sent",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": 0,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289566324",
+    "router_uuid": "c38e056a-76aa-48d9-a10c-0c242d481667",
+    "sub_category": "downlink_ack"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "integration": {
+        "id": "4e22ca86-00f7-48f4-b020-e28f4959af0f",
+        "name": "SenseCAP",
+        "status": "success"
+      },
+      "res": {
+        "body": "ok",
+        "code": 200,
+        "headers": {
+          "Connection": "keep-alive",
+          "Content-Language": "en",
+          "Content-Length": "2",
+          "Content-Type": "text/html; charset=utf-8",
+          "Date": "Thu, 24 Nov 2022 11:32:46 GMT",
+          "Referrer-Policy": "same-origin",
+          "Strict-Transport-Security": "max-age=15724800; includeSubDomains",
+          "Vary": "Origin, Accept-Language, Cookie",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "DENY"
+        }
+      }
+    },
+    "description": "Response received from <<\"SenseCAP\">>",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289566715",
+    "router_uuid": "e4f7ad6e-f97f-495d-842c-c1d8641a43ba",
+    "sub_category": "uplink_integration_res"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "integration": {
+        "id": "4e22ca86-00f7-48f4-b020-e28f4959af0f",
+        "name": "SenseCAP",
+        "status": "success"
+      },
+      "req": {
+        "body": {
+          "app_eui": "8000000000000009",
+          "dc": {
+            "balance": 232,
+            "nonce": 1
+          },
+          "dev_eui": "2CF7F1C043400020",
+          "devaddr": "0D000048",
+          "downlink_url": "https://console.helium.com/api/v1/down/4e22ca86-00f7-48f4-b020-e28f4959af0f/8gzxQ1H3fz6OoLWJ-kbz15wl_jxFRZow/92f23793-6647-40aa-b255-fa1d4baec75d",
+          "fcnt": 1,
+          "hotspots": [
+            {
+              "channel": 6,
+              "frequency": 868.2999877929688,
+              "hold_time": 0,
+              "id": "112GB4jasNHg7pD7DkF95zZS5ZdNSLCwTrwaMHEHjDWYsSqcvNm4",
+              "lat": 47.584432151162616,
+              "long": 12.166671067212503,
+              "name": "orbiting-nylon-wren",
+              "reported_at": 1669289565923,
+              "rssi": -117.0,
+              "snr": -11.800000190734863,
+              "spreading": "SF12BW125",
+              "status": "success"
+            }
+          ],
+          "id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+          "metadata": {
+            "adr_allowed": false,
+            "cf_list_enabled": false,
+            "labels": [
+              {
+                "id": "057daf06-045b-49a4-b8bd-d0dc87919d1c",
+                "name": "SenseCAP Devices",
+                "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25"
+              }
+            ],
+            "multi_buy": 1,
+            "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+            "preferred_hotspots": [],
+            "rx_delay": 1,
+            "rx_delay_actual": 1,
+            "rx_delay_state": "rx_delay_established"
+          },
+          "name": "Vision-AI-Sensor",
+          "payload": "AAAABwECAQAHAGQAPAABCQAAABEAAU8QAAAAAHBG",
+          "payload_size": 30,
+          "port": 2,
+          "raw_packet": "gA0AAEiAAQAC3zyNqvKYiruRMvHPiS1/gvQK1ffn+DZvN4wxbRVcr2fGDQ==",
+          "replay": false,
+          "reported_at": 1669289565923,
+          "type": "uplink",
+          "uuid": "e4f7ad6e-f97f-495d-842c-c1d8641a43ba"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Key": "Authentication",
+          "Value": "Token b9c82905cb19f81d36cc3dab0cf0ccbafdcd7a4f"
+        },
+        "method": "post",
+        "url": "https://api.datacake.co/integrations/lorawan/helium/",
+        "url_params": []
+      }
+    },
+    "description": "Request sent to <<\"SenseCAP\">>",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289566715",
+    "router_uuid": "e4f7ad6e-f97f-495d-842c-c1d8641a43ba",
+    "sub_category": "uplink_integration_req"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "dc": {
+        "balance": 232,
+        "nonce": 1,
+        "used": 2
+      },
+      "devaddr": "0D000048",
+      "fcnt": 1,
+      "hold_time": 0,
+      "hotspot": {
+        "channel": 6,
+        "frequency": 868.2999877929688,
+        "id": "112GB4jasNHg7pD7DkF95zZS5ZdNSLCwTrwaMHEHjDWYsSqcvNm4",
+        "lat": 47.584432151162616,
+        "long": 12.166671067212503,
+        "name": "orbiting-nylon-wren",
+        "rssi": -117.0,
+        "snr": -11.800000190734863,
+        "spreading": "SF12BW125"
+      },
+      "mac": [],
+      "payload": "AAAABwECAQAHAGQAPAABCQAAABEAAU8QAAAAAHBG",
+      "payload_size": 30,
+      "port": 2,
+      "raw_packet": "gA0AAEiAAQAC3zyNqvKYiruRMvHPiS1/gvQK1ffn+DZvN4wxbRVcr2fGDQ=="
+    },
+    "description": "Confirmed data up received",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 1,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289565923",
+    "router_uuid": "e4f7ad6e-f97f-495d-842c-c1d8641a43ba",
+    "sub_category": "uplink_confirmed"
+  },
+  {
+    "category": "join_accept",
+    "data": {
+      "devaddr": "0D000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 5,
+        "frequency": 868.1,
+        "id": "112YTuN46vC7YCFnoUDGVPfUz3pMDNSJXwcmiJGo5izGwzZxo61o",
+        "lat": 47.59136984382645,
+        "long": 12.169709244076945,
+        "name": "calm-orchid-snake",
+        "rssi": 16,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "payload": "IFD/SMkeUQyjvNRkCuGfjAI=",
+      "payload_size": 17,
+      "port": 0
+    },
+    "description": "Join accept from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289550755",
+    "router_uuid": "25589b44-898f-4343-8d81-b8057b4ace17",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_request",
+    "data": {
+      "dc": {
+        "balance": 234,
+        "nonce": 1,
+        "used": 1
+      },
+      "devaddr": "0D000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 5,
+        "frequency": 868.0999755859375,
+        "id": "112YTuN46vC7YCFnoUDGVPfUz3pMDNSJXwcmiJGo5izGwzZxo61o",
+        "lat": 47.59136984382645,
+        "long": 12.169709244076945,
+        "name": "calm-orchid-snake",
+        "rssi": -113.0,
+        "snr": -0.20000000298023224,
+        "spreading": "SF12BW125"
+      },
+      "payload": "",
+      "payload_size": 0,
+      "port": 0,
+      "raw_packet": "AAkAAAAAAACAIABAQ8Dx9yykv/SnLY4="
+    },
+    "description": "Join request from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289548754",
+    "router_uuid": "95c70a07-3590-4464-bacd-5e8d784c241d",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_accept",
+    "data": {
+      "devaddr": "0C000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 5,
+        "frequency": 868.1,
+        "id": "112GB4jasNHg7pD7DkF95zZS5ZdNSLCwTrwaMHEHjDWYsSqcvNm4",
+        "lat": 47.584432151162616,
+        "long": 12.166671067212503,
+        "name": "orbiting-nylon-wren",
+        "rssi": 16,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "payload": "IECE7ieyoT5TFCSU1FmJQuY=",
+      "payload_size": 17,
+      "port": 0
+    },
+    "description": "Join accept from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289452613",
+    "router_uuid": "7ce50bf0-51ab-4e4c-a369-46a69d752e16",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_request",
+    "data": {
+      "dc": {
+        "balance": 235,
+        "nonce": 1,
+        "used": 1
+      },
+      "devaddr": "0C000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 5,
+        "frequency": 868.0999755859375,
+        "id": "112GB4jasNHg7pD7DkF95zZS5ZdNSLCwTrwaMHEHjDWYsSqcvNm4",
+        "lat": 47.584432151162616,
+        "long": 12.166671067212503,
+        "name": "orbiting-nylon-wren",
+        "rssi": -122.0,
+        "snr": -16.799999237060547,
+        "spreading": "SF12BW125"
+      },
+      "payload": "",
+      "payload_size": 0,
+      "port": 0,
+      "raw_packet": "AAkAAAAAAACAIABAQ8Dx9yzdRF0K8Gk="
+    },
+    "description": "Join request from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289450612",
+    "router_uuid": "7307e9fb-ab07-403b-8d89-df0ccb0a60ac",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "integration": {
+        "id": "4e22ca86-00f7-48f4-b020-e28f4959af0f",
+        "name": "SenseCAP",
+        "status": "success"
+      },
+      "res": {
+        "body": "ok",
+        "code": 200,
+        "headers": {
+          "Connection": "keep-alive",
+          "Content-Language": "en",
+          "Content-Length": "2",
+          "Content-Type": "text/html; charset=utf-8",
+          "Date": "Thu, 24 Nov 2022 11:30:31 GMT",
+          "Referrer-Policy": "same-origin",
+          "Strict-Transport-Security": "max-age=15724800; includeSubDomains",
+          "Vary": "Origin, Accept-Language, Cookie",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "DENY"
+        }
+      }
+    },
+    "description": "Response received from <<\"SenseCAP\">>",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289432034",
+    "router_uuid": "212c3a00-475d-4bde-9f1f-3b4bbbb33561",
+    "sub_category": "uplink_integration_res"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "integration": {
+        "id": "4e22ca86-00f7-48f4-b020-e28f4959af0f",
+        "name": "SenseCAP",
+        "status": "success"
+      },
+      "req": {
+        "body": {
+          "app_eui": "8000000000000009",
+          "dc": {
+            "balance": 236,
+            "nonce": 1
+          },
+          "dev_eui": "2CF7F1C043400020",
+          "devaddr": "0B000048",
+          "downlink_url": "https://console.helium.com/api/v1/down/4e22ca86-00f7-48f4-b020-e28f4959af0f/8gzxQ1H3fz6OoLWJ-kbz15wl_jxFRZow/92f23793-6647-40aa-b255-fa1d4baec75d",
+          "fcnt": 3,
+          "hotspots": [
+            {
+              "channel": 7,
+              "frequency": 868.5,
+              "hold_time": 0,
+              "id": "11Zj76d6DfN6uDNwUj9ZpLPfwW1GnpzXSFghPjt6St82t5iZCur",
+              "lat": 47.57346828187689,
+              "long": 12.153954511448553,
+              "name": "urban-crimson-robin",
+              "reported_at": 1669289429386,
+              "rssi": -134.0,
+              "snr": -19.5,
+              "spreading": "SF12BW125",
+              "status": "success"
+            }
+          ],
+          "id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+          "metadata": {
+            "adr_allowed": false,
+            "cf_list_enabled": false,
+            "labels": [
+              {
+                "id": "057daf06-045b-49a4-b8bd-d0dc87919d1c",
+                "name": "SenseCAP Devices",
+                "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25"
+              }
+            ],
+            "multi_buy": 1,
+            "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+            "preferred_hotspots": [],
+            "rx_delay": 1,
+            "rx_delay_actual": 1,
+            "rx_delay_state": "rx_delay_established"
+          },
+          "name": "Vision-AI-Sensor",
+          "payload": "AAAABwECAQAHAGQAPAABCQAAABEAAU8QAAAAAHBG",
+          "payload_size": 30,
+          "port": 2,
+          "raw_packet": "QAsAAEiAAwACAGpumoGid/UP/nzW23lHn+9Me83+2Wq6AMs4prvVL3A63g==",
+          "replay": false,
+          "reported_at": 1669289429386,
+          "type": "uplink",
+          "uuid": "212c3a00-475d-4bde-9f1f-3b4bbbb33561"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Key": "Authentication",
+          "Value": "Token b9c82905cb19f81d36cc3dab0cf0ccbafdcd7a4f"
+        },
+        "method": "post",
+        "url": "https://api.datacake.co/integrations/lorawan/helium/",
+        "url_params": []
+      }
+    },
+    "description": "Request sent to <<\"SenseCAP\">>",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289432034",
+    "router_uuid": "212c3a00-475d-4bde-9f1f-3b4bbbb33561",
+    "sub_category": "uplink_integration_req"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "dc": {
+        "balance": 236,
+        "nonce": 1,
+        "used": 2
+      },
+      "devaddr": "0B000048",
+      "fcnt": 3,
+      "hold_time": 0,
+      "hotspot": {
+        "channel": 7,
+        "frequency": 868.5,
+        "id": "11Zj76d6DfN6uDNwUj9ZpLPfwW1GnpzXSFghPjt6St82t5iZCur",
+        "lat": 47.57346828187689,
+        "long": 12.153954511448553,
+        "name": "urban-crimson-robin",
+        "rssi": -134.0,
+        "snr": -19.5,
+        "spreading": "SF12BW125"
+      },
+      "mac": [],
+      "payload": "AAAABwECAQAHAGQAPAABCQAAABEAAU8QAAAAAHBG",
+      "payload_size": 30,
+      "port": 2,
+      "raw_packet": "QAsAAEiAAwACAGpumoGid/UP/nzW23lHn+9Me83+2Wq6AMs4prvVL3A63g=="
+    },
+    "description": "Unconfirmed data up received",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 3,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289429386",
+    "router_uuid": "212c3a00-475d-4bde-9f1f-3b4bbbb33561",
+    "sub_category": "uplink_unconfirmed"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "dc": {
+        "balance": 238,
+        "nonce": 1,
+        "used": 2
+      },
+      "devaddr": "0B000048",
+      "fcnt": 2,
+      "hold_time": 0,
+      "hotspot": {
+        "channel": 6,
+        "frequency": 868.2999877929688,
+        "id": "11YHbU2ov5pKtVZ77k99HsepVmryMw94mQgqz3znfUsduE837NK",
+        "lat": 47.58427520547734,
+        "long": 12.166732158781999,
+        "name": "happy-midnight-moth",
+        "rssi": -135.0,
+        "snr": -18.5,
+        "spreading": "SF12BW125"
+      },
+      "mac": [],
+      "payload": "AAAABwECAQAHAGQAPAABCQAAABEAAU8QAAAAAHBG",
+      "payload_size": 30,
+      "port": 2,
+      "raw_packet": "gAsAAEiAAgACiPmUnp+fCsFay0xNcuwVTCK7B0tXatYcqu4Mta2Qts0dzw=="
+    },
+    "description": "Confirmed data up received",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 2,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289423031",
+    "router_uuid": "0a15e0a9-65eb-4637-9174-382ed0c039c7",
+    "sub_category": "uplink_confirmed"
+  },
+  {
+    "category": "downlink",
+    "data": {
+      "devaddr": "0B000048",
+      "fcnt": 1,
+      "hotspot": {
+        "channel": 7,
+        "frequency": 869.525,
+        "id": "11YHbU2ov5pKtVZ77k99HsepVmryMw94mQgqz3znfUsduE837NK",
+        "lat": 47.58427520547734,
+        "long": 12.166732158781999,
+        "name": "happy-midnight-moth",
+        "rssi": 27,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "mac": [],
+      "payload": "YAsAAEigAQAVqjRQ",
+      "payload_size": 12,
+      "port": 0
+    },
+    "description": "Ack sent",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": 1,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289423432",
+    "router_uuid": "d18e475f-d614-4ca8-9654-55b50dd529ad",
+    "sub_category": "downlink_ack"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "integration": {
+        "id": "4e22ca86-00f7-48f4-b020-e28f4959af0f",
+        "name": "SenseCAP",
+        "status": "success"
+      },
+      "res": {
+        "body": "ok",
+        "code": 200,
+        "headers": {
+          "Connection": "keep-alive",
+          "Content-Language": "en",
+          "Content-Length": "2",
+          "Content-Type": "text/html; charset=utf-8",
+          "Date": "Thu, 24 Nov 2022 11:30:23 GMT",
+          "Referrer-Policy": "same-origin",
+          "Strict-Transport-Security": "max-age=15724800; includeSubDomains",
+          "Vary": "Origin, Accept-Language, Cookie",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "DENY"
+        }
+      }
+    },
+    "description": "Response received from <<\"SenseCAP\">>",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289423722",
+    "router_uuid": "0a15e0a9-65eb-4637-9174-382ed0c039c7",
+    "sub_category": "uplink_integration_res"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "integration": {
+        "id": "4e22ca86-00f7-48f4-b020-e28f4959af0f",
+        "name": "SenseCAP",
+        "status": "success"
+      },
+      "req": {
+        "body": {
+          "app_eui": "8000000000000009",
+          "dc": {
+            "balance": 238,
+            "nonce": 1
+          },
+          "dev_eui": "2CF7F1C043400020",
+          "devaddr": "0B000048",
+          "downlink_url": "https://console.helium.com/api/v1/down/4e22ca86-00f7-48f4-b020-e28f4959af0f/8gzxQ1H3fz6OoLWJ-kbz15wl_jxFRZow/92f23793-6647-40aa-b255-fa1d4baec75d",
+          "fcnt": 2,
+          "hotspots": [
+            {
+              "channel": 6,
+              "frequency": 868.2999877929688,
+              "hold_time": 0,
+              "id": "11YHbU2ov5pKtVZ77k99HsepVmryMw94mQgqz3znfUsduE837NK",
+              "lat": 47.58427520547734,
+              "long": 12.166732158781999,
+              "name": "happy-midnight-moth",
+              "reported_at": 1669289423031,
+              "rssi": -135.0,
+              "snr": -18.5,
+              "spreading": "SF12BW125",
+              "status": "success"
+            }
+          ],
+          "id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+          "metadata": {
+            "adr_allowed": false,
+            "cf_list_enabled": false,
+            "labels": [
+              {
+                "id": "057daf06-045b-49a4-b8bd-d0dc87919d1c",
+                "name": "SenseCAP Devices",
+                "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25"
+              }
+            ],
+            "multi_buy": 1,
+            "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+            "preferred_hotspots": [],
+            "rx_delay": 1,
+            "rx_delay_actual": 1,
+            "rx_delay_state": "rx_delay_established"
+          },
+          "name": "Vision-AI-Sensor",
+          "payload": "AAAABwECAQAHAGQAPAABCQAAABEAAU8QAAAAAHBG",
+          "payload_size": 30,
+          "port": 2,
+          "raw_packet": "gAsAAEiAAgACiPmUnp+fCsFay0xNcuwVTCK7B0tXatYcqu4Mta2Qts0dzw==",
+          "replay": false,
+          "reported_at": 1669289423031,
+          "type": "uplink",
+          "uuid": "0a15e0a9-65eb-4637-9174-382ed0c039c7"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Key": "Authentication",
+          "Value": "Token b9c82905cb19f81d36cc3dab0cf0ccbafdcd7a4f"
+        },
+        "method": "post",
+        "url": "https://api.datacake.co/integrations/lorawan/helium/",
+        "url_params": []
+      }
+    },
+    "description": "Request sent to <<\"SenseCAP\">>",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289423722",
+    "router_uuid": "0a15e0a9-65eb-4637-9174-382ed0c039c7",
+    "sub_category": "uplink_integration_req"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "integration": {
+        "id": "4e22ca86-00f7-48f4-b020-e28f4959af0f",
+        "name": "SenseCAP",
+        "status": "success"
+      },
+      "res": {
+        "body": "ok",
+        "code": 200,
+        "headers": {
+          "Connection": "keep-alive",
+          "Content-Language": "en",
+          "Content-Length": "2",
+          "Content-Type": "text/html; charset=utf-8",
+          "Date": "Thu, 24 Nov 2022 11:30:17 GMT",
+          "Referrer-Policy": "same-origin",
+          "Strict-Transport-Security": "max-age=15724800; includeSubDomains",
+          "Vary": "Origin, Accept-Language, Cookie",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "DENY"
+        }
+      }
+    },
+    "description": "Response received from <<\"SenseCAP\">>",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289418050",
+    "router_uuid": "e1c47688-4ccf-46f0-b6cb-484ca1d8de77",
+    "sub_category": "uplink_integration_res"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "integration": {
+        "id": "4e22ca86-00f7-48f4-b020-e28f4959af0f",
+        "name": "SenseCAP",
+        "status": "success"
+      },
+      "req": {
+        "body": {
+          "app_eui": "8000000000000009",
+          "dc": {
+            "balance": 240,
+            "nonce": 1
+          },
+          "dev_eui": "2CF7F1C043400020",
+          "devaddr": "0B000048",
+          "downlink_url": "https://console.helium.com/api/v1/down/4e22ca86-00f7-48f4-b020-e28f4959af0f/8gzxQ1H3fz6OoLWJ-kbz15wl_jxFRZow/92f23793-6647-40aa-b255-fa1d4baec75d",
+          "fcnt": 1,
+          "hotspots": [
+            {
+              "channel": 7,
+              "frequency": 868.5,
+              "hold_time": 0,
+              "id": "112ixEmKbUq7aA9LrjWLe12dH2m7d532ommwkzPHwRS6uar9Lv6J",
+              "lat": 47.58359099409376,
+              "long": 12.178245903313648,
+              "name": "winning-bamboo-caribou",
+              "reported_at": 1669289417254,
+              "rssi": -133.0,
+              "snr": -18.0,
+              "spreading": "SF12BW125",
+              "status": "success"
+            }
+          ],
+          "id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+          "metadata": {
+            "adr_allowed": false,
+            "cf_list_enabled": false,
+            "labels": [
+              {
+                "id": "057daf06-045b-49a4-b8bd-d0dc87919d1c",
+                "name": "SenseCAP Devices",
+                "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25"
+              }
+            ],
+            "multi_buy": 1,
+            "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+            "preferred_hotspots": [],
+            "rx_delay": 1,
+            "rx_delay_actual": 1,
+            "rx_delay_state": "rx_delay_established"
+          },
+          "name": "Vision-AI-Sensor",
+          "payload": "AAAABwECAQAHAGQAPAABCQAAABEAAU8QAAAAAHBG",
+          "payload_size": 30,
+          "port": 2,
+          "raw_packet": "gAsAAEiAAQACQca6EN7du6KYvfdBL4l9EEfVlKj9p0AFZFg95lOEJBywQg==",
+          "replay": false,
+          "reported_at": 1669289417254,
+          "type": "uplink",
+          "uuid": "e1c47688-4ccf-46f0-b6cb-484ca1d8de77"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Key": "Authentication",
+          "Value": "Token b9c82905cb19f81d36cc3dab0cf0ccbafdcd7a4f"
+        },
+        "method": "post",
+        "url": "https://api.datacake.co/integrations/lorawan/helium/",
+        "url_params": []
+      }
+    },
+    "description": "Request sent to <<\"SenseCAP\">>",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289418050",
+    "router_uuid": "e1c47688-4ccf-46f0-b6cb-484ca1d8de77",
+    "sub_category": "uplink_integration_req"
+  },
+  {
+    "category": "uplink",
+    "data": {
+      "dc": {
+        "balance": 240,
+        "nonce": 1,
+        "used": 2
+      },
+      "devaddr": "0B000048",
+      "fcnt": 1,
+      "hold_time": 0,
+      "hotspot": {
+        "channel": 7,
+        "frequency": 868.5,
+        "id": "112ixEmKbUq7aA9LrjWLe12dH2m7d532ommwkzPHwRS6uar9Lv6J",
+        "lat": 47.58359099409376,
+        "long": 12.178245903313648,
+        "name": "winning-bamboo-caribou",
+        "rssi": -133.0,
+        "snr": -18.0,
+        "spreading": "SF12BW125"
+      },
+      "mac": [],
+      "payload": "AAAABwECAQAHAGQAPAABCQAAABEAAU8QAAAAAHBG",
+      "payload_size": 30,
+      "port": 2,
+      "raw_packet": "gAsAAEiAAQACQca6EN7du6KYvfdBL4l9EEfVlKj9p0AFZFg95lOEJBywQg=="
+    },
+    "description": "Confirmed data up received",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 1,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289417254",
+    "router_uuid": "e1c47688-4ccf-46f0-b6cb-484ca1d8de77",
+    "sub_category": "uplink_confirmed"
+  },
+  {
+    "category": "downlink",
+    "data": {
+      "devaddr": "0B000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 7,
+        "frequency": 869.525,
+        "id": "112ixEmKbUq7aA9LrjWLe12dH2m7d532ommwkzPHwRS6uar9Lv6J",
+        "lat": 47.58359099409376,
+        "long": 12.178245903313648,
+        "name": "winning-bamboo-caribou",
+        "rssi": 27,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "mac": [],
+      "payload": "YAsAAEigAACrDNzZ",
+      "payload_size": 12,
+      "port": 0
+    },
+    "description": "Ack sent",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": 0,
+    "frame_up": null,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289417655",
+    "router_uuid": "89c94c05-33fb-49ff-a80d-e7e6c301c70b",
+    "sub_category": "downlink_ack"
+  },
+  {
+    "category": "join_accept",
+    "data": {
+      "devaddr": "0B000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 6,
+        "frequency": 868.3,
+        "id": "112nQquNCKtNbtk9jyyPymgMsLYoTD9DkxGvygRKNEPCy5yaEL6E",
+        "lat": 47.59166809579357,
+        "long": 12.174643565689877,
+        "name": "cool-carob-dolphin",
+        "rssi": 16,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "payload": "IA9pxjSsGPyJ8QdbSu18Sac=",
+      "payload_size": 17,
+      "port": 0
+    },
+    "description": "Join accept from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289400060",
+    "router_uuid": "12a95853-beb9-4563-8eab-fa808ffbec50",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_request",
+    "data": {
+      "dc": {
+        "balance": 242,
+        "nonce": 1,
+        "used": 1
+      },
+      "devaddr": "0B000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 6,
+        "frequency": 868.2999877929688,
+        "id": "112nQquNCKtNbtk9jyyPymgMsLYoTD9DkxGvygRKNEPCy5yaEL6E",
+        "lat": 47.59166809579357,
+        "long": 12.174643565689877,
+        "name": "cool-carob-dolphin",
+        "rssi": -124.0,
+        "snr": -7.199999809265137,
+        "spreading": "SF12BW125"
+      },
+      "payload": "",
+      "payload_size": 0,
+      "port": 0,
+      "raw_packet": "AAkAAAAAAACAIABAQ8Dx9yxlcpbkjJA="
+    },
+    "description": "Join request from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289398059",
+    "router_uuid": "2d613c93-578d-4a44-8b09-7079cf89d521",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_accept",
+    "data": {
+      "devaddr": "0A000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 6,
+        "frequency": 868.3,
+        "id": "112nQquNCKtNbtk9jyyPymgMsLYoTD9DkxGvygRKNEPCy5yaEL6E",
+        "lat": 47.59166809579357,
+        "long": 12.174643565689877,
+        "name": "cool-carob-dolphin",
+        "rssi": 16,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "payload": "IN2MsdmQVHZL7qYq2Qjb20I=",
+      "payload_size": 17,
+      "port": 0
+    },
+    "description": "Join accept from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289307927",
+    "router_uuid": "9ed7c821-857e-4bd7-b483-e5e02a1cd99a",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_request",
+    "data": {
+      "dc": {
+        "balance": 243,
+        "nonce": 1,
+        "used": 1
+      },
+      "devaddr": "0A000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 6,
+        "frequency": 868.2999877929688,
+        "id": "112nQquNCKtNbtk9jyyPymgMsLYoTD9DkxGvygRKNEPCy5yaEL6E",
+        "lat": 47.59166809579357,
+        "long": 12.174643565689877,
+        "name": "cool-carob-dolphin",
+        "rssi": -131.0,
+        "snr": -14.800000190734863,
+        "spreading": "SF12BW125"
+      },
+      "payload": "",
+      "payload_size": 0,
+      "port": 0,
+      "raw_packet": "AAkAAAAAAACAIABAQ8Dx9yxuom1zCxg="
+    },
+    "description": "Join request from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289305926",
+    "router_uuid": "5955474f-9ae8-4a7a-9fd5-6b650f0c408a",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_accept",
+    "data": {
+      "devaddr": "09000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 7,
+        "frequency": 868.5,
+        "id": "112YTuN46vC7YCFnoUDGVPfUz3pMDNSJXwcmiJGo5izGwzZxo61o",
+        "lat": 47.59136984382645,
+        "long": 12.169709244076945,
+        "name": "calm-orchid-snake",
+        "rssi": 16,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "payload": "IInemNF4jmcrj8I1iL8k3D4=",
+      "payload_size": 17,
+      "port": 0
+    },
+    "description": "Join accept from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289212279",
+    "router_uuid": "b39c74fb-ecbe-42ea-b8d6-80eff119968a",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_request",
+    "data": {
+      "dc": {
+        "balance": 244,
+        "nonce": 1,
+        "used": 1
+      },
+      "devaddr": "09000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 7,
+        "frequency": 868.5,
+        "id": "112YTuN46vC7YCFnoUDGVPfUz3pMDNSJXwcmiJGo5izGwzZxo61o",
+        "lat": 47.59136984382645,
+        "long": 12.169709244076945,
+        "name": "calm-orchid-snake",
+        "rssi": -113.0,
+        "snr": -6.5,
+        "spreading": "SF12BW125"
+      },
+      "payload": "",
+      "payload_size": 0,
+      "port": 0,
+      "raw_packet": "AAkAAAAAAACAIABAQ8Dx9yyqa0Hj2U4="
+    },
+    "description": "Join request from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289210278",
+    "router_uuid": "f76c6c9c-0ad8-4de6-9a12-3b8dfc1ade65",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_accept",
+    "data": {
+      "devaddr": "08000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 6,
+        "frequency": 868.3,
+        "id": "11ZJZTfqKxuoDbCfm6a2o5tgfq8ptkn5z9De326Kf9C5RCMnmJ2",
+        "lat": 47.64021360418838,
+        "long": 12.211782822074555,
+        "name": "deep-orange-alligator",
+        "rssi": 16,
+        "snr": 0.0,
+        "spreading": "SF12BW125"
+      },
+      "payload": "IPTJyOHbs4UolBGtKR/D5RI=",
+      "payload_size": 17,
+      "port": 0
+    },
+    "description": "Join accept from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289206066",
+    "router_uuid": "8d0b7951-e70c-41a2-8c2f-4766d0c5eefb",
+    "sub_category": "undefined"
+  },
+  {
+    "category": "join_request",
+    "data": {
+      "dc": {
+        "balance": 245,
+        "nonce": 1,
+        "used": 1
+      },
+      "devaddr": "08000048",
+      "fcnt": 0,
+      "hotspot": {
+        "channel": 6,
+        "frequency": 868.2999877929688,
+        "id": "11ZJZTfqKxuoDbCfm6a2o5tgfq8ptkn5z9De326Kf9C5RCMnmJ2",
+        "lat": 47.64021360418838,
+        "long": 12.211782822074555,
+        "name": "deep-orange-alligator",
+        "rssi": -133.0,
+        "snr": -16.5,
+        "spreading": "SF12BW125"
+      },
+      "payload": "",
+      "payload_size": 0,
+      "port": 0,
+      "raw_packet": "AAkAAAAAAACAIABAQ8Dx9yyqlb/5JX4="
+    },
+    "description": "Join request from AppEUI: 8000000000000009 DevEUI: 2CF7F1C043400020",
+    "device_id": "92f23793-6647-40aa-b255-fa1d4baec75d",
+    "frame_down": null,
+    "frame_up": 0,
+    "organization_id": "ccaa708c-b822-4daa-b0f4-d7c10e7e8b25",
+    "reported_at": "1669289204066",
+    "router_uuid": "7c14160d-5b20-4ea4-accb-91a0facea59e",
+    "sub_category": "undefined"
+  }
+]
