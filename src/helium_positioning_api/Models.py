@@ -31,7 +31,7 @@ class NearestNeighborModel(Model):
         sorted_hotspots = sorted(hotspots, key=lambda h: h.rssi)
         nearest_neighbor = sorted_hotspots[0]
         nearest_neighbor.load_location()
-        return Prediction(uuid=uuid, lat=nearest_neighbor.lat, lng=nearest_neighbor.lng)
+        return Prediction(uuid=uuid, lat=nearest_neighbor.lat, lng=nearest_neighbor.long)
 
 class Midpoint(Model):
     """This model predicts the location of a given device, by approximating the midpoint of the two witnesses with the highest rssi."""
@@ -47,3 +47,15 @@ class Midpoint(Model):
 
         return Prediction(uuid= uuid, lat = midpoint_lat, lng = midpoint_long)
         
+# class SimpleTrilateration(Model):
+#     """This model predicts the location of a given device, by trilateration of the three witnesses with the highest rssi."""
+#     def __init__(self) -> None:
+#         pass
+
+#     def predict(self, uuid: str) -> Prediction:
+#         hotspots = self.get_hotspots(uuid)
+#         sorted_hotspots = sorted(hotspots, key=lambda h: h.rssi)
+#         # defining centres 
+#         sorted_hotspots[0].load_location()
+#         sorted_hotspots[1].load_location()
+#         sorted_hotspots[2].load_location()
