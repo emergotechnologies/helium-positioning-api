@@ -3,8 +3,8 @@ from math import sin, cos, sqrt, radians, degrees, atan2
 
 def midpoint(point_1, point_2):
     """function returning the midpoint latitude and longitude between two hotspots"""
-    point_1.load_locatoin()
-    point_2.loat_location()
+    point_1.load_location()
+    point_2.load_location()
     
     # Conversion to radians
     lat1 = radians(point_1.lat)
