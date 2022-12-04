@@ -1,7 +1,7 @@
 
 from typing import List, Dict, Any, Optional
 from pydantic import BaseModel
-from helium_api_wrapper.helpers import load_hotspot
+from helium_api_wrapper.devices import get_device_by_uuid
 
 class DataObject(BaseModel):
     """Base class for all data objects."""
@@ -64,7 +64,7 @@ class Hotspot(DataObject):
 
     def load_location(self):
         if not self.lat or not self.long:
-            hotspot = load_hotspot(self.id)
+            hotspot = get_device_by_uuid(self.id)
             self.lat = hotspot["lat"]
             self.long = hotspot["lng"]
 
