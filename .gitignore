@@ -23,3 +23,7 @@ src/helium_api_wrapper/ResultHandler.py
 src/helium_api_wrapper/TransactionApi.py
 
 requests.http
+src/helium_api_wrapper/challenges.py
+src/helium_api_wrapper/devices.py
+src/helium_api_wrapper/hotspots.py
+src/helium_api_wrapper/py.typed
