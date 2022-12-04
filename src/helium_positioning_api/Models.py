@@ -37,7 +37,7 @@ class NearestNeighborModel(Model):
 
 
 class Midpoint(Model):
-    """This model predicts the location of a given device, by approximating 
+    """This model predicts the location of a given device, by approximating
     the midpoint of the two witnesses with the highest rssi."""
 
     def __init__(self) -> None:
