@@ -1,4 +1,3 @@
-
 from typing import List
 from typing import Optional
 from pydantic import BaseModel
@@ -9,12 +8,15 @@ class DataObject(BaseModel):
     """Base class for all data objects."""
 
     def __len__(self):
+        """Returns the length of the object."""
         return dict(self).__len__()
 
     def __getitem__(self, item):
+        """Accesses the dictionary with the value of item as the key."""
         return getattr(self, item)
 
     def as_dict(self, columns: Optional[List[str]] = None):
+        """Casts data as dictionary."""
         data = dict(self)
         if columns:
             data = {key: data[key] for key in columns}
@@ -45,13 +47,18 @@ class Hotspot(DataObject):
     :param reported_at: Timestamp in milliseconds
     :type reported_at: float
 
-    :param rssi: Received Signal Strength Indicator is reported by the hotspot and indicates how strong the signal device's radio signal was
+    :param rssi: Received Signal Strength Indicator is reported\
+        by the hotspot and indicates how strong the signal device's \
+        radio signal was
     :type rssi: float
 
-    :param snr: In dB, Signal to Noise Ratio is reported by the hotspot to indicate how clear the signal was relative to environmental noise
+    :param snr: In dB, Signal to Noise Ratio is reported by the\
+        hotspot to indicate how clear the signal was relative \
+        to environmental noise
     :type snr: float
 
-    :param spreading: LoRa Spreading Factor and Bandwidth used for the radio transmission.
+    :param spreading: LoRa Spreading Factor and Bandwidth \
+        used for the radio transmission.
     :type spreading: str
 
     """
@@ -67,6 +74,8 @@ class Hotspot(DataObject):
     long: Optional[float] = None
 
     def load_location(self):
+        """Assigns latitude and longitude to the object \
+            from the data in Hotspots object."""
         if not self.lat or not self.long:
             hotspot = get_device_by_uuid(self.id)
             self.lat = hotspot["lat"]
