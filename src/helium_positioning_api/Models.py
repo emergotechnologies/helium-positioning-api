@@ -21,12 +21,18 @@ class Model:
 
 
 class NearestNeighborModel(Model):
-    """This model predicts the location of a given device, by taking the location of the nearest witness in terms of highest rssi recieved."""
+    """This model predicts the location of a given device.
+
+    It takes the location of the nearest witness
+    in terms of highest rssi recieved.
+    """
 
     def __init__(self) -> None:
+        """Initialize an object of Class NearestNeighborModel."""
         pass
 
     def predict(self, uuid: str) -> Prediction:
+        """Create Prediction using features of Hotspot with specified uuid."""
         hotspots = self.get_hotspots(uuid)
         sorted_hotspots = sorted(hotspots, key=lambda h: h.rssi)
         nearest_neighbor = sorted_hotspots[0]
@@ -37,13 +43,16 @@ class NearestNeighborModel(Model):
 
 
 class Midpoint(Model):
-    """This model predicts the location of a given device, by approximating
-    the midpoint of the two witnesses with the highest rssi."""
+    """This model predicts the location of a given device. \
+    It approximates the midpoint of the two witnesses with the highest rssi."""
 
     def __init__(self) -> None:
+        """Initialize an object of class Midpoint."""
         pass
 
     def predict(self, uuid: str) -> Prediction:
+        """Create an object of Class Prediction.\
+        The features of the object are imported with uuid from the hotspot API."""
         hotspots = self.get_hotspots(uuid)
         sorted_hotspots = sorted(hotspots, key=lambda h: h.rssi)
         assert len(sorted_hotspots) > 1, "Not enough witnesses"
