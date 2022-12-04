@@ -1,4 +1,5 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
+from fastapi import HTTPException
 from pydantic import BaseModel
 
 from helium_positioning_api.Models import NearestNeighborModel, Midpoint
@@ -13,9 +14,7 @@ class Device(BaseModel):
 async def predict_tf(request: Device):
     prediction = NearestNeighborModel().predict(uuid=request.uuid)
     if not prediction:
-        raise HTTPException(
-            status_code=404, detail="Device not found."
-        )
+        raise HTTPException(status_code=404, detail="Device not found.")
     return prediction
 
 # midpoint model
@@ -23,8 +22,6 @@ async def predict_tf(request: Device):
 async def predict_mp(request: Device):
     prediction = Midpoint().predict(uuid=request.uuid)
     if not prediction:
-        raise HTTPException(
-            status_code=404, detail="Device not found."
-        )
+        raise HTTPException(status_code=404, detail="Device not found.")
     return prediction 
 

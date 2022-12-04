@@ -1,5 +1,6 @@
 
-from typing import List, Dict, Any, Optional
+from typing import List
+from typing import Optional
 from pydantic import BaseModel
 from helium_api_wrapper.devices import get_device_by_uuid
 
@@ -24,7 +25,7 @@ class Prediction(DataObject):
     uuid: str
     lat: float
     lng: float
-    conf: float = None
+    conf: Optional[float] = None
 
 class Hotspot(DataObject):
     """Hotspots which received the same packet.
