@@ -4,6 +4,7 @@ from typing import Optional
 from pydantic import BaseModel
 from helium_api_wrapper.devices import get_device_by_uuid
 
+
 class DataObject(BaseModel):
     """Base class for all data objects."""
 
@@ -22,14 +23,16 @@ class DataObject(BaseModel):
 
 class Prediction(DataObject):
     """Class to describe a Prediction Object."""
+
     uuid: str
     lat: float
     lng: float
     conf: Optional[float] = None
 
+
 class Hotspot(DataObject):
     """Hotspots which received the same packet.
-    
+
     :param frequency: In MHz, the frequency which the packet was received upon.
     :type frequency: float
 
@@ -52,6 +55,7 @@ class Hotspot(DataObject):
     :type spreading: str
 
     """
+
     frequency: float
     id: str
     name: str
@@ -62,13 +66,8 @@ class Hotspot(DataObject):
     lat: Optional[float] = None
     long: Optional[float] = None
 
-
     def load_location(self):
         if not self.lat or not self.long:
             hotspot = get_device_by_uuid(self.id)
             self.lat = hotspot["lat"]
             self.long = hotspot["lng"]
-
-    
-
-

@@ -5,6 +5,7 @@ import uvicorn
 from helium_positioning_api import api
 from helium_positioning_api.Models import NearestNeighborModel
 
+
 @click.command()
 @click.option("--uuid", type=str, help="UUID of the device")
 @click.option(
@@ -16,7 +17,6 @@ from helium_positioning_api.Models import NearestNeighborModel
 @click.version_option(version="0.1")
 def predict(uuid: str, model: str) -> None:
     """Predict the position (lng,lat) of a device with the given uuid."""
-
     if model == "nearest_neighbor":
         prediction = NearestNeighborModel().predict(uuid)
         print(prediction)
@@ -28,21 +28,23 @@ def predict(uuid: str, model: str) -> None:
 @click.option("--port", default=8000, type=int)
 @click.version_option(version="0.1")
 def serve(port: int) -> None:
-    """Serve a prediction service for the prediction of the position of a device in the Helium network."""
+    """Service for position-prediction of Helium network devices."""
     uvicorn.run(
-    "helium_positioning_api.api:app",
-    host="0.0.0.0",
-    port=8000,
-    log_level="debug",
-    proxy_headers=True,
-    reload=True,
+        "helium_positioning_api.api:app",
+        host="0.0.0.0",
+        port=8000,
+        log_level="debug",
+        proxy_headers=True,
+        reload=True,
     )
 
+
 @click.group(
-    help="CLI tool to predict the position of a LoraWan device in the Helium network."
+    help="CLI tool for device-position-prediction in the Helium network."
 )
 def cli():
     pass
+
 
 cli.add_command(predict)
 cli.add_command(serve)

@@ -10,10 +10,10 @@ from utm import to_latlon
 
 
 def midpoint(point_1, point_2):
-    """function returning the midpoint latitude and longitude between two hotspots"""
+    """Function returning the midpoint latitude and longitude between two hotspots."""
     point_1.load_location()
     point_2.load_location()
-    
+
     # Conversion to radians
     lat1 = radians(point_1.lat)
     lon1 = radians(point_1.long)
@@ -31,8 +31,7 @@ def midpoint(point_1, point_2):
 
 
 def circle_intersect_plane(lat_0, long_0, radius_0, lat_1, long_1, radius_1):
-    """function returning intersection points of two circles in the plane"""
-
+    """Function returning intersection points of two circles in the plane."""
     # calculating distance of the circle's centres
     d = sqrt((lat_1 - lat_0) ** 2 + (long_1 - long_0) ** 2)
 
@@ -65,9 +64,9 @@ def circle_intersect_plane(lat_0, long_0, radius_0, lat_1, long_1, radius_1):
 
     return (lat_3, long_3), (lat_4, long_4)
 
+
 def circle_intersect(latlon0, radius_0, latlon1, radius_1, factor):
     """function performing circle intersection"""
-    
     # conversion lat/lon -> UTM coordinates
     lat_0, long_0, zone, letter = from_latlon(latlon0[0], latlon0[1])
     lat_1, long_1, _, _ = from_latlon(latlon1[0], latlon1[1], force_zone_number=zone)

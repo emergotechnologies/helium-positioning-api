@@ -15,10 +15,9 @@ class Model:
         pass
 
     def get_hotspots(self, uuid: str) -> List[Hotspot]:
-        """Load hotspots, which interacted with the given device from the last integration event."""
+        """Load interacting hotspots from last integration event."""
         integration = get_last_integration(uuid)
         return [Hotspot(**h) for h in integration.data["req"]["body"]["hotspots"]]
-        
 
 
 class NearestNeighborModel(Model):
@@ -35,9 +34,12 @@ class NearestNeighborModel(Model):
         return Prediction(
             uuid=uuid, lat=nearest_neighbor.lat, lng=nearest_neighbor.long
         )
+
+
 class Midpoint(Model):
-    """This model predicts the location of a given device, by approximating the midpoint of the two witnesses with the highest rssi."""
- 
+    """This model predicts the location of a given device, by approximating 
+    the midpoint of the two witnesses with the highest rssi."""
+
     def __init__(self) -> None:
         pass
 
