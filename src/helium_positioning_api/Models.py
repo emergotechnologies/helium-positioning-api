@@ -52,7 +52,8 @@ class Midpoint(Model):
 
     def predict(self, uuid: str) -> Prediction:
         """Create an object of Class Prediction.\
-        The features of the object are imported with uuid from the hotspot API."""
+        The features of the object are imported
+        with uuid from the hotspot API."""
         hotspots = self.get_hotspots(uuid)
         sorted_hotspots = sorted(hotspots, key=lambda h: h.rssi)
         assert len(sorted_hotspots) > 1, "Not enough witnesses"
