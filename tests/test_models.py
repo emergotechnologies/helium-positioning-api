@@ -14,7 +14,7 @@ def mock_integration():
     return integrations[0]
 
 
-def test_nearest_neighbor_model(mocker, mock_integration):
+def test_nearest_neighbor_model(mocker, mock_integration) -> None:
 
     mocker.patch(
         "helium_positioning_api.Models.load_last_integration",
@@ -39,7 +39,7 @@ def test_nearest_neighbor_model(mocker, mock_integration):
     )
 
 
-def test_midpoint_model():
+def test_midpoint_model() -> None:
 
     prediction = Midpoint().predict(uuid="uuid")
 

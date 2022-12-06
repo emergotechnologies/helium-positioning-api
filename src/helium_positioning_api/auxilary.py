@@ -5,11 +5,17 @@ from math import radians
 from math import sin
 from math import sqrt
 
+from typing import Iterable
+from typing import List
+from typing import Union
+from typing import Tuple
+
 from utm import from_latlon
 from utm import to_latlon
 
+from helium_positioning_api.DataObjects import Hotspot
 
-def midpoint(point_1, point_2):
+def midpoint(point_1: Hotspot, point_2: Hotspot) -> Iterable[Union[float, float]]:
     """Function returning the midpoint latitude and longitude between two hotspots."""
     point_1.load_location()
     point_2.load_location()
@@ -37,7 +43,8 @@ def circle_intersect_plane(
     lat_1: float,
     long_1: float,
     radius_1: float
-):
+) -> Union[Tuple[Tuple[float, float], Tuple[float, float]], Tuple[None, None]]:
+
     """Function returning intersection points of two circles in the plane."""
     # calculating distance of the circle's centres
     d = sqrt((lat_1 - lat_0) ** 2 + (long_1 - long_0) ** 2)
@@ -53,7 +60,7 @@ def circle_intersect_plane(
         return (lat_3, long_3), (lat_3, long_3)
 
     if d == 0 and radius_0 == radius_1:     # coincident circles
-        return None
+        return (None, None)
 
     # a is the line from the first circle's centre to the
     # line going through both intersections should they exist
@@ -74,7 +81,11 @@ def circle_intersect_plane(
     return (lat_3, long_3), (lat_4, long_4)
 
 
-def circle_intersect(latlon0, radius_0, latlon1, radius_1):
+def circle_intersect(latlon0: Union[Tuple[float, float], List[float]], 
+                radius_0: float, 
+                latlon1: Union[Tuple[float, float], List[float]], 
+                radius_1: float
+                ) -> Union[Tuple[float, float], Tuple[float, float]]:
     """Function performing circle intersection."""
     # conversion lat/lon -> UTM coordinates
     lat_0, long_0, zone, letter = from_latlon(latlon0[0], latlon0[1])
@@ -88,7 +99,9 @@ def circle_intersect(latlon0, radius_0, latlon1, radius_1):
         long_1, 
         radius_1)
     # conversion UTM -> lat/lon
-    a = to_latlon(a_utm[0], a_utm[1], zone, letter)
-    b = to_latlon(b_utm[0], b_utm[1], zone, letter)
+    if a_utm is not None:
+        a = to_latlon(a_utm[0], a_utm[1], zone, letter)
+    if b_utm is not None:
+        b = to_latlon(b_utm[0], b_utm[1], zone, letter)
 
     return a, b

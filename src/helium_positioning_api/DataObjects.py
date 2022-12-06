@@ -73,7 +73,7 @@ class Hotspot(DataObject):
     lat: Optional[float] = None
     long: Optional[float] = None
 
-    def load_location(self):
+    def load_location(self) -> None:
         """Assigns latitude and longitude to the object \
             from the data in Hotspots object."""
         if not self.lat or not self.long:
