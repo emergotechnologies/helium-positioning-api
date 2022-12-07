@@ -17,7 +17,8 @@ class Model:
     def get_hotspots(self, uuid: str) -> List[Hotspot]:
         """Load interacting hotspots from last integration event."""
         integration = get_last_integration(uuid)
-        return [Hotspot(**h) for h in integration.data["req"]["body"]["hotspots"]]
+        return [Hotspot(**h)
+                for h in integration.data["req"]["body"]["hotspots"]]
 
 
 class NearestNeighborModel(Model):
@@ -32,7 +33,12 @@ class NearestNeighborModel(Model):
         pass
 
     def predict(self, uuid: str) -> Prediction:
-        """Create Prediction using features of Hotspot with specified uuid."""
+        """Create Prediction using features of Hotspot with specified uuid.
+
+        :param uuid: Device id
+
+        :return: coordinates of predicted location
+        """
         hotspots = self.get_hotspots(uuid)
         sorted_hotspots = sorted(hotspots, key=lambda h: h.rssi)
         nearest_neighbor = sorted_hotspots[0]
@@ -51,12 +57,16 @@ class Midpoint(Model):
         pass
 
     def predict(self, uuid: str) -> Prediction:
-        """Create an object of Class Prediction.\
-        The features of the object are imported
-        with uuid from the hotspot API."""
+        """Create an object of Class Prediction.
+
+        :param uuid: Device id
+
+        :return: coordinates of predicted location
+        """
         hotspots = self.get_hotspots(uuid)
         sorted_hotspots = sorted(hotspots, key=lambda h: h.rssi)
         assert len(sorted_hotspots) > 1, "Not enough witnesses"
-        midpoint_lat, midpoint_long = midpoint(sorted_hotspots[0], sorted_hotspots[1])
+        midpoint_lat, midpoint_long = midpoint(
+            sorted_hotspots[0], sorted_hotspots[1])
 
         return Prediction(uuid=uuid, lat=midpoint_lat, lng=midpoint_long)

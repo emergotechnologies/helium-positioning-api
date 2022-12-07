@@ -1,22 +1,34 @@
 from typing import List
 from typing import Optional
 from pydantic import BaseModel
+from typing import Any
+from typing import Dict
 from helium_api_wrapper.devices import get_device_by_uuid
 
 
 class DataObject(BaseModel):
     """Base class for all data objects."""
 
-    def __len__(self):
-        """Returns the length of the object."""
+    def __len__(self) -> int:
+        """Return the length of the object.
+
+        :return: length of object (int)
+        """
         return dict(self).__len__()
 
-    def __getitem__(self, item):
-        """Accesses the dictionary with the value of item as the key."""
+    def __getitem__(self, item: Any) -> Any:
+        """Access the dictionary with the value of item as the key.
+
+        :return: dictionary value for key
+        """
         return getattr(self, item)
 
-    def as_dict(self, columns: Optional[List[str]] = None):
-        """Casts data as dictionary."""
+    def as_dict(self, columns: Optional[List[str]] = None) -> Dict[Any, Any]:
+        """
+        Cast data as dictionary.
+
+        return: Dictionary
+        """
         data = dict(self)
         if columns:
             data = {key: data[key] for key in columns}
@@ -41,7 +53,7 @@ class Hotspot(DataObject):
     :param id: A base58 encoding of the hotspot's public key.
     :type id: str
 
-    :param name: A human-friendly three-word encoding of the hotspot's public key.
+    :param name: human-friendly three-word alias of the hotspot's public key.
     :type name: str
 
     :param reported_at: Timestamp in milliseconds
@@ -74,7 +86,7 @@ class Hotspot(DataObject):
     long: Optional[float] = None
 
     def load_location(self) -> None:
-        """Assigns latitude and longitude to the object \
+        """Assign latitude and longitude to the object \
             from the data in Hotspots object."""
         if not self.lat or not self.long:
             hotspot = get_device_by_uuid(self.id)

@@ -2,8 +2,8 @@
 import click
 import uvicorn
 
-from helium_positioning_api import api
 from helium_positioning_api.Models import NearestNeighborModel
+from helium_positioning_api.Models import Midpoint
 
 
 @click.command()
@@ -16,10 +16,16 @@ from helium_positioning_api.Models import NearestNeighborModel
 )
 @click.version_option(version="0.1")
 def predict(uuid: str, model: str) -> None:
-    """Predict the position (lng,lat) of a device with the given uuid."""
+    """Predict the position (lng,lat) of a device with the given uuid.
+
+    :param uuid: device id
+    :param model: prediction model
+    """
     if model == "nearest_neighbor":
         prediction = NearestNeighborModel().predict(uuid)
         print(prediction)
+    elif model == "midpoint":
+        prediction = Midpoint().predict(uuid)
     else:
         raise Exception(f"Model '{model}' not implemented.")
 
@@ -42,7 +48,7 @@ def serve(port: int) -> None:
 @click.group(
     help="CLI tool for device-position-prediction in the Helium network."
 )
-def cli():
+def cli() -> None:
     pass
 
 
