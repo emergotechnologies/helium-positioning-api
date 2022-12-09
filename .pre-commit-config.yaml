@@ -11,7 +11,8 @@ repos:
             (?x)^(
                 tests/data/events.json|
                 tests/data/integration_events.json|
-                .devcontainer/devcontainer.json
+                .devcontainer/devcontainer.json|
+                .pre-commit-config.yaml
             )$
       - id: check-added-large-files
         name: Check for added large files
@@ -42,7 +43,8 @@ repos:
             (?x)^(
                 tests/data/events.json|
                 tests/data/integration_events.json|
-                .devcontainer/devcontainer.json
+                .devcontainer/devcontainer.json|
+                .pre-commit-config.yaml
             )$
         stages: [commit, push, manual]
       - id: flake8
@@ -55,7 +57,8 @@ repos:
             (?x)^(
                 tests/data/events.json|
                 tests/data/integration_events.json|
-                .devcontainer/devcontainer.json
+                .devcontainer/devcontainer.json|
+                .pre-commit-config.yaml
             )$
         args: [--darglint-ignore-regex, .*]
       - id: isort
@@ -68,7 +71,8 @@ repos:
             (?x)^(
                 tests/data/events.json|
                 tests/data/integration_events.json|
-                .devcontainer/devcontainer.json
+                .devcontainer/devcontainer.json|
+                .pre-commit-config.yaml
             )$
         args: ["--filter-files"]
       - id: pyupgrade
@@ -82,7 +86,8 @@ repos:
             (?x)^(
                 tests/data/events.json|
                 tests/data/integration_events.json|
-                .devcontainer/devcontainer.json
+                .devcontainer/devcontainer.json|
+                .pre-commit-config.yaml
             )$
       - id: trailing-whitespace
         name: Trim Trailing Whitespace
@@ -94,7 +99,8 @@ repos:
             (?x)^(
                 tests/data/events.json|
                 tests/data/integration_events.json|
-                .devcontainer/devcontainer.json
+                .devcontainer/devcontainer.json|
+                .pre-commit-config.yaml
             )$
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v2.6.0
@@ -104,5 +110,6 @@ repos:
             (?x)^(
                 tests/data/events.json|
                 tests/data/integration_events.json|
-                .devcontainer/devcontainer.json
+                .devcontainer/devcontainer.json|
+                .pre-commit-config.yaml
             )$
