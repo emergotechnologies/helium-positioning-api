@@ -68,7 +68,7 @@ jobs:
           nox --version
       - name: Install haversine
         run: |
-          pipx install --pip-args=--constraint=.github/workflows/constraints.txt haversine
+          pip install haversine==2.7.0
           haversine --version
       - name: Compute pre-commit cache key
         if: matrix.session == 'pre-commit'
