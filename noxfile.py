@@ -134,7 +134,6 @@ def precommit(session: Session) -> None:
         "pyupgrade",
         "haversine",
     )
-    session.run("poetry", "update")
     session.run("pre-commit", *args)
     if args and args[0] == "install":
         activate_virtualenv_in_precommit_hooks(session)
