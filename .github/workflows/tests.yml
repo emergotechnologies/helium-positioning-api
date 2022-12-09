@@ -136,7 +136,7 @@ jobs:
           pipx install --pip-args=--constraint=.github/workflows/constraints.txt nox
           pipx inject --pip-args=--constraint=.github/workflows/constraints.txt nox nox-poetry
           nox --version
-  
+
       - name: Download coverage data
         uses: actions/download-artifact@v3
         with:
