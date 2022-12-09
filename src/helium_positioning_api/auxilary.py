@@ -1,4 +1,4 @@
-"""Helper functions for the positioning API"""
+"""Helper functions for the positioning API."""
 from math import atan2
 from math import cos
 from math import degrees

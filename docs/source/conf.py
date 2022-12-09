@@ -11,6 +11,8 @@
 #
 import os
 import sys
+
+
 sys.path.insert(0, os.path.abspath(os.path.join("..", "..")))
 
 # -- Project information -----------------------------------------------------
@@ -35,9 +37,10 @@ extensions = [
 
 templates_path = ["_templates"]
 exclude_patterns = []
-autodoc_mock_imports = ["pandas",
-                        "click",
-                        ]
+autodoc_mock_imports = [
+    "pandas",
+    "click",
+]
 
 # The master toctree document.
 master_doc = "index"

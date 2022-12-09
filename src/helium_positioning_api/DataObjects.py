@@ -1,12 +1,11 @@
 """Data objects module."""
-from typing import List
-from typing import Optional
-from pydantic import BaseModel
 from typing import Any
 from typing import Dict
+from typing import List
+from typing import Optional
 
 from helium_api_wrapper.devices import get_device_by_uuid
-
+from pydantic import BaseModel
 
 class DataObject(BaseModel):
     """Base class for all data objects."""
@@ -26,8 +25,7 @@ class DataObject(BaseModel):
         return getattr(self, item)
 
     def as_dict(self, columns: Optional[List[str]] = None) -> Dict[Any, Any]:
-        """
-        Cast data as dictionary.
+        """Cast data as dictionary.
 
         return: Dictionary
         """
