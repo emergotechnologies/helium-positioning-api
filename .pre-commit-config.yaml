@@ -9,8 +9,8 @@ repos:
         require_serial: true
         exclude: |
             (?x)^(
-                ^tests/data/|
-                ^.devcontainer/|
+                tests/data/|
+                .devcontainer/|
             )$
       - id: check-added-large-files
         name: Check for added large files
@@ -39,8 +39,8 @@ repos:
         types: [text]
         exclude: |
             (?x)^(
-                ^tests/data/|
-                ^.devcontainer/|
+                tests/data/|
+                .devcontainer/|
             )$
         stages: [commit, push, manual]
       - id: flake8
@@ -51,8 +51,8 @@ repos:
         require_serial: true
         exclude: |
             (?x)^(
-                ^tests/data/|
-                ^.devcontainer/|
+                tests/data/|
+                .devcontainer/|
             )$
         args: [--darglint-ignore-regex, .*]
       - id: isort
@@ -63,8 +63,8 @@ repos:
         types_or: [cython, pyi, python]
         exclude: |
             (?x)^(
-                ^tests/data/|
-                ^.devcontainer/|
+                tests/data/|
+                .devcontainer/|
             )$
         args: ["--filter-files"]
       - id: pyupgrade
@@ -76,8 +76,8 @@ repos:
         args: [--py37-plus]
         exclude: |
             (?x)^(
-                ^tests/data/|
-                ^.devcontainer/|
+                tests/data/|
+                .devcontainer/|
             )$
       - id: trailing-whitespace
         name: Trim Trailing Whitespace
@@ -87,8 +87,8 @@ repos:
         stages: [commit, push, manual]
         exclude: |
             (?x)^(
-                ^tests/data/|
-                ^.devcontainer/|
+                tests/data/|
+                .devcontainer/|
             )$
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v2.6.0
@@ -96,6 +96,6 @@ repos:
       - id: prettier
         exclude: |
             (?x)^(
-                ^tests/data/|
-                ^.devcontainer/|
+                tests/data/|
+                .devcontainer/|
             )$
