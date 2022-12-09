@@ -71,5 +71,4 @@ class Midpoint(Model):
             midpoint_lat, midpoint_long = midpoint(
                 sorted_hotspots[0], sorted_hotspots[1]
             )
-            midpoint_lat, midpoint_long = midpoint(sorted_hotspots[0], sorted_hotspots[1])
         return Prediction(uuid=uuid, lat=midpoint_lat, lng=midpoint_long)
