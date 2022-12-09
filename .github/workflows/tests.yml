@@ -68,6 +68,7 @@ jobs:
           nox --version
       - name: Install haversine
         run: |
+          pip install --upgrade pip
           pip install haversine==2.7.0
           haversine --version
       - name: Compute pre-commit cache key
