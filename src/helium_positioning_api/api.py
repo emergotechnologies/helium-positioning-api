@@ -1,9 +1,12 @@
+"""API module."""
 from fastapi import FastAPI
 from fastapi import HTTPException
 from pydantic import BaseModel
+
 from helium_positioning_api.DataObjects import Prediction
 from helium_positioning_api.Models import Midpoint
 from helium_positioning_api.Models import NearestNeighborModel
+
 
 app = FastAPI(title="Helium Positioning API")
 

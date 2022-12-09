@@ -1,13 +1,14 @@
 """Test cases for the models module."""
 import json
 from typing import Any
+
 import pytest
 from haversine import Unit
 from haversine import haversine
 from helium_api_wrapper.devices import Event
+
 from helium_positioning_api.Models import Midpoint
 from helium_positioning_api.Models import NearestNeighborModel
-
 
 @pytest.fixture
 def mock_integration() -> Event:

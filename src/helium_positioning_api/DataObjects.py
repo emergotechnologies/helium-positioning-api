@@ -1,8 +1,10 @@
+"""Data objects module."""
 from typing import List
 from typing import Optional
 from pydantic import BaseModel
 from typing import Any
 from typing import Dict
+
 from helium_api_wrapper.devices import get_device_by_uuid
 
 

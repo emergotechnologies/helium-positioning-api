@@ -1,10 +1,10 @@
+"""Helper functions for the positioning API"""
 from math import atan2
 from math import cos
 from math import degrees
 from math import radians
 from math import sin
 from math import sqrt
-
 from typing import Iterable
 from typing import List
 from typing import Tuple
@@ -98,11 +98,11 @@ def circle_intersect_plane(
 
 
 def circle_intersect(
-                     latlon0: Union[Tuple[float, float], List[float]],
-                     radius_0: float,
-                     latlon1: Union[Tuple[float, float], List[float]],
-                     radius_1: float,
-                     ) -> Union[Tuple[float, float], Tuple[float, float]]:
+    latlon0: Union[Tuple[float, float], List[float]],
+    radius_0: float,
+    latlon1: Union[Tuple[float, float], List[float]],
+    radius_1: float,
+) -> Union[Tuple[float, float], Tuple[float, float]]:
     """Perform circle intersection.
 
     :param latlon0: coordinates of first centre
@@ -118,8 +118,8 @@ def circle_intersect(
 
     # calculating intersectin in UTM
     a_utm, b_utm = circle_intersect_plane(
-                                          lat_0, long_0, radius_0, lat_1, long_1, radius_1
-                                         )
+        lat_0, long_0, radius_0, lat_1, long_1, radius_1
+    )
     # conversion UTM -> lat/lon
     if a_utm is not None:
         a = to_latlon(a_utm[0], a_utm[1], zone, letter)

@@ -46,7 +46,6 @@ def serve(port: int) -> None:
 
 
 @click.group(help="CLI tool for device-position-prediction in the Helium network.")
-
 def cli() -> None:
     pass
 
