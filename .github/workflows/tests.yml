@@ -66,11 +66,7 @@ jobs:
           pipx install --pip-args=--constraint=.github/workflows/constraints.txt nox
           pipx inject --pip-args=--constraint=.github/workflows/constraints.txt nox nox-poetry
           nox --version
-      - name: Install haversine
-        run: |
-          pip install --upgrade pip
-          pip install haversine==2.7.0
-          pip show haversine
+
       - name: Compute pre-commit cache key
         if: matrix.session == 'pre-commit'
         id: pre-commit-cache
@@ -140,13 +136,7 @@ jobs:
           pipx install --pip-args=--constraint=.github/workflows/constraints.txt nox
           pipx inject --pip-args=--constraint=.github/workflows/constraints.txt nox nox-poetry
           nox --version
-
-      - name: Install haversine
-        run: |
-          pip install --upgrade pip
-          pip install haversine==2.7.0
-          pip show haversine
-          
+  
       - name: Download coverage data
         uses: actions/download-artifact@v3
         with:
