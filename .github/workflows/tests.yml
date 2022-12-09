@@ -70,7 +70,7 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install haversine==2.7.0
-          haversine --version
+          pip show haversine
       - name: Compute pre-commit cache key
         if: matrix.session == 'pre-commit'
         id: pre-commit-cache
