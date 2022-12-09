@@ -67,6 +67,6 @@ class Midpoint(Model):
         """
         hotspots = self.get_hotspots(uuid)
         sorted_hotspots = sorted(hotspots, key=lambda h: h.rssi)  # type: ignore
-        assert len(sorted_hotspots) > 1, "Not enough witnesses"
-        midpoint_lat, midpoint_long = midpoint(sorted_hotspots[0], sorted_hotspots[1])
+        if len(sorted_hotspots) > 1:
+            midpoint_lat, midpoint_long = midpoint(sorted_hotspots[0], sorted_hotspots[1])
         return Prediction(uuid=uuid, lat=midpoint_lat, lng=midpoint_long)

@@ -37,7 +37,8 @@ def serve(port: int) -> None:
     """Service for position-prediction of Helium network devices."""
     uvicorn.run(
         "helium_positioning_api.api:app",
-        host="0.0.0.0",
+        # host="0.0.0.0",
+        host="127.0.0.1",
         port=8000,
         log_level="debug",
         proxy_headers=True,
@@ -47,6 +48,7 @@ def serve(port: int) -> None:
 
 @click.group(help="CLI tool for device-position-prediction in the Helium network.")
 def cli() -> None:
+    """CLI tool for device-position-prediction in the Helium network."""
     pass
 
 
