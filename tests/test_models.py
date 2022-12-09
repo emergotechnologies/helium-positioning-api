@@ -1,12 +1,12 @@
 """Test cases for the models module."""
 import json
+from typing import Any
 import pytest
 from haversine import Unit
 from haversine import haversine
-from typing import Any
+from helium_api_wrapper.devices import Event
 from helium_positioning_api.Models import Midpoint
 from helium_positioning_api.Models import NearestNeighborModel
-from helium_api_wrapper.devices import Event
 
 
 @pytest.fixture
@@ -43,8 +43,7 @@ def test_nearest_neighbor_model(mocker: Any, mock_integration: Event) -> None:
     #   uuid="uuid", lat=47.47771443776213, lng=12.053189171302527)
     assert (
         haversine(
-            prediction, (47.47771443776213, 12.053189171302527),
-            unit=Unit.KILOMETERS
+            prediction, (47.47771443776213, 12.053189171302527), unit=Unit.KILOMETERS
         )
         < 14
     )
@@ -56,8 +55,7 @@ def test_midpoint_model() -> None:
 
     assert (
         haversine(
-            prediction, (47.47771443776213, 12.053189171302527),
-            unit=Unit.KILOMETERS
+            prediction, (47.47771443776213, 12.053189171302527), unit=Unit.KILOMETERS
         )
         < 14
     )

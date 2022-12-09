@@ -1,9 +1,9 @@
 from abc import abstractmethod
 from typing import List
-from helium_positioning_api.DataObjects import Prediction
-from helium_positioning_api.DataObjects import Hotspot
 from helium_api_wrapper.devices import get_last_integration
 from helium_positioning_api.auxilary import midpoint
+from helium_positioning_api.DataObjects import Hotspot
+from helium_positioning_api.DataObjects import Prediction
 
 
 class Model():
@@ -17,8 +17,7 @@ class Model():
     def get_hotspots(self, uuid: str) -> List[Hotspot]:
         """Load interacting hotspots from last integration event."""
         integration = get_last_integration(uuid)
-        return [Hotspot(**h)
-                for h in integration.data["req"]["body"]["hotspots"]]
+        return [Hotspot(**h) for h in integration.data["req"]["body"]["hotspots"]]
 
 
 class NearestNeighborModel(Model):
@@ -40,7 +39,8 @@ class NearestNeighborModel(Model):
         :return: coordinates of predicted location
         """
         hotspots = self.get_hotspots(uuid)
-        sorted_hotspots = sorted(hotspots, key=lambda h: h.rssi)
+        sorted_hotspots = sorted(
+            hotspots, key=lambda h: h.rssi)  # type: ignore
         nearest_neighbor = sorted_hotspots[0]
         nearest_neighbor.load_location()
         return Prediction(
@@ -64,8 +64,8 @@ class Midpoint(Model):
         :return: coordinates of predicted location
         """
         hotspots = self.get_hotspots(uuid)
-        sorted_hotspots = sorted(hotspots, key=lambda h: h.rssi)
+        sorted_hotspots = sorted(
+            hotspots, key=lambda h: h.rssi)  # type: ignore
         assert len(sorted_hotspots) > 1, "Not enough witnesses"
-        midpoint_lat, midpoint_long = midpoint(
-            sorted_hotspots[0], sorted_hotspots[1])
+        midpoint_lat, midpoint_long = midpoint(sorted_hotspots[0], sorted_hotspots[1])
         return Prediction(uuid=uuid, lat=midpoint_lat, lng=midpoint_long)

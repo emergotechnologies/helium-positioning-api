@@ -2,8 +2,8 @@
 import click
 import uvicorn
 
-from helium_positioning_api.Models import NearestNeighborModel
 from helium_positioning_api.Models import Midpoint
+from helium_positioning_api.Models import NearestNeighborModel
 
 
 @click.command()
@@ -45,9 +45,8 @@ def serve(port: int) -> None:
     )
 
 
-@click.group(
-    help="CLI tool for device-position-prediction in the Helium network."
-)
+@click.group(help="CLI tool for device-position-prediction in the Helium network.")
+
 def cli() -> None:
     pass
 
