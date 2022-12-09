@@ -10,6 +10,7 @@ from helium_api_wrapper.devices import Event
 from helium_positioning_api.Models import Midpoint
 from helium_positioning_api.Models import NearestNeighborModel
 
+
 @pytest.fixture
 def mock_integration() -> Event:
     """Mock integration for testing.

@@ -7,6 +7,7 @@ from typing import Optional
 from helium_api_wrapper.devices import get_device_by_uuid
 from pydantic import BaseModel
 
+
 class DataObject(BaseModel):
     """Base class for all data objects."""
 
