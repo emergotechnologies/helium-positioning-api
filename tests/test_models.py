@@ -3,8 +3,8 @@ import json
 from typing import Any
 
 import pytest
-from haversine import Unit
-from haversine import haversine
+from haversine import Unit  # type: ignore[import]
+from haversine import haversine  # type: ignore[import]
 from helium_api_wrapper.devices import Event
 
 from helium_positioning_api.Models import Midpoint
