@@ -4,7 +4,7 @@ from typing import Dict
 from typing import List
 from typing import Optional
 
-from helium_api_wrapper.devices import get_device_by_uuid
+from helium_api_wrapper.devices import get_device_by_uuid  # type: ignore[import]
 from pydantic import BaseModel
 
 

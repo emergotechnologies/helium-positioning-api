@@ -10,8 +10,8 @@ from typing import List
 from typing import Tuple
 from typing import Union
 
-from utm import from_latlon
-from utm import to_latlon
+from utm import from_latlon  # type: ignore[import]
+from utm import to_latlon  # type: ignore[import]
 
 from helium_positioning_api.DataObjects import Hotspot
 
@@ -28,10 +28,14 @@ def midpoint(point_1: Hotspot, point_2: Hotspot) -> Iterable[Union[float, float]
     point_2.load_location()
 
     # Conversion to radians
-    lat1 = radians(point_1.lat)
-    lon1 = radians(point_1.long)
-    lat2 = radians(point_2.lat)
-    lon2 = radians(point_2.long)
+    if point_1.lat is not None:
+        lat1 = radians(point_1.lat)
+    if point_1.long is not None:
+        lon1 = radians(point_1.long)
+    if point_2.lat is not None:    
+        lat2 = radians(point_2.lat)
+    if point_2.long is not None:
+        lon2 = radians(point_2.long)
 
     bx = cos(lat2) * cos(lon2 - lon1)
     by = cos(lat2) * sin(lon2 - lon1)

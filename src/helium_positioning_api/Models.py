@@ -4,9 +4,9 @@ from typing import List
 
 from helium_api_wrapper.devices import get_last_integration
 
-from helium_positioning_api.auxilary import midpoint
-from helium_positioning_api.DataObjects import Hotspot
-from helium_positioning_api.DataObjects import Prediction
+from helium_positioning_api.auxilary import midpoint  # type: ignore[import]
+from helium_positioning_api.DataObjects import Hotspot  # type: ignore[import]
+from helium_positioning_api.DataObjects import Prediction  # type: ignore[import]
 
 
 class Model:
