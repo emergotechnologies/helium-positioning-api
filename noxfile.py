@@ -164,7 +164,7 @@ def tests(session: Session) -> None:
     """Run the test suite."""
     session.install(".")
     session.install(
-        "coverage[toml]", "pytest", "pygments", "haversine", "helium-api-wrapper"
+        "coverage[toml]", "pytest", "pygments", "haversine", "helium-api-wrapper", "utm"
     )
     try:
         session.run("coverage", "run", "--parallel", "-m", "pytest", *session.posargs)
@@ -191,7 +191,7 @@ def typeguard(session: Session) -> None:
     """Runtime type checking using Typeguard."""
     session.install(".")
     session.install(
-        "pytest", "typeguard", "pygments", "haversine", "helium-api-wrapper"
+        "pytest", "typeguard", "pygments", "haversine", "helium-api-wrapper", "utm"
     )
     session.run("pytest", f"--typeguard-packages={package}", *session.posargs)
 
