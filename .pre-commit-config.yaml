@@ -7,6 +7,13 @@ repos:
         language: system
         types: [python]
         require_serial: true
+        exclude: |
+            (?x)^(
+                tests/data/events.json|
+                tests/data/integration_events.json|
+                .devcontainer/devcontainer.json|
+                .pre-commit-config.yaml
+            )$
       - id: check-added-large-files
         name: Check for added large files
         entry: check-added-large-files
@@ -32,6 +39,13 @@ repos:
         entry: end-of-file-fixer
         language: system
         types: [text]
+        exclude: |
+            (?x)^(
+                tests/data/events.json|
+                tests/data/integration_events.json|
+                .devcontainer/devcontainer.json|
+                .pre-commit-config.yaml
+            )$
         stages: [commit, push, manual]
       - id: flake8
         name: flake8
@@ -39,6 +53,13 @@ repos:
         language: system
         types: [python]
         require_serial: true
+        exclude: |
+            (?x)^(
+                tests/data/events.json|
+                tests/data/integration_events.json|
+                .devcontainer/devcontainer.json|
+                .pre-commit-config.yaml
+            )$
         args: [--darglint-ignore-regex, .*]
       - id: isort
         name: isort
@@ -46,6 +67,13 @@ repos:
         require_serial: true
         language: system
         types_or: [cython, pyi, python]
+        exclude: |
+            (?x)^(
+                tests/data/events.json|
+                tests/data/integration_events.json|
+                .devcontainer/devcontainer.json|
+                .pre-commit-config.yaml
+            )$
         args: ["--filter-files"]
       - id: pyupgrade
         name: pyupgrade
@@ -54,13 +82,34 @@ repos:
         language: system
         types: [python]
         args: [--py37-plus]
+        exclude: |
+            (?x)^(
+                tests/data/events.json|
+                tests/data/integration_events.json|
+                .devcontainer/devcontainer.json|
+                .pre-commit-config.yaml
+            )$
       - id: trailing-whitespace
         name: Trim Trailing Whitespace
         entry: trailing-whitespace-fixer
         language: system
         types: [text]
         stages: [commit, push, manual]
+        exclude: |
+            (?x)^(
+                tests/data/events.json|
+                tests/data/integration_events.json|
+                .devcontainer/devcontainer.json|
+                .pre-commit-config.yaml
+            )$
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v2.6.0
     hooks:
       - id: prettier
+        exclude: |
+            (?x)^(
+                tests/data/events.json|
+                tests/data/integration_events.json|
+                .devcontainer/devcontainer.json|
+                .pre-commit-config.yaml
+            )$

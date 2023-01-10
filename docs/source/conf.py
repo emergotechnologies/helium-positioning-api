@@ -1,3 +1,4 @@
+"""Configuration file for the Sphinx documentation builder."""
 # Configuration file for the Sphinx documentation builder.
 #
 # For the full list of built-in configuration values, see the documentation:
@@ -49,4 +50,4 @@ master_doc = "index"
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = "sphinx_rtd_theme"
-# html_static_path = ['_static']
+# html_static_path = ["_static"]
