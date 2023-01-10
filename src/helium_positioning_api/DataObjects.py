@@ -21,13 +21,25 @@ from pydantic import BaseModel
 class DataObject(BaseModel):
     """Base class for all data objects."""
 
-    def __len__(self):
+    def __len__(self) -> int:
+        """Return the length of the object.
+
+        :return: length of object (int)
+        """
         return dict(self).__len__()
 
-    def __getitem__(self, item):
+    def __getitem__(self, item: Any) -> Any:
+        """Access the dictionary with the value of item as the key.
+
+        :return: dictionary value for key
+        """
         return getattr(self, item)
 
-    def as_dict(self, columns: Optional[List[str]] = None):
+    def as_dict(self, columns: Optional[List[str]] = None) -> Dict[Any, Any]:
+        """Cast data as dictionary.
+
+        return: Dictionary
+        """
         data = dict(self)
         if columns:
             data = {key: data[key] for key in columns}
@@ -41,7 +53,7 @@ class Prediction(DataObject):
     lat: float
     lng: float
     timestamp: datetime
-    conf: float = None
+    conf: Optional[float] = None
 
     def __str__(self):
         return f"\nuuid: {self.uuid}\nlast connection: {self.timestamp.isoformat()}\nlat: {self.lat}  lng: {self.lng}"
@@ -56,19 +68,24 @@ class Hotspot(DataObject):
     :param id: A base58 encoding of the hotspot's public key.
     :type id: str
 
-    :param name: A human-friendly three-word encoding of the hotspot's public key.
+    :param name: human-friendly three-word alias of the hotspot's public key.
     :type name: str
 
     :param reported_at: Timestamp in milliseconds
     :type reported_at: int
 
-    :param rssi: Received Signal Strength Indicator is reported by the hotspot and indicates how strong the signal device's radio signal was
+    :param rssi: Received Signal Strength Indicator is reported\
+        by the hotspot and indicates how strong the signal device's \
+        radio signal was
     :type rssi: float
 
-    :param snr: In dB, Signal to Noise Ratio is reported by the hotspot to indicate how clear the signal was relative to environmental noise
+    :param snr: In dB, Signal to Noise Ratio is reported by the\
+        hotspot to indicate how clear the signal was relative \
+        to environmental noise
     :type snr: float
 
-    :param spreading: LoRa Spreading Factor and Bandwidth used for the radio transmission.
+    :param spreading: LoRa Spreading Factor and Bandwidth \
+        used for the radio transmission.
     :type spreading: str
 
     """
@@ -80,8 +97,8 @@ class Hotspot(DataObject):
     rssi: float
     snr: float
     spreading: str
-    lat: float = None
-    long: float = None
+    lat: Optional[float] = None
+    long: Optional[float] = None
 
     def __post_init__(self):
         if isinstance(self.reported_at, int):
@@ -91,8 +108,10 @@ class Hotspot(DataObject):
         else:
             raise Exception("Timestamp has to be type 'int' or 'str'.")
 
-    def load_location(self):
+    def load_location(self) -> None:
+        """Assign latitude and longitude to the object \
+            from the data in Hotspots object."""
         if not self.lat or not self.long:
             hotspot = get_hotspot_by_address(self.id)
-            self.lat = hotspot.lat
-            self.long = hotspot.lng
+            self.lat = hotspot["lat"]
+            self.long = hotspot["lng"]

@@ -3,3 +3,5 @@ nox==2022.1.7
 nox-poetry==1.0.0
 poetry==1.1.13
 virtualenv==20.14.1
+pytest == 7.2.0
+helium-api-wrapper == 0.0.1.dev1671285320
