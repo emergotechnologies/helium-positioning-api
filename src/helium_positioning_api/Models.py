@@ -1,8 +1,18 @@
-"""Positioning Models module."""
+"""Models Module.
+
+.. module:: Models
+
+:synopsis: Classes and functions for the prediction of device positions
+
+.. moduleauthor:: DSIA21
+
+"""
+
+from abc import ABCMeta
 from abc import abstractmethod
 from typing import List
 
-from helium_api_wrapper.devices import get_last_integration
+from helium_api_wrapper.helpers import load_last_integration
 
 from helium_positioning_api.auxilary import midpoint
 from helium_positioning_api.DataObjects import Hotspot
@@ -20,6 +30,7 @@ class Model:
     def get_hotspots(self, uuid: str) -> List[Hotspot]:
         """Load interacting hotspots from last integration event."""
         integration = get_last_integration(uuid)
+        print(integration)
         return [Hotspot(**h) for h in integration.data["req"]["body"]["hotspots"]]
 
 
@@ -46,7 +57,10 @@ class NearestNeighborModel(Model):
         nearest_neighbor = sorted_hotspots[0]
         nearest_neighbor.load_location()
         return Prediction(
-            uuid=uuid, lat=nearest_neighbor.lat, lng=nearest_neighbor.long
+            uuid=uuid,
+            lat=nearest_neighbor.lat,
+            lng=nearest_neighbor.long,
+            timestamp=nearest_neighbor.reported_at,
         )
 
 

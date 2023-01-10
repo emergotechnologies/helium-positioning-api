@@ -1,9 +1,19 @@
-"""Command-line interface."""
+"""Main module.
+
+.. module:: __main__
+
+:synopsis: Command-line interface
+
+.. moduleauthor:: DSIA21
+
+"""
+
 import click
 import uvicorn
 
 from helium_positioning_api.Models import Midpoint
 from helium_positioning_api.Models import NearestNeighborModel
+from helium_positioning_api import api
 
 
 @click.command()
@@ -34,11 +44,10 @@ def predict(uuid: str, model: str) -> None:
 @click.option("--port", default=8000, type=int)
 @click.version_option(version="0.1")
 def serve(port: int) -> None:
-    """Service for position-prediction of Helium network devices."""
+    """Serve a prediction service for the prediction of the position of a device in the Helium network."""
     uvicorn.run(
         "helium_positioning_api.api:app",
-        # host="0.0.0.0",
-        host="127.0.0.1",
+        host="0.0.0.0",
         port=8000,
         log_level="debug",
         proxy_headers=True,
@@ -46,8 +55,10 @@ def serve(port: int) -> None:
     )
 
 
-@click.group(help="CLI tool for device-position-prediction in the Helium network.")
-def cli() -> None:
+@click.group(
+    help="CLI tool to predict the position of a LoraWan device in the Helium network."
+)
+def cli():
     """CLI tool for device-position-prediction in the Helium network."""
     pass
 

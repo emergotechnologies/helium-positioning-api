@@ -1,10 +1,20 @@
-"""Data objects module."""
+"""Data Objects module.
+
+.. module:: DataObjects
+
+:synopsis: Classes for data from Helium API
+
+.. moduleauthor:: DSIA21
+
+"""
+
+from datetime import datetime
 from typing import Any
 from typing import Dict
 from typing import List
 from typing import Optional
 
-from helium_api_wrapper.devices import get_device_by_uuid
+from helium_api_wrapper.helpers import load_hotspot
 from pydantic import BaseModel
 
 
@@ -42,7 +52,11 @@ class Prediction(DataObject):
     uuid: str
     lat: float
     lng: float
+    timestamp: datetime
     conf: Optional[float] = None
+
+    def __str__(self):
+        return f"\nuuid: {self.uuid}\nlast connection: {self.timestamp.isoformat()}\nlat: {self.lat}  lng: {self.lng}"
 
 
 class Hotspot(DataObject):
@@ -58,7 +72,7 @@ class Hotspot(DataObject):
     :type name: str
 
     :param reported_at: Timestamp in milliseconds
-    :type reported_at: float
+    :type reported_at: int
 
     :param rssi: Received Signal Strength Indicator is reported\
         by the hotspot and indicates how strong the signal device's \
@@ -79,12 +93,20 @@ class Hotspot(DataObject):
     frequency: float
     id: str
     name: str
-    reported_at: str
+    reported_at: datetime
     rssi: float
     snr: float
     spreading: str
     lat: Optional[float] = None
     long: Optional[float] = None
+
+    def __post_init__(self):
+        if isinstance(self.reported_at, int):
+            self.reported_at = datetime.fromtimestamp(self.reported_at)
+        elif isinstance(self.reported_at, str):
+            self.reported_at = datetime.fromtimestamp(int(self.reported_at))
+        else:
+            raise Exception("Timestamp has to be type 'int' or 'str'.")
 
     def load_location(self) -> None:
         """Assign latitude and longitude to the object \

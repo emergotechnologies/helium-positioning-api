@@ -7,6 +7,7 @@ from haversine import Unit  # type: ignore[import]
 from haversine import haversine
 from helium_api_wrapper.devices import Event
 
+from helium_positioning_api.DataObjects import Prediction
 from helium_positioning_api.Models import Midpoint
 from helium_positioning_api.Models import NearestNeighborModel
 
@@ -39,6 +40,10 @@ def test_nearest_neighbor_model(mocker: Any, mock_integration: Event) -> None:
         return_value={"lat": 47.47771443776213, "lng": 12.053189171302527},
     )
     prediction = NearestNeighborModel().predict(uuid="uuid")
+
+    assert prediction == Prediction(
+        uuid="uuid", lat=47.47771443776213, lng=12.053189171302527
+    )
     # TODO consider testing strategy that is not reliant on hardcoded values,
     # as they are potentially subject to change in most recent integration
     # assert prediction == Prediction(

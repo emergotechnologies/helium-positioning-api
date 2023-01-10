@@ -1,4 +1,13 @@
-"""API module."""
+"""API Module.
+
+.. module:: api
+
+:synopsis: REST api functions for the prediction of device position.
+
+.. moduleauthor:: DSIA21
+
+"""
+
 from fastapi import FastAPI
 from fastapi import HTTPException
 from pydantic import BaseModel
