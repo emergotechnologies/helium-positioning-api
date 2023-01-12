@@ -6,8 +6,8 @@
 [![License](https://img.shields.io/pypi/l/helium-positioning-api)][license]
 
 [![Read the documentation at https://helium-positioning-api.readthedocs.io/](https://img.shields.io/readthedocs/helium-positioning-api-api-api-api-api-api/latest.svg?label=Read%20the%20Docs)][read the docs]
-[![Tests](https://github.com/g4challenge/helium-positioning-api-api/workflows/Tests/badge.svg)][tests]
-[![Codecov](https://codecov.io/gh/g4challenge/helium-positioning-api/branch/main/graph/badge.svg)][codecov]
+[![Tests](https://github.com/emergotechnologies/helium-positioning-api/workflows/Tests/badge.svg)][tests]
+[![Codecov](https://codecov.io/gh/emergotechnologies/helium-positioning-api/branch/main/graph/badge.svg)][codecov]
 
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)][pre-commit]
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
