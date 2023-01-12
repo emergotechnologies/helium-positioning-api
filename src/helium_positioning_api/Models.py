@@ -8,11 +8,10 @@
 
 """
 
-from abc import ABCMeta
 from abc import abstractmethod
 from typing import List
 
-from helium_api_wrapper.helpers import load_last_integration
+from helium_api_wrapper.devices import get_last_integration
 
 from helium_positioning_api.auxilary import midpoint
 from helium_positioning_api.DataObjects import Hotspot
@@ -28,7 +27,7 @@ class Model:
         pass
 
     def get_hotspots(self, uuid: str) -> List[Hotspot]:
-        """Load interacting hotspots from last integration event."""
+        """Load hotspots, which interacted with the given device from the last integration event."""
         integration = get_last_integration(uuid)
         print(integration)
         return [Hotspot(**h) for h in integration.data["req"]["body"]["hotspots"]]

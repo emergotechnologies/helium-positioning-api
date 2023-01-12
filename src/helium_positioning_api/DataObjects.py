@@ -14,7 +14,7 @@ from typing import Dict
 from typing import List
 from typing import Optional
 
-from helium_api_wrapper.helpers import load_hotspot
+from helium_api_wrapper.hotspots import get_hotspot_by_address
 from pydantic import BaseModel
 
 
@@ -112,6 +112,6 @@ class Hotspot(DataObject):
         """Assign latitude and longitude to the object \
             from the data in Hotspots object."""
         if not self.lat or not self.long:
-            hotspot = get_device_by_uuid(self.id)
+            hotspot = get_hotspot_by_address(self.id)
             self.lat = hotspot["lat"]
             self.long = hotspot["lng"]
