@@ -11,7 +11,6 @@
 import click
 import uvicorn
 
-from helium_positioning_api import api
 from helium_positioning_api.Models import Midpoint
 from helium_positioning_api.Models import NearestNeighborModel
 
