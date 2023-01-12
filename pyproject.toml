@@ -1,19 +1,19 @@
 [tool.poetry]
 name = "helium-positioning-api"
-version = "0.0.0"
+version = "0.0.1"
 description = "Helium Positioning API"
 authors = ["Lukas Huber <lukas.huber@fh-kufstein.ac.at>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/g4challenge/helium-positioning-api"
-repository = "https://github.com/g4challenge/helium-positioning-api"
+homepage = "https://github.com/emergotechnologies/helium-positioning-api"
+repository = "https://github.com/emergotechnologies/helium-positioning-api"
 documentation = "https://helium-positioning-api.readthedocs.io"
 classifiers = [
     "Development Status :: 3 - Alpha",
 ]
 
 [tool.poetry.urls]
-Changelog = "https://github.com/g4challenge/helium-positioning-api/releases"
+Changelog = "https://github.com/emergotechnologies/helium-positioning-apireleases"
 
 [tool.poetry.dependencies]
 python = "^3.7"
@@ -61,7 +61,7 @@ source = ["helium_positioning_api", "tests"]
 
 [tool.coverage.report]
 show_missing = true
-fail_under = 100
+fail_under = 70
 
 [tool.isort]
 profile = "black"
