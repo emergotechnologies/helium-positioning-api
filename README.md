@@ -39,18 +39,19 @@ poetry install
 poetry shell
 pip install git+https://github.com/emergotechnologies/helium-api-wrapper
 ```
+
 ## Prerequisites
 
 Before use, ensure that there is an `.env` file in the root directory of the repository where the `API_KEY` variable is entered (see `.env.sample`). You can generate and copy the `API_KEY` at https://console.helium.com/profile.
 
 ## Usage
 
-The service allows usage via **command line interface** or locally hosted **REST interface**. 
-
+The service allows usage via **command line interface** or locally hosted **REST interface**.
 
 ### CLI
 
 **Get Device Position**
+
 ```
 python -m helium_positioning_api predict --uuid 92f23793-6647-40aa-b255-fa1d4baec75d
 ```
@@ -58,9 +59,9 @@ python -m helium_positioning_api predict --uuid 92f23793-6647-40aa-b255-fa1d4bae
 ### REST-API
 
 1. Start local REST-API (default)
-    ```
-    python -m helium_positioning_api serve
-    ```
+   ```
+   python -m helium_positioning_api serve
+   ```
 2. Open Browser and navigate to `127.0.0.1:8000/docs`
 3. Click on `predict/{uuid}` endpoint to drop down the endpoint details
 4. Click on the `Try it out` button.
@@ -68,6 +69,7 @@ python -m helium_positioning_api predict --uuid 92f23793-6647-40aa-b255-fa1d4bae
 6. You can see the location prediction response in the `Responses` section below.
 
 You can also just simply get the prediction by navigating to:
+
 ```
 https://127.0.0.1:8000/predict/your-uuid
 ```
