@@ -30,12 +30,20 @@ def midpoint(point_1: Hotspot, point_2: Hotspot) -> Iterable[Union[float, float]
     # Conversion to radians
     if point_1.lat is not None:
         lat1 = radians(point_1.lat)
+    else:
+        raise ValueError("Latitude of point_1 is None")
     if point_1.long is not None:
         lon1 = radians(point_1.long)
+    else:
+        raise ValueError("Longitude of point_1 is None")
     if point_2.lat is not None:
         lat2 = radians(point_2.lat)
+    else:
+        raise ValueError("Latitude of point_2 is None")
     if point_2.long is not None:
         lon2 = radians(point_2.long)
+    else:
+        raise ValueError("Longitude of point_2 is None")
 
     bx = cos(lat2) * cos(lon2 - lon1)
     by = cos(lat2) * sin(lon2 - lon1)
@@ -127,7 +135,11 @@ def circle_intersect(
     # conversion UTM -> lat/lon
     if a_utm is not None:
         a = to_latlon(a_utm[0], a_utm[1], zone, letter)
+    else:
+        raise ValueError("No intersection found")
     if b_utm is not None:
         b = to_latlon(b_utm[0], b_utm[1], zone, letter)
+    else:
+        raise ValueError("No intersection found")
 
     return a, b

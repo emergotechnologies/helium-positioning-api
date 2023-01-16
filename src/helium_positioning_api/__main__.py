@@ -57,7 +57,7 @@ def serve(port: int) -> None:
 @click.group(
     help="CLI tool to predict the position of a LoraWan device in the Helium network."
 )
-def cli():
+def cli() -> None:
     """CLI tool for device-position-prediction in the Helium network."""
     pass
 

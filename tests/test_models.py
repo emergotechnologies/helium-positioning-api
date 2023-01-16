@@ -3,9 +3,9 @@ import json
 from typing import Any
 
 import pytest
+from pytest_mock import MockFixture
 from haversine import Unit  # type: ignore[import]
 from haversine import haversine
-from helium_api_wrapper.devices import Event
 
 from helium_positioning_api.DataObjects import Prediction
 from helium_positioning_api.Models import Midpoint
@@ -13,7 +13,7 @@ from helium_positioning_api.Models import NearestNeighborModel
 
 
 @pytest.fixture
-def mock_integration() -> Event:
+def mock_integration() -> Any:
     """Mock integration for testing.
 
     :return: integration Event
@@ -23,7 +23,7 @@ def mock_integration() -> Event:
     return integrations[0]
 
 
-def test_nearest_neighbor_model(mocker: Any, mock_integration: Event) -> None:
+def test_nearest_neighbor_model(mocker: MockFixture, mock_integration: Any) -> None:
     """Test for the nearest neighbor model.
 
     :param mocker: Mocker
@@ -31,7 +31,7 @@ def test_nearest_neighbor_model(mocker: Any, mock_integration: Event) -> None:
 
     """
     mocker.patch(
-        "helium_positioning_api.Models.get_last_integration",
+        "helium_api_wrapper.devices.get_last_integration",
         return_value=mock_integration,
         autospec=True,
     )

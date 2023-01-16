@@ -18,35 +18,7 @@ from helium_api_wrapper.hotspots import get_hotspot_by_address
 from pydantic import BaseModel
 
 
-class DataObject(BaseModel):
-    """Base class for all data objects."""
-
-    def __len__(self) -> int:
-        """Return the length of the object.
-
-        :return: length of object (int)
-        """
-        return dict(self).__len__()
-
-    def __getitem__(self, item: Any) -> Any:
-        """Access the dictionary with the value of item as the key.
-
-        :return: dictionary value for key
-        """
-        return getattr(self, item)
-
-    def as_dict(self, columns: Optional[List[str]] = None) -> Dict[Any, Any]:
-        """Cast data as dictionary.
-
-        return: Dictionary
-        """
-        data = dict(self)
-        if columns:
-            data = {key: data[key] for key in columns}
-        return data
-
-
-class Prediction(DataObject):
+class Prediction(BaseModel):
     """Class to describe a Prediction Object."""
 
     uuid: str
@@ -55,7 +27,7 @@ class Prediction(DataObject):
     timestamp: datetime
     conf: Optional[float] = None
 
-    def __str__(self):
+    def __str__(self) -> str:
         """Return a string representation of the object."""
         if self.lat and self.lng:
             return f"\nuuid: {self.uuid}\nlast connection: {self.timestamp.isoformat()}\nlat: {self.lat}  lng: {self.lng}\nconfidence: {self.conf}"
@@ -63,7 +35,7 @@ class Prediction(DataObject):
             return f"\nuuid: {self.uuid}\nlast connection: {self.timestamp.isoformat()}\nprediction not successful"
 
 
-class Hotspot(DataObject):
+class Hotspot(BaseModel):
     """Hotspots which received the same packet.
 
     :param frequency: In MHz, the frequency which the packet was received upon.
@@ -101,23 +73,14 @@ class Hotspot(DataObject):
     rssi: float
     snr: float
     spreading: str
-    datarate: str
     # todo can long and lat be None?
     lat: Optional[float] = None
     long: Optional[float] = None
-
-    def __post_init__(self):
-        if isinstance(self.reported_at, int):
-            self.reported_at = datetime.fromtimestamp(self.reported_at)
-        elif isinstance(self.reported_at, str):
-            self.reported_at = datetime.fromtimestamp(int(self.reported_at))
-        else:
-            raise Exception("Timestamp has to be type 'int' or 'str'.")
 
     def load_location(self) -> None:
         """Assign latitude and longitude to the object \
             from the data in Hotspots object."""
         if not self.lat or not self.long:
             hotspot = get_hotspot_by_address(self.id)
-            self.lat = hotspot["lat"]
-            self.long = hotspot["lng"]
+            self.lat = hotspot[0].lat
+            self.long = hotspot[0].lng

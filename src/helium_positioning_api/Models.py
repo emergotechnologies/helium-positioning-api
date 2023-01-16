@@ -124,9 +124,9 @@ class Trilateration(Model):
         
         # do trilateration
 
-        return Prediction(
-            uuid=uuid,
-            lat=nearest_neighbor.lat,
-            lng=nearest_neighbor.long,
-            timestamp=nearest_neighbor.reported_at,
-        )
+        # return Prediction(
+        #     uuid=uuid,
+        #     lat=nearest_neighbor.lat,
+        #     lng=nearest_neighbor.long,
+        #     timestamp=nearest_neighbor.reported_at,
+        # )
