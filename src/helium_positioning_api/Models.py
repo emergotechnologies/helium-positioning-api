@@ -8,6 +8,7 @@
 
 """
 
+import logging
 from abc import abstractmethod
 from typing import List
 
@@ -16,6 +17,11 @@ from helium_api_wrapper.devices import get_last_integration
 from helium_positioning_api.auxilary import midpoint
 from helium_positioning_api.DataObjects import Hotspot
 from helium_positioning_api.DataObjects import Prediction
+from helium_positioning_api.distance_prediction import get_model, predict_distance
+
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 class Model:
@@ -29,7 +35,7 @@ class Model:
     def get_hotspots(self, uuid: str) -> List[Hotspot]:
         """Load hotspots, which interacted with the given device from the last integration event."""
         integration = get_last_integration(uuid)
-        print(integration)
+        # print(integration)
         return [Hotspot(**h) for h in integration.data["req"]["body"]["hotspots"]]
 
 
@@ -54,7 +60,7 @@ class NearestNeighborModel(Model):
         hotspots = self.get_hotspots(uuid)
         sorted_hotspots = sorted(hotspots, key=lambda h: h.rssi)
         nearest_neighbor = sorted_hotspots[0]
-        nearest_neighbor.load_location()
+        nearest_neighbor.load_location()  # todo check if this is necessary
         return Prediction(
             uuid=uuid,
             lat=nearest_neighbor.lat,
@@ -85,3 +91,42 @@ class Midpoint(Model):
                 sorted_hotspots[0], sorted_hotspots[1]
             )
         return Prediction(uuid=uuid, lat=midpoint_lat, lng=midpoint_long)
+
+
+class Trilateration(Model):
+    """This model predicts the location of a given device."""
+    def predict(self, uuid: str) -> Prediction:
+        """Create an object of Class Prediction.
+
+        :param uuid: Device id
+
+        :return: coordinates of predicted location
+        """
+        model = get_model("model.joblib")  # todo make configurable
+        hotspots = self.get_hotspots(uuid)
+        sorted_hotspots = sorted(hotspots, key=lambda h: h.rssi)
+
+        if len(sorted_hotspots) < 3:
+            logger.warning("Not enough hotspots to perform trilateration, using nearest neighbor model instead.")
+            return NearestNeighborModel().predict(uuid)
+
+        distance, longitude, latitude = [], [], []
+        for hotspot in sorted_hotspots:
+            hotspot.load_location()
+            dist = predict_distance(model, [hotspot.lat, hotspot.long, hotspot.rssi, hotspot.snr, hotspot.datarate])
+            longitude.append(hotspot.long)
+            latitude.append(hotspot.lat)
+            distance.append(dist)
+
+        hotspots = zip(latitude, longitude, distance)
+
+        # [[lat, long, dist], [lat, long, dist], [lat, long, dist]]
+        
+        # do trilateration
+
+        return Prediction(
+            uuid=uuid,
+            lat=nearest_neighbor.lat,
+            lng=nearest_neighbor.long,
+            timestamp=nearest_neighbor.reported_at,
+        )

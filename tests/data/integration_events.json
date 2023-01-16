@@ -32,6 +32,34 @@
               "snr": -17.0,
               "spreading": "SF12BW125",
               "status": "success"
+            },
+            {
+              "channel": 7,
+              "frequency": 868.5,
+              "hold_time": 0,
+              "id": "11eEedQiW4iCY3oeA1saw15jtyjjKPp1vESdE3wXehznj1XL32q",
+              "lat": 47.44771443776213,
+              "long": 12.052189171302527,
+              "name": "passive-inky-whale",
+              "reported_at": 1669295750681,
+              "rssi": -130.0,
+              "snr": -19.0,
+              "spreading": "SF12BW125",
+              "status": "success"
+            },
+            {
+              "channel": 7,
+              "frequency": 868.5,
+              "hold_time": 0,
+              "id": "11eEedQiW4iCY3oeA1saw15jtyjjKPp1vESdE3wXehznj1XL32q",
+              "lat": 47.48771443776213,
+              "long": 12.052189171302527,
+              "name": "passive-inky-whale",
+              "reported_at": 1669295750681,
+              "rssi": -132.0,
+              "snr": -18.0,
+              "spreading": "SF12BW125",
+              "status": "success"
             }
           ],
           "id": "92f23793-6647-40aa-b255-fa1d4baec75d",

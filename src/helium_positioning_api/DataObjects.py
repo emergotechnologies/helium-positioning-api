@@ -50,13 +50,17 @@ class Prediction(DataObject):
     """Class to describe a Prediction Object."""
 
     uuid: str
-    lat: float
-    lng: float
+    lat: Optional[float] = None
+    lng: Optional[float] = None
     timestamp: datetime
     conf: Optional[float] = None
 
     def __str__(self):
-        return f"\nuuid: {self.uuid}\nlast connection: {self.timestamp.isoformat()}\nlat: {self.lat}  lng: {self.lng}"
+        """Return a string representation of the object."""
+        if self.lat and self.lng:
+            return f"\nuuid: {self.uuid}\nlast connection: {self.timestamp.isoformat()}\nlat: {self.lat}  lng: {self.lng}\nconfidence: {self.conf}"
+        else:
+            return f"\nuuid: {self.uuid}\nlast connection: {self.timestamp.isoformat()}\nprediction not successful"
 
 
 class Hotspot(DataObject):
@@ -97,6 +101,8 @@ class Hotspot(DataObject):
     rssi: float
     snr: float
     spreading: str
+    datarate: str
+    # todo can long and lat be None?
     lat: Optional[float] = None
     long: Optional[float] = None
 

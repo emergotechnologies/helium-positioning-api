@@ -31,14 +31,11 @@ def test_nearest_neighbor_model(mocker: Any, mock_integration: Event) -> None:
 
     """
     mocker.patch(
-        "helium_positioning_api.Models.load_last_integration",
+        "helium_positioning_api.Models.get_last_integration",
         return_value=mock_integration,
         autospec=True,
     )
-    mocker.patch(
-        "helium_positioning_api.DataObjects.load_hotspot",
-        return_value={"lat": 47.47771443776213, "lng": 12.053189171302527},
-    )
+    
     prediction = NearestNeighborModel().predict(uuid="uuid")
 
     assert prediction == Prediction(
