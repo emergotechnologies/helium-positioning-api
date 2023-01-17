@@ -10,13 +10,14 @@ from typing import List
 from typing import Tuple
 from typing import Union
 
+from helium_api_wrapper.DataObjects import IntegrationHotspot
 from utm import from_latlon  # type: ignore[import]
 from utm import to_latlon
 
-from helium_positioning_api.DataObjects import Hotspot
 
-
-def midpoint(point_1: Hotspot, point_2: Hotspot) -> Iterable[Union[float, float]]:
+def midpoint(
+    point_1: IntegrationHotspot, point_2: IntegrationHotspot
+) -> Iterable[Union[float, float]]:
     """Return the midpoint coordinates between two hotspots.
 
     :param point_1: first Hotspot
@@ -24,24 +25,21 @@ def midpoint(point_1: Hotspot, point_2: Hotspot) -> Iterable[Union[float, float]
 
     :return: coordinates of midpoint between point_1 and point_2
     """
-    point_1.load_location()
-    point_2.load_location()
-
     # Conversion to radians
     if point_1.lat is not None:
         lat1 = radians(point_1.lat)
     else:
         raise ValueError("Latitude of point_1 is None")
-    if point_1.long is not None:
-        lon1 = radians(point_1.long)
+    if point_1.lng is not None:
+        lon1 = radians(point_1.lng)
     else:
         raise ValueError("Longitude of point_1 is None")
     if point_2.lat is not None:
         lat2 = radians(point_2.lat)
     else:
         raise ValueError("Latitude of point_2 is None")
-    if point_2.long is not None:
-        lon2 = radians(point_2.long)
+    if point_2.lng is not None:
+        lon2 = radians(point_2.lng)
     else:
         raise ValueError("Longitude of point_2 is None")
 

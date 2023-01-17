@@ -3,9 +3,9 @@ import json
 from typing import Any
 
 import pytest
-from pytest_mock import MockFixture
 from haversine import Unit  # type: ignore[import]
 from haversine import haversine
+from pytest_mock import MockFixture
 
 from helium_positioning_api.DataObjects import Prediction
 from helium_positioning_api.Models import Midpoint
@@ -35,7 +35,7 @@ def test_nearest_neighbor_model(mocker: MockFixture, mock_integration: Any) -> N
         return_value=mock_integration,
         autospec=True,
     )
-    
+
     prediction = NearestNeighborModel().predict(uuid="uuid")
 
     assert prediction == Prediction(

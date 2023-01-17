@@ -9,9 +9,6 @@
 """
 
 from datetime import datetime
-from typing import Any
-from typing import Dict
-from typing import List
 from typing import Optional
 
 from helium_api_wrapper.hotspots import get_hotspot_by_address
@@ -30,7 +27,10 @@ class Prediction(BaseModel):
     def __str__(self) -> str:
         """Return a string representation of the object."""
         if self.lat and self.lng:
-            return f"\nuuid: {self.uuid}\nlast connection: {self.timestamp.isoformat()}\nlat: {self.lat}  lng: {self.lng}\nconfidence: {self.conf}"
+            return (
+                f"\nuuid: {self.uuid}\nlast connection: {self.timestamp.isoformat()}\n"
+                f"lat: {self.lat}  lng: {self.lng}\nconfidence: {self.conf}"
+            )
         else:
             return f"\nuuid: {self.uuid}\nlast connection: {self.timestamp.isoformat()}\nprediction not successful"
 
@@ -73,9 +73,8 @@ class Hotspot(BaseModel):
     rssi: float
     snr: float
     spreading: str
-    # todo can long and lat be None?
-    lat: Optional[float] = None
-    long: Optional[float] = None
+    lat: float
+    long: float
 
     def load_location(self) -> None:
         """Assign latitude and longitude to the object \
