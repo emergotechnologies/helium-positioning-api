@@ -15,8 +15,6 @@ def get_model(model: str) -> BaseEstimator:
     :return: The model object
     """
     path = __get_model_path() + model
-
-    # todo check model file type and leave one of the lines
     loaded_model = joblib.load(path)
     return loaded_model
 

@@ -1,0 +1,84 @@
+[
+  {
+    "lng": -122.39186733984285,
+    "lat": 37.784056617819544,
+    "status": {
+      "online": "offline",
+      "height": 394065
+    },
+    "score_update_height": 395577,
+    "score": 0.25,
+    "owner": "14e35CChhsnuHJxjjzYAxsHKBKDgjUop4GuD8esB7gE2VDoyPXT",
+    "nonce": 1,
+    "name": "tall-plum-griffin",
+    "location": "8c283082a1a19ff",
+    "geocode": {
+      "short_street": "Bryant St",
+      "short_state": "CA",
+      "short_country": "US",
+      "short_city": "SF",
+      "long_street": "Bryant Street",
+      "long_state": "California",
+      "long_country": "United States",
+      "long_city": "San Francisco",
+      "city_id": "c2FuIGZyYW5jaXNjb2NhbGlmb3JuaWF1bml0ZWQgc3RhdGVz"
+    },
+    "block_added": 395575,
+    "block": 397023,
+    "address": "11cxkqa2PjpJ9YgY9qK3Njn4uSFu6dyK9xV8XE4ahFSqN1YN2db"
+  },
+  {
+    "lng": 5.5794356104890825,
+    "lat": 45.13127467725158,
+    "status": {
+      "online": "online",
+      "height": 391690
+    },
+    "reward_scale": 0.25,
+    "owner": "13wv9QctMFJqQpvbZq8GuwaKc7YxUuvMw6WQD5JouvB3L2kuGwT",
+    "nonce": 1,
+    "name": "keen-metal-halibut",
+    "location": "8c1f933292185ff",
+    "geocode": {
+      "short_street": "Chemin de la Colline",
+      "short_state": "Auvergne-Rhône-Alpes",
+      "short_country": "FR",
+      "short_city": "Lans-en-Vercors",
+      "long_street": "Chemin de la Colline",
+      "long_state": "Auvergne-Rhône-Alpes",
+      "long_country": "France",
+      "long_city": "Lans-en-Vercors",
+      "city_id": "bGFucy1lbi12ZXJjb3JzYXV2ZXJnbmUtcmjDtG5lLWFscGVzZnJhbmNl"
+    },
+    "block_added": 395500,
+    "block": 397023,
+    "address": "1122FqmqcH5uk8J1BSAStYK436GAR9CuwDVuBT2gRduofm9Vh7Lq"
+  },
+  {
+    "lng": -81.77662146961255,
+    "lat": 24.55934059588725,
+    "status": {
+      "online": "online",
+      "height": 396910
+    },
+    "reward_scale": 0.2593841552734375,
+    "owner": "131uuuyiYrPczy1aCKDBhvxYTG7ZMNfnZnKgemesd3CZEe3y6EU",
+    "nonce": 2,
+    "name": "nutty-daffodil-ferret",
+    "location": "8c4416a324933ff",
+    "geocode": {
+      "short_street": "Seidenberg Ave",
+      "short_state": "FL",
+      "short_country": "US",
+      "short_city": "Key West",
+      "long_street": "Seidenberg Avenue",
+      "long_state": "Florida",
+      "long_country": "United States",
+      "long_city": "Key West",
+      "city_id": "a2V5IHdlc3RmbG9yaWRhdW5pdGVkIHN0YXRlcw"
+    },
+    "block_added": 377240,
+    "block": 397023,
+    "address": "117ucorijFWJ662HH1q6aYz78Y5q2FfF9DMyx4Ka73vBqsEuuMG"
+  }
+]

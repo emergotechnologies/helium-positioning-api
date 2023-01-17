@@ -36,7 +36,6 @@ class Model:
     def get_hotspots(self, uuid: str) -> List[IntegrationHotspot]:
         """Load hotspots, which interacted with the given device from the last integration event."""
         integration = get_last_integration(uuid)
-        print(integration)
         if len(integration.hotspots) == 0:
             raise ValueError(f"No hotspots found for device {uuid}")
         return integration.hotspots
