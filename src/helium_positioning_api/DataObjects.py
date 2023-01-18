@@ -8,7 +8,6 @@
 
 """
 
-from datetime import datetime
 from typing import Optional
 
 from pydantic import BaseModel
@@ -25,13 +24,7 @@ class Prediction(BaseModel):
 
     def __str__(self) -> str:
         """Return a string representation of the object."""
-        ts = datetime.fromtimestamp(self.timestamp)
         if self.lat is None or self.lng is None:
-            return (
-                f"\nuuid: {self.uuid}\nlast connection: {ts}\nprediction not successful"
-            )
+            return f"\nuuid: {self.uuid}\nprediction not successful"
         else:
-            return (
-                f"\nuuid: {self.uuid}\nlast connection: {ts}\n"
-                f"lat: {self.lat}  lng: {self.lng}\nconfidence: {self.conf}"
-            )
+            return f"\nuuid: {self.uuid}\nlat: {self.lat}\nlng: {self.lng}\nconfidence: {self.conf}"
