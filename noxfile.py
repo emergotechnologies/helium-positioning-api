@@ -153,7 +153,9 @@ def mypy(session: Session) -> None:
     """Type-check using mypy."""
     args = session.posargs or ["src", "tests", "docs/conf.py"]
     session.install(".")
-    session.install("mypy", "pytest", "haversine", "helium-api-wrapper")
+    session.install(
+        "mypy", "pytest", "haversine", "helium-api-wrapper", "joblib", "scikit-learn"
+        )
     session.run("mypy", *args)
     if not session.posargs:
         session.run("mypy", f"--python-executable={sys.executable}", "noxfile.py")
@@ -164,7 +166,8 @@ def tests(session: Session) -> None:
     """Run the test suite."""
     session.install(".")
     session.install(
-        "coverage[toml]", "pytest", "pygments", "haversine", "helium-api-wrapper", "utm"
+        "coverage[toml]", "pytest", "pygments", "haversine", "helium-api-wrapper", "utm",
+        "joblib", "scikit-learn"
     )
     try:
         session.run("coverage", "run", "--parallel", "-m", "pytest", *session.posargs)
