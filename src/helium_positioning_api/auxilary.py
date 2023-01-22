@@ -141,3 +141,45 @@ def circle_intersect(
         raise ValueError("No intersection found")
 
     return a, b
+
+
+def get_centres(
+        latitude: List[float],
+        longitude: List[float],
+        indices=(0, 1, 2),
+        ) -> List[List[float]]:
+    """return latitude/longitude of hotspots from list of indices
+
+    :param latitude: latitudes
+    :type latitude: list of latitudes (floats)
+    :param longitude: longitudes
+    :type longitude: list of longitudes (floats)
+    :param indices: indices of hotspots
+    :type indices: tuple of three integers
+
+    :return: centres of hotspots with the given indices and the indices
+    :rtype: list of latitudes and longitudes in degree and indices as int
+
+    """
+    centre_0 = [latitude[indices[0]].lat, longitude[indices[0]]]
+    centre_1 = [latitude[indices[1]].lat, longitude[indices[1]]]
+    centre_2 = [latitude[indices[2]].lat, longitude[indices[2]]]
+
+    return centre_0, centre_1, centre_2, indices
+
+
+def flatten_intersect_lists(input_list: List[List]) -> List:
+    """flattens lists
+    :param input_list: List of lists
+    :type input_list: list of lists
+
+    :return: list
+    :rtype: list
+    """
+    if len(input_list) != 0:
+        if isinstance(input_list[0], list):
+            flattened_list = [point for sublist in input_list for point in sublist]
+        else:
+            flattened_list = input_list
+
+        return flattened_list
