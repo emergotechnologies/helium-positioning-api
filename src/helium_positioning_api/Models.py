@@ -22,6 +22,7 @@ from helium_positioning_apiance_prediction import predict_distance
 from helium_positioning_api.auxilary import circle_intersect
 from helium_positioning_api.auxilary import flatten_intersect_lists
 from helium_positioning_api.auxilary import get_centres
+from helium_positioning_api.auxilary import mid
 from helium_positioning_api.auxilary import midpoint
 from helium_positioning_api.DataObjects import Prediction
 
@@ -156,7 +157,7 @@ class Trilateration(Model):
                 c_0, distance[ind[0]], c_1, distance[ind[1]]
             )
             if haversine(intersect_0_1_a, intersect_0_1_b, m) < 10:
-                intersects_0_1.append(midpoint(intersect_0_1_a, intersect_0_1_b))
+                intersects_0_1.append(mid(intersect_0_1_a, intersect_0_1_b))
             else:
                 intersects_0_1 += [intersect_0_1_a, intersect_0_1_b]
         if len(circle_intersect(c_0, distance[ind[0]], c_2, distance[ind[2]])) > 0:
@@ -165,7 +166,7 @@ class Trilateration(Model):
                 c_0, distance[ind[0]], c_2, distance[ind[2]]
             )
             if haversine(intersect_0_2_a, intersect_0_2_b, m) < 10:
-                intersects_0_2.append(midpoint(intersect_0_2_a, intersect_0_2_b))
+                intersects_0_2.append(mid(intersect_0_2_a, intersect_0_2_b))
             else:
                 intersects_0_2 += [intersect_0_2_a, intersect_0_2_b]
         if len(circle_intersect(c_1, distance[ind[1]], c_2, distance[ind[2]])) > 0:
@@ -174,7 +175,7 @@ class Trilateration(Model):
                 c_1, distance[ind[1]], c_2, distance[ind[2]]
             )
             if haversine(intersect_1_2_a, intersect_1_2_b, m) < 10:
-                intersects_1_2.append(midpoint(intersect_1_2_a, intersect_1_2_b))
+                intersects_1_2.append(mid(intersect_1_2_a, intersect_1_2_b))
             else:
                 intersects_1_2 += [intersect_1_2_a, intersect_1_2_b]
         # removing none - intersects
@@ -213,33 +214,33 @@ class Trilateration(Model):
 
         elif len(singular_points) == 2:
             if haversine(singular_points[0], singular_points[1], unit=m) < tol:
-                estimated_position = midpoint(singular_points[0], singular_points[1])
+                estimated_position = mid(singular_points[0], singular_points[1])
             else:
                 for singular in singular_points:
                     for two_int in two_intersection_points:
                         for i in range(2):
                             if haversine(singular, two_int[i], unit=m):
-                                estimated_position = midpoint(singular, two_int[i])
+                                estimated_position = mid(singular, two_int[i])
 
         elif len(singular_points) == 3:
             if haversine(singular_points[0], singular_points[1], unit=m) < tol:
-                first_mid = midpoint(singular_points[0], singular_points[1])
+                first_mid = mid(singular_points[0], singular_points[1])
                 if haversine(first_mid, singular_points[2], unit=m) < tol:
-                    second_mid = midpoint(first_mid, singular_points[2])
+                    second_mid = mid(first_mid, singular_points[2])
                     estimated_position = second_mid
                 else:
                     estimated_position = first_mid
             elif haversine(singular_points[0], singular_points[2], unit=m) < tol:
-                first_mid = midpoint(singular_points[0], singular_points[2])
+                first_mid = mid(singular_points[0], singular_points[2])
                 if haversine(first_mid, singular_points[1], unit=m) < tol:
-                    second_mid = midpoint(first_mid, singular_points[1])
+                    second_mid = mid(first_mid, singular_points[1])
                     estimated_position = second_mid
                 else:
                     estimated_position = first_mid
             elif haversine(singular_points[1], singular_points[2], unit=m) < tol:
-                first_mid = midpoint(singular_points[1], singular_points[2])
+                first_mid = mid(singular_points[1], singular_points[2])
                 if haversine(first_mid, singular_points[0], unit=m) < tol:
-                    second_mid = midpoint(first_mid, singular_points[0])
+                    second_mid = mid(first_mid, singular_points[0])
                     estimated_position = second_mid
                 else:
                     estimated_position = first_mid
@@ -252,9 +253,9 @@ class Trilateration(Model):
                     for j in range(2):
                         candidate_2 = two_intersection_points[i + 1][j]
                         if haversine(candidate_1, candidate_2, unit=m) < tol:
-                            candidates.append(midpoint(candidate_1, candidate_2))
+                            candidates.append(mid(candidate_1, candidate_2))
             if len(candidates) == 2:
-                estimated_position = midpoint(candidates[0], candidates[1])
+                estimated_position = mid(candidates[0], candidates[1])
             elif len(candidates) == 1:
                 estimated_position = candidates[0]
             elif len(candidates) == 0:
@@ -273,7 +274,7 @@ class Trilateration(Model):
                                 first_point = all_intersects[i]
                                 second_point = all_intersects[j]
                                 distance = haversine(first_point, second_point, m)
-                estimated_position = midpoint(first_point, second_point)
+                estimated_position = mid(first_point, second_point)
 
         elif len(two_intersection_points) == 1:
             # choose ISP with the shortest distnance to its furthest hotspot
