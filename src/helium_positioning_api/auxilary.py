@@ -187,7 +187,7 @@ def flatten_intersect_lists(input_list: List[List[Iterable[float]]]) -> List[flo
 
 
 def mid(point_1: Iterable[float], point_2: Iterable[float]) -> Tuple[float]:
-    """Return midpoint of two points given in lat/long coordinates 
+    """Return midpoint of two points given in lat/long coordinates.
 
     :param point_1: first point
     :param point_2: second point
@@ -204,7 +204,9 @@ def mid(point_1: Iterable[float], point_2: Iterable[float]) -> Tuple[float]:
 
     bx = cos(lat2) * cos(lon2 - lon1)
     by = cos(lat2) * sin(lon2 - lon1)
-    lat3 = atan2(sin(lat1) + sin(lat2), sqrt((cos(lat1) + bx) * (cos(lat1) + bx) + by**2))
+    lat3 = atan2(
+        sin(lat1) + sin(lat2), sqrt((cos(lat1) + bx) * (cos(lat1) + bx) + by**2)
+    )
     lon3 = lon1 + atan2(by, cos(lat1) + bx)
 
     return (degrees(lat3), degrees(lon3))
