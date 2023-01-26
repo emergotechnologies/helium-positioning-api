@@ -147,7 +147,7 @@ def get_centres(
     latitude: List[float],
     longitude: List[float],
     indices=(0, 1, 2),
-    ) -> List[List[float]]:
+    ) -> Tuple[List[float], List[float], List[float], Tuple]:
     """Return latitude/longitude of hotspots from list of indices.
 
     :param latitude: latitudes
@@ -168,7 +168,7 @@ def get_centres(
     return centre_0, centre_1, centre_2, indices
 
 
-def flatten_intersect_lists(input_list: List[List]) -> List:
+def flatten_intersect_lists(input_list: List[List[float]]) -> List:
     """Flattens lists.
 
     :param input_list: List of lists
@@ -183,4 +183,4 @@ def flatten_intersect_lists(input_list: List[List]) -> List:
         else:
             flattened_list = input_list
 
-        return flattened_list
+    return flattened_list
