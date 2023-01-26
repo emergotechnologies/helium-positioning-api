@@ -173,7 +173,7 @@ def tests(session: Session) -> None:
         "helium-api-wrapper",
         "utm",
         "joblib",
-        "scikit-learn"
+        "scikit-learn",
     )
     try:
         session.run("coverage", "run", "--parallel", "-m", "pytest", *session.posargs)

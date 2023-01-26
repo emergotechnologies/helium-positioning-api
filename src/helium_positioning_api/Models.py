@@ -18,12 +18,12 @@ from helium_api_wrapper.DataObjects import IntegrationHotspot
 from helium_api_wrapper.devices import get_last_integration
 from helium_positioning_apiance_prediction import get_model
 from helium_positioning_apiance_prediction import predict_distance
+
 from helium_positioning_api.auxilary import circle_intersect
 from helium_positioning_api.auxilary import flatten_intersect_lists
 from helium_positioning_api.auxilary import get_centres
 from helium_positioning_api.auxilary import midpoint
 from helium_positioning_api.DataObjects import Prediction
-
 
 
 logging.basicConfig(level=logging.INFO)
@@ -154,7 +154,7 @@ class Trilateration(Model):
             intersects_0_1 = []
             intersect_0_1_a, intersect_0_1_b = circle_intersect(
                 c_0, distance[ind[0]], c_1, distance[ind[1]]
-                )
+            )
             if haversine(intersect_0_1_a, intersect_0_1_b, m) < 10:
                 intersects_0_1.append(midpoint(intersect_0_1_a, intersect_0_1_b))
             else:
@@ -162,7 +162,7 @@ class Trilateration(Model):
         if len(circle_intersect(c_0, distance[ind[0]], c_2, distance[ind[2]])) > 0:
             intersects_0_2 = []
             intersect_0_2_a, intersect_0_2_b = circle_intersect(
-                 c_0, distance[ind[0]], c_2, distance[ind[2]]
+                c_0, distance[ind[0]], c_2, distance[ind[2]]
             )
             if haversine(intersect_0_2_a, intersect_0_2_b, m) < 10:
                 intersects_0_2.append(midpoint(intersect_0_2_a, intersect_0_2_b))
@@ -171,7 +171,7 @@ class Trilateration(Model):
         if len(circle_intersect(c_1, distance[ind[1]], c_2, distance[ind[2]])) > 0:
             intersects_1_2 = []
             intersect_1_2_a, intersect_1_2_b = circle_intersect(
-                 c_1, distance[ind[1]], c_2, distance[ind[2]]
+                c_1, distance[ind[1]], c_2, distance[ind[2]]
             )
             if haversine(intersect_1_2_a, intersect_1_2_b, m) < 10:
                 intersects_1_2.append(midpoint(intersect_1_2_a, intersect_1_2_b))

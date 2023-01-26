@@ -147,7 +147,7 @@ def get_centres(
     latitude: List[float],
     longitude: List[float],
     indices=(0, 1, 2),
-    ) -> Tuple[List[float], List[float], List[float], Tuple]:
+) -> Tuple[List[float], List[float], List[float], Tuple]:
     """Return latitude/longitude of hotspots from list of indices.
 
     :param latitude: latitudes
