@@ -12,19 +12,18 @@ import logging
 from abc import abstractmethod
 from typing import List
 
-from haversine import haversine
 from haversine import Unit
-
+from haversine import haversine
 from helium_api_wrapper.DataObjects import IntegrationHotspot
 from helium_api_wrapper.devices import get_last_integration
-
+from helium_positioning_apiance_prediction import get_model
+from helium_positioning_apiance_prediction import predict_distance
 from helium_positioning_api.auxilary import circle_intersect
 from helium_positioning_api.auxilary import flatten_intersect_lists
 from helium_positioning_api.auxilary import get_centres
 from helium_positioning_api.auxilary import midpoint
 from helium_positioning_api.DataObjects import Prediction
-from helium_positioning_apiance_prediction import get_model
-from helium_positioning_apiance_prediction import predict_distance
+
 
 
 logging.basicConfig(level=logging.INFO)
@@ -157,21 +156,23 @@ class Trilateration(Model):
                 c_0, distance[ind[0]], c_1, distance[ind[1]]
                 )
             if haversine(intersect_0_1_a, intersect_0_1_b, m) < 10:
-                intersects_0_1.append(midpoint(
-                    intersect_0_1_a, intersect_0_1_b)
-                    )
+                intersects_0_1.append(midpoint(intersect_0_1_a, intersect_0_1_b))
             else:
                 intersects_0_1 += [intersect_0_1_a, intersect_0_1_b]
         if len(circle_intersect(c_0, distance[ind[0]], c_2, distance[ind[2]])) > 0:
             intersects_0_2 = []
-            intersect_0_2_a, intersect_0_2_b = circle_intersect(c_0, distance[ind[0]], c_2, distance[ind[2]])
+            intersect_0_2_a, intersect_0_2_b = circle_intersect(
+                 c_0, distance[ind[0]], c_2, distance[ind[2]]
+            )
             if haversine(intersect_0_2_a, intersect_0_2_b, m) < 10:
                 intersects_0_2.append(midpoint(intersect_0_2_a, intersect_0_2_b))
             else:
                 intersects_0_2 += [intersect_0_2_a, intersect_0_2_b]
         if len(circle_intersect(c_1, distance[ind[1]], c_2, distance[ind[2]])) > 0:
             intersects_1_2 = []
-            intersect_1_2_a, intersect_1_2_b = circle_intersect(c_1, distance[ind[1]], c_2, distance[ind[2]])
+            intersect_1_2_a, intersect_1_2_b = circle_intersect(
+                 c_1, distance[ind[1]], c_2, distance[ind[2]]
+            )
             if haversine(intersect_1_2_a, intersect_1_2_b, m) < 10:
                 intersects_1_2.append(midpoint(intersect_1_2_a, intersect_1_2_b))
             else:
@@ -211,7 +212,6 @@ class Trilateration(Model):
             estimated_position = singular_points[0]
 
         elif len(singular_points) == 2:
-
             if haversine(singular_points[0], singular_points[1], unit=m) < tol:
                 estimated_position = midpoint(singular_points[0], singular_points[1])
             else:
@@ -266,7 +266,10 @@ class Trilateration(Model):
                     second_point = all_intersects[1]
                     for i in range(len(all_intersects)):
                         for j in range(i + 1, len(all_intersects)):
-                            if haversine(all_intersects[i], all_intersects[j], m) < distance:
+                            if (
+                                haversine(all_intersects[i], all_intersects[j], m)
+                                < distance
+                            ):
                                 first_point = all_intersects[i]
                                 second_point = all_intersects[j]
                                 distance = haversine(first_point, second_point, m)
@@ -297,4 +300,4 @@ class Trilateration(Model):
             lat=estimated_position[0],
             lng=estimated_position[1],
             timestamp=Trilateration.reported_at,
-         )
+        )

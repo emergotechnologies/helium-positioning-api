@@ -144,11 +144,11 @@ def circle_intersect(
 
 
 def get_centres(
-        latitude: List[float],
-        longitude: List[float],
-        indices=(0, 1, 2),
-        ) -> List[List[float]]:
-    """return latitude/longitude of hotspots from list of indices
+    latitude: List[float],
+    longitude: List[float],
+    indices=(0, 1, 2),
+    ) -> List[List[float]]:
+    """Return latitude/longitude of hotspots from list of indices.
 
     :param latitude: latitudes
     :type latitude: list of latitudes (floats)
@@ -169,7 +169,8 @@ def get_centres(
 
 
 def flatten_intersect_lists(input_list: List[List]) -> List:
-    """flattens lists
+    """Flattens lists.
+
     :param input_list: List of lists
     :type input_list: list of lists
 
