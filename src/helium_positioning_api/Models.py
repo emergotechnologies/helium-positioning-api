@@ -23,8 +23,8 @@ from helium_positioning_api.auxilary import flatten_intersect_lists
 from helium_positioning_api.auxilary import get_centres
 from helium_positioning_api.auxilary import midpoint
 from helium_positioning_api.DataObjects import Prediction
-from helium_positioning_apiance_prediction import get_model
-from helium_positioning_apiance_prediction import predict_distance
+from helium_positioning_api.distance_prediction import get_model
+from helium_positioning_api.distance_prediction import predict_distance
 
 
 logging.basicConfig(level=logging.INFO)
