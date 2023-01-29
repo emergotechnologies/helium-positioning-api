@@ -144,11 +144,11 @@ def circle_intersect(
 
 
 def get_centres(
-        latitude: List[float],
-        longitude: List[float],
-        indices=(0, 1, 2),
-        ) -> List[List[float]]:
-    """return latitude/longitude of hotspots from list of indices
+    latitude: List[float],
+    longitude: List[float],
+    indices=(0, 1, 2),
+) -> Tuple[List[float], List[float], List[float], Tuple[int]]:
+    """Return latitude/longitude of hotspots from list of indices.
 
     :param latitude: latitudes
     :type latitude: list of latitudes (floats)
@@ -168,8 +168,9 @@ def get_centres(
     return centre_0, centre_1, centre_2, indices
 
 
-def flatten_intersect_lists(input_list: List[List]) -> List:
-    """flattens lists
+def flatten_intersect_lists(input_list: List[List[Iterable[float]]]) -> List[float]:
+    """Flattens lists.
+
     :param input_list: List of lists
     :type input_list: list of lists
 
@@ -182,4 +183,30 @@ def flatten_intersect_lists(input_list: List[List]) -> List:
         else:
             flattened_list = input_list
 
-        return flattened_list
+    return flattened_list
+
+
+def mid(point_1: Iterable[float], point_2: Iterable[float]) -> Tuple[float]:
+    """Return midpoint of two points given in lat/long coordinates.
+
+    :param point_1: first point
+    :param point_2: second point
+
+    :return: coordinates of midpoint between point_1 and point_2
+    """
+    # Input values as degrees
+
+    # Convert to radians
+    lat1 = radians(point_1[0])
+    lon1 = radians(point_1[1])
+    lat2 = radians(point_2[0])
+    lon2 = radians(point_2[1])
+
+    bx = cos(lat2) * cos(lon2 - lon1)
+    by = cos(lat2) * sin(lon2 - lon1)
+    lat3 = atan2(
+        sin(lat1) + sin(lat2), sqrt((cos(lat1) + bx) * (cos(lat1) + bx) + by**2)
+    )
+    lon3 = lon1 + atan2(by, cos(lat1) + bx)
+
+    return (degrees(lat3), degrees(lon3))
