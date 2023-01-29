@@ -19,7 +19,7 @@ def get_model(model: str) -> BaseEstimator:
     return loaded_model
 
 
-def predict_distance(model: BaseEstimator, features: List[float]) -> float:
+def predict_distance(model: str, features: List[float]) -> float:
     """Return the predicted distance from the model.
 
     :param model: The model object
@@ -27,6 +27,7 @@ def predict_distance(model: BaseEstimator, features: List[float]) -> float:
     :return: The predicted distance
     """
     # preprocess features
+    model = get_model(model)
     return model.predict(features)
 
 

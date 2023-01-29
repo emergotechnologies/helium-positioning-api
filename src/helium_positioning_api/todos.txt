@@ -1,3 +1,0 @@
-- change Models to functions
-- add model to prediction
-- break up the code into smaller functions

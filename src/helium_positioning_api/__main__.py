@@ -40,6 +40,9 @@ def predict(uuid: str, model: str) -> None:
     elif model == "linear_regression":
         prediction = triangulation(uuid, model="linear_regression")
         print(prediction)
+    elif model == "gradient_boosting":
+        prediction = triangulation(uuid, model="gradient_boosting")
+        print(prediction)
     else:
         raise Exception(f"Model {model} not implemented.")
 

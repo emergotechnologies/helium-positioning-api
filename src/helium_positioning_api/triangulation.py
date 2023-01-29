@@ -28,7 +28,6 @@ def triangulation(uuid: str, model: str) -> Prediction:
 
     :return: coordinates of predicted location
     """
-    model = get_model(model)
     hotspots = get_integration_hotspots(uuid)
     sorted_hotspots = sorted(hotspots, key=lambda h: h.rssi)
 
@@ -48,7 +47,7 @@ def triangulation(uuid: str, model: str) -> Prediction:
                 hotspot.lng,
                 hotspot.rssi,
                 hotspot.snr,
-                hotspot.spreading,
+                hotspot.datarate,
             ],
         )
         longitude.append(hotspot.lng)
