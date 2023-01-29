@@ -11,11 +11,20 @@ from typing import Tuple
 from typing import Union
 
 from helium_api_wrapper.DataObjects import IntegrationHotspot
+from helium_api_wrapper.devices import get_last_integration
 from utm import from_latlon  # type: ignore[import]
 from utm import to_latlon
 
 
-def midpoint(
+def get_integration_hotspots(uuid: str) -> List[IntegrationHotspot]:
+    """Load hotspots, which interacted with the given device from the last integration event."""
+    integration = get_last_integration(uuid)
+    if len(integration.hotspots) == 0:
+        raise ValueError(f"No hotspots found for device {uuid}")
+    return integration.hotspots
+
+
+def get_midpoint(
     point_1: IntegrationHotspot, point_2: IntegrationHotspot
 ) -> Iterable[Union[float, float]]:
     """Return the midpoint coordinates between two hotspots.

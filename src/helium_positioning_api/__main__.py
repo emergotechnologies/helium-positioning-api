@@ -11,9 +11,9 @@
 import click
 import uvicorn
 
-from helium_positioning_api.Models import Midpoint
-from helium_positioning_api.Models import NearestNeighborModel
-from helium_positioning_api.Models import Trilateration
+from helium_positioning_api.midpoint import midpoint
+from helium_positioning_api.nearest_neighbor import nearest_neighbor
+from helium_positioning_api.triangulation import triangulation
 
 
 @click.command()
@@ -32,13 +32,13 @@ def predict(uuid: str, model: str) -> None:
     :param model: prediction model
     """
     if model == "nearest_neighbor":
-        prediction = NearestNeighborModel().predict(uuid)
+        prediction = nearest_neighbor(uuid)
         print(prediction)
     elif model == "midpoint":
-        prediction = Midpoint().predict(uuid)
+        prediction = midpoint(uuid)
         print(prediction)
     elif model == "linear_regression":
-        prediction = Trilateration().predict(uuid, model="linear_regression")
+        prediction = triangulation(uuid, model="linear_regression")
         print(prediction)
     else:
         raise Exception(f"Model {model} not implemented.")
