@@ -18,7 +18,10 @@ def predict_distance(model: str, features: List[float]) -> float:
     """
     # preprocess features
     model = Pipeline(
-        steps=[("preprocessor", __get_preprocessor("preprocessor")), ("estimator", __get_model(model))]
+        steps=[
+            ("preprocessor", __get_preprocessor("preprocessor")), 
+            ("estimator", __get_model(model)),
+        ]
     )
     return model.predict(features)
 

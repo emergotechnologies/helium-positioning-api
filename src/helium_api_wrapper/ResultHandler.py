@@ -10,7 +10,9 @@
 
 import logging
 import os
-from typing import Generator, List, Union
+from typing import Generator
+from typing import List
+from typing import Union
 
 import pandas as pd
 from pydantic import BaseModel
