@@ -6,17 +6,7 @@ import joblib
 from dotenv import find_dotenv
 from dotenv import load_dotenv
 from sklearn.base import BaseEstimator
-
-
-def get_model(model: str) -> BaseEstimator:
-    """Return the model object from the path.
-
-    :param model: The name of the model
-    :return: The model object
-    """
-    path = __get_model_path() + model
-    loaded_model = joblib.load(path)
-    return loaded_model
+from sklearn.pipeline import Pipeline
 
 
 def predict_distance(model: str, features: List[float]) -> float:
@@ -27,8 +17,32 @@ def predict_distance(model: str, features: List[float]) -> float:
     :return: The predicted distance
     """
     # preprocess features
-    model = get_model(model)
+    model = Pipeline(
+        steps=[("preprocessor", __get_preprocessor("preprocessor")), ("estimator", __get_model(model))]
+    )
     return model.predict(features)
+
+
+def __get_model(model: str) -> BaseEstimator:
+    """Return the model object from the path.
+
+    :param model: The name of the model
+    :return: The model object
+    """
+    path = __get_model_path() + model + ".joblib"
+    loaded_model = joblib.load(path)
+    return loaded_model
+
+
+def __get_preprocessor(preprocessor: str) -> BaseEstimator:
+    """Return the model object from the path.
+
+    :param model: The name of the model
+    :return: The model object
+    """
+    path = __get_model_path() + preprocessor + ".joblib"
+    loaded_preprocessor = joblib.load(path)
+    return loaded_preprocessor
 
 
 def __get_model_path() -> str:

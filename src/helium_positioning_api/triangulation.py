@@ -11,7 +11,6 @@ from helium_positioning_api.auxilary import get_centres
 from helium_positioning_api.auxilary import get_integration_hotspots
 from helium_positioning_api.auxilary import mid
 from helium_positioning_api.DataObjects import Prediction
-from helium_positioning_api.distance_prediction import get_model
 from helium_positioning_api.distance_prediction import predict_distance
 from helium_positioning_api.nearest_neighbor import nearest_neighbor
 
