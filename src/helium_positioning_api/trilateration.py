@@ -87,7 +87,7 @@ def do_intersrect(latitude,
                   longitude,
                   distance,
                   indices=(0, 1, 2)) -> Tuple[List, List]:
-    """Generate intersections of every circle.
+    """Generates intersections of every circle.
 
     :param latitude: List of latitudes
     :param longitude: List of longitudes
@@ -172,7 +172,7 @@ def estimate_trilateration(empty_intersects,
                            two_intersection_points,
                            singular_points,
                            centres):
-    """Provide position estimate.
+    """Provides position estimate.
 
     :param empty_intersects: list of empty intersects
     :param two_intersection_points: list of two intersections between two circles
@@ -201,7 +201,7 @@ def estimate_trilateration(empty_intersects,
 
 
 def two_singular_handler(singular_points, two_intersection_points):
-    """Calculate estimation when two out of three circles intersect in singular point.
+    """Calculates estimation when two out of three circles intersect in singular point.
 
     :param singular_points: points of singular intersection
     :param two_intersection_points: intersection points of circles intersecting in two places
@@ -252,6 +252,12 @@ def three_singular_handler(singular_points):
 # TODO docstrings, typing, testing
 
 def multiple_two_int_handler(two_intersection_points):
+    """Calculates estimated position of hotspots using circle intersections.
+
+    :param two_intersection_points: intersection points of circles intersecting in two places
+
+    :return: estimated position of hotspots
+    """
     candidates = []  # list of points that are close enough to the others
     for h in range(2):
         candidate_1 = two_intersection_points[0][h]
@@ -285,7 +291,15 @@ def multiple_two_int_handler(two_intersection_points):
 
 
 def singular_two_int_handler(two_intersection_points, centres):
-    # choose ISP with the shortest distnance to its furthest hotspot
+    """Calculates estimated position of hotspots using circle intersections and \
+        shortest distance to its furthest hotspot.
+
+    :param two_intersection_points: intersection points of circles intersecting in two places
+    :param centers: list of hotspot locations (centres of circles)
+
+    :return: estimated position of hotspots
+    """
+    # choose ISP with the shortest distance to its furthest hotspot
     candidate_1 = two_intersection_points[0][0]
     candidate_2 = two_intersection_points[0][1]
 
