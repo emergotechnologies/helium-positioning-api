@@ -13,11 +13,10 @@ from sklearn.compose import ColumnTransformer
 def predict_distance(model: str, features: Dict[str, List]) -> float:
     """Return the predicted distance from the model.
 
-    :param model: The model object
+    :param model_selection: The model object
     :param features: The features to predict the distance
     :return: The predicted distance
     """
-    # preprocess features
     path = __get_model_path()
     preprocessor = joblib.load(path + "preprocessor.joblib")
     model = joblib.load(path + model + ".joblib")
