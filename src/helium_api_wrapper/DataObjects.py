@@ -16,7 +16,7 @@ from typing import Optional
 from pydantic import BaseModel
 
 
-class Geocode(BaseModel):  # type: ignore[misc]  # type: ignore[misc]
+class Geocode(BaseModel):  # type: ignore[misc]
     """Class to describe Geocode Object."""
 
     long_city: Optional[str] = None
@@ -30,14 +30,14 @@ class Geocode(BaseModel):  # type: ignore[misc]  # type: ignore[misc]
     city_id: Optional[str] = None
 
 
-class Status(BaseModel):  # type: ignore[misc]
+class Status(BaseModel):
     """Class to describe Status Object."""
 
     height: Optional[int] = None
     online: Optional[str] = None
 
 
-class Hotspot(BaseModel):  # type: ignore[misc]
+class Hotspot(BaseModel):
     """Class to describe Hotspot Object."""
 
     address: Optional[str] = None
@@ -54,7 +54,7 @@ class Hotspot(BaseModel):  # type: ignore[misc]
     status: Optional[Status] = None
 
 
-class Role(BaseModel):  # type: ignore[misc]
+class Role(BaseModel):
     """Class to describe Role Object."""
 
     type: str
@@ -64,7 +64,7 @@ class Role(BaseModel):  # type: ignore[misc]
     hash: Optional[str] = None
 
 
-class Witness(BaseModel):  # type: ignore[misc]
+class Witness(BaseModel):
     """Class to describe Witness Object."""
 
     timestamp: int
@@ -78,7 +78,7 @@ class Witness(BaseModel):  # type: ignore[misc]
     snr: Optional[float] = None
 
 
-class Receipt(BaseModel):  # type: ignore[misc]
+class Receipt(BaseModel):
     """Class to describe Receipt Object."""
 
     timestamp: int
@@ -88,7 +88,7 @@ class Receipt(BaseModel):  # type: ignore[misc]
     data: str
 
 
-class Challenge(BaseModel):  # type: ignore[misc]
+class Challenge(BaseModel):
     """Class to describe a Challenge loaded from the Helium API."""
 
     type: str
@@ -106,7 +106,7 @@ class Challenge(BaseModel):  # type: ignore[misc]
     fee: Optional[int] = None
 
 
-class ChallengeResult(BaseModel):  # type: ignore[misc]
+class ChallengeResult(BaseModel):
     """Class to describe a Challenge loaded from the Helium API."""
 
     challengee: Optional[str]
@@ -124,7 +124,7 @@ class ChallengeResult(BaseModel):  # type: ignore[misc]
     distance: Optional[float]
 
 
-class ChallengeResolved(BaseModel):  # type: ignore[misc]
+class ChallengeResolved(BaseModel):
     """Class to describe a resolved Challenge."""
 
     type: str
@@ -150,7 +150,7 @@ class ChallengeResolved(BaseModel):  # type: ignore[misc]
     fee: Optional[int] = None
 
 
-class Device(BaseModel):  # type: ignore[misc]
+class Device(BaseModel):
     """Class to describe Device in Helium API."""
 
     adr_allowed: Optional[bool] = None
@@ -169,7 +169,7 @@ class Device(BaseModel):  # type: ignore[misc]
     total_packets: Optional[int] = None
 
 
-class Event(BaseModel):  # type: ignore[misc]
+class Event(BaseModel):
     """Class to describe an Integration Event."""
 
     data: Dict[str, Any]

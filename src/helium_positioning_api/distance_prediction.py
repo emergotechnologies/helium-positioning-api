@@ -9,10 +9,10 @@ from sklearn.base import BaseEstimator
 from sklearn.pipeline import Pipeline
 
 
-def predict_distance(model: str, features: List[float]) -> float:
+def predict_distance(model_selection: str, features: List[float]) -> float:
     """Return the predicted distance from the model.
 
-    :param model: The model object
+    :param model_selection: The model object
     :param features: The features to predict the distance
     :return: The predicted distance
     """
@@ -20,7 +20,7 @@ def predict_distance(model: str, features: List[float]) -> float:
     model = Pipeline(
         steps=[
             ("preprocessor", __get_preprocessor("preprocessor")), 
-            ("estimator", __get_model(model)),
+            ("estimator", __get_model(model_selection)),
         ]
     )
     return model.predict(features)
