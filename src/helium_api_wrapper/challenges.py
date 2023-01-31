@@ -89,7 +89,7 @@ def get_challenges_by_address(address: str, limit: int = 50) -> List[ChallengeRe
 
 def load_challenge_data(
     challenges: Optional[List[ChallengeResolved]] = None,
-    load_type: str = "triangulation",
+    load_type: str = "trilateration",
     limit: int = 50,
 ) -> Generator[ChallengeResult, None, None]:
     """Load challenge data.
@@ -186,7 +186,7 @@ def __sort_witnesses(witnesses: List[Witness], load_type: str = "all") -> List[W
     :return: List of witnesses
     """
     return_witnesses: List[Witness]
-    if load_type == "triangulation":
+    if load_type == "trilateration":
         return_witnesses = sorted(
             witnesses, key=lambda witness: witness.signal, reverse=False
         )[: max(3, len(witnesses))]
