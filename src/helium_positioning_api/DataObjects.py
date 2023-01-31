@@ -19,7 +19,7 @@ class Prediction(BaseModel):
     uuid: str
     lat: Optional[float] = None
     lng: Optional[float] = None
-    timestamp: int
+    # timestamp: int
     conf: Optional[float] = None
 
     def __str__(self) -> str:

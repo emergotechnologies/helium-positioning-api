@@ -170,9 +170,9 @@ def get_centres(
     :rtype: list of latitudes and longitudes in degree and indices as int
 
     """
-    centre_0 = [latitude[indices[0]].lat, longitude[indices[0]]]
-    centre_1 = [latitude[indices[1]].lat, longitude[indices[1]]]
-    centre_2 = [latitude[indices[2]].lat, longitude[indices[2]]]
+    centre_0 = [latitude[indices[0]], longitude[indices[0]]]
+    centre_1 = [latitude[indices[1]], longitude[indices[1]]]
+    centre_2 = [latitude[indices[2]], longitude[indices[2]]]
 
     return centre_0, centre_1, centre_2, indices
 
@@ -186,6 +186,7 @@ def flatten_intersect_lists(input_list: List[List[Iterable[float]]]) -> List[flo
     :return: list
     :rtype: list
     """
+    flattened_list = []
     if len(input_list) != 0:
         if isinstance(input_list[0], list):
             flattened_list = [point for sublist in input_list for point in sublist]

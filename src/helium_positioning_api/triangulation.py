@@ -41,19 +41,19 @@ def triangulation(uuid: str, model: str) -> Prediction:
     for hotspot in sorted_hotspots:
         dist = predict_distance(
             model,
-            [
-                hotspot.lat,
-                hotspot.lng,
-                hotspot.rssi,
-                hotspot.snr,
-                hotspot.datarate,
-            ],
+            {
+                'snr': [hotspot.snr],
+                'rssi': [hotspot.rssi],
+                'datarate': [hotspot.datarate],
+                'frequency': [hotspot.frequency],
+            }
         )
         longitude.append(hotspot.lng)
         latitude.append(hotspot.lat)
-        distance.append(dist)
+        distance.append(dist[0])
 
-    hotspots = zip(latitude, longitude, distance, strict=False)
+    # hotspots = zip(latitude, longitude, distance, strict=False)
+    # print(latitude, longitude, distance)
     m = Unit.METERS
     # [[lat, long, dist], [lat, long, dist], [lat, long, dist]]
 
