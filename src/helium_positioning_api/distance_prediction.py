@@ -1,13 +1,12 @@
 """Distance prediction module."""
 import os
-from typing import List, Union, Dict
+from typing import Dict
+from typing import List
 
 import joblib
 import pandas as pd
 from dotenv import find_dotenv
 from dotenv import load_dotenv
-from sklearn.base import RegressorMixin, MultiOutputMixin
-from sklearn.compose import ColumnTransformer
 
 
 def predict_distance(model: str, features: Dict[str, List]) -> float:

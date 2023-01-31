@@ -21,7 +21,15 @@ from helium_positioning_api.triangulation import triangulation
 @click.option(
     "--model",
     default="nearest_neighbor",
-    type=click.Choice(["best", "nearest_neighbor", "midpoint", "linear_regression", "gradient_boosting"]),
+    type=click.Choice(
+        [
+            "best",
+            "nearest_neighbor",
+            "midpoint",
+            "linear_regression",
+            "gradient_boosting",
+        ]
+    ),
     help="Model to be used to predict the position of the device.",
 )
 @click.version_option(version="0.1")

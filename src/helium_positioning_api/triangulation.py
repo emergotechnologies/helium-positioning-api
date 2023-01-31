@@ -42,11 +42,11 @@ def triangulation(uuid: str, model: str) -> Prediction:
         dist = predict_distance(
             model,
             {
-                'snr': [hotspot.snr],
-                'rssi': [hotspot.rssi],
-                'datarate': [hotspot.datarate],
-                'frequency': [hotspot.frequency],
-            }
+                "snr": [hotspot.snr],
+                "rssi": [hotspot.rssi],
+                "datarate": [hotspot.datarate],
+                "frequency": [hotspot.frequency],
+            },
         )
         longitude.append(hotspot.lng)
         latitude.append(hotspot.lat)

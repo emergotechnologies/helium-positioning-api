@@ -1,12 +1,12 @@
 """Trilateration for the positioning API."""
 
 import logging
+from typing import List
+from typing import Tuple
 
 from haversine import Unit
 from haversine import haversine
-
-from typing import List
-from typing import Tuple
+from helium_api_wrapper.DataObjects import IntegrationHotspot
 
 from helium_positioning_api.auxilary import circle_intersect
 from helium_positioning_api.auxilary import flatten_intersect_lists
@@ -43,11 +43,13 @@ def trilateration(uuid: str, model: str) -> Prediction:
         )
         return nearest_neighbor(uuid)
 
-    longitudes, latitudes, distances = compile_hotspot_info(sorted_hotspots)
+    longitudes, latitudes, distances = compile_hotspot_info(sorted_hotspots, model)
     # calculating intersects
     centres, intersects = do_intersrect(latitudes, longitudes, distances)
     # classifying intersects
-    empty_intersects, two_intersection_points, singular_points = classify_intersects(intersects)
+    empty_intersects, two_intersection_points, singular_points = classify_intersects(
+        intersects
+    )
     # estimation proper
     estimated_position = estimate_trilateration(
         empty_intersects, two_intersection_points, singular_points, centres
@@ -56,10 +58,13 @@ def trilateration(uuid: str, model: str) -> Prediction:
     return Prediction(uuid=uuid, lat=estimated_position[0], lng=estimated_position[1])
 
 
-def compile_hotspot_info(sorted_hotspots: List) -> Tuple[List, List, List]:
+def compile_hotspot_info(
+    sorted_hotspots: List[IntegrationHotspot], model: str
+) -> Tuple[List, List, List]:
     """Return estimated distance and locations of hotspots.
 
     :param sorted_hotspots: List of hotspots sorted by signal quality
+    :param model: Model to use for distance prediction
 
     :return: longitudes, latitudes, distances of said hotspots as list
     """
@@ -67,13 +72,12 @@ def compile_hotspot_info(sorted_hotspots: List) -> Tuple[List, List, List]:
     for hotspot in sorted_hotspots:
         dist = predict_distance(
             model,
-            [
-                hotspot.lat,
-                hotspot.lng,
-                hotspot.rssi,
-                hotspot.snr,
-                hotspot.datarate,
-            ],
+            {
+                "snr": [hotspot.snr],
+                "rssi": [hotspot.rssi],
+                "datarate": [hotspot.datarate],
+                "frequency": [hotspot.frequency],
+            },
         )
         longitudes.append(hotspot.lng)
         latitudes.append(hotspot.lat)
@@ -83,10 +87,9 @@ def compile_hotspot_info(sorted_hotspots: List) -> Tuple[List, List, List]:
     return longitudes, latitudes, distances
 
 
-def do_intersrect(latitude,
-                  longitude,
-                  distance,
-                  indices=(0, 1, 2)) -> Tuple[List, List]:
+def do_intersrect(
+    latitude, longitude, distance, indices=(0, 1, 2)
+) -> Tuple[List, List]:
     """Generates intersections of every circle.
 
     :param latitude: List of latitudes
@@ -168,10 +171,9 @@ def classify_intersects(intersects: List) -> Tuple[List, List, List]:
     return empty_intersects, two_intersection_points, singular_points
 
 
-def estimate_trilateration(empty_intersects,
-                           two_intersection_points,
-                           singular_points,
-                           centres):
+def estimate_trilateration(
+    empty_intersects, two_intersection_points, singular_points, centres, uuid
+):
     """Provides position estimate.
 
     :param empty_intersects: list of empty intersects
@@ -185,7 +187,9 @@ def estimate_trilateration(empty_intersects,
         estimated_position = singular_points[0]
 
     elif len(singular_points) == 2:
-        estimated_position = two_singular_handler(singular_points, two_intersection_points)
+        estimated_position = two_singular_handler(
+            singular_points, two_intersection_points
+        )
 
     elif len(singular_points) == 3:
         estimated_position = three_singular_handler(singular_points)
@@ -197,7 +201,7 @@ def estimate_trilateration(empty_intersects,
         estimated_position = singular_two_int_handler(two_intersection_points, centres)
 
     # TODO en(empty_intersects) == 3 INTERSECTIONS over other indices
-    return Prediction(uuid=uuid, lat=estimated_position[0], lng=estimated_position[1])
+    return estimated_position
 
 
 def two_singular_handler(singular_points, two_intersection_points):
@@ -249,7 +253,9 @@ def three_singular_handler(singular_points):
             estimated_position = first_mid
     return estimated_position
 
+
 # TODO docstrings, typing, testing
+
 
 def multiple_two_int_handler(two_intersection_points):
     """Calculates estimated position of hotspots using circle intersections.
@@ -279,10 +285,7 @@ def multiple_two_int_handler(two_intersection_points):
             second_point = all_intersects[1]
             for i in range(len(all_intersects)):
                 for j in range(i + 1, len(all_intersects)):
-                    if (
-                        haversine(all_intersects[i], all_intersects[j], m)
-                        < distance
-                    ):
+                    if haversine(all_intersects[i], all_intersects[j], m) < distance:
                         first_point = all_intersects[i]
                         second_point = all_intersects[j]
                         distance = haversine(first_point, second_point, m)
