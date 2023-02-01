@@ -3,12 +3,11 @@ import json
 from typing import Any
 
 import pytest
-from haversine import Unit  # type: ignore[import]
+from haversine import Unit
 from haversine import haversine
-
+from helium_api_wrapper import DataObjects as DataObjects
 from pytest_mock import MockFixture
 
-from helium_api_wrapper import DataObjects as DataObjects
 from helium_positioning_api.DataObjects import Prediction
 from helium_positioning_api.Models import NearestNeighborModel
 

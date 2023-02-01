@@ -1,51 +1,28 @@
 """Distance prediction module."""
 import os
+from typing import Any
+from typing import Dict
 from typing import List
 
 import joblib
+import pandas as pd
 from dotenv import find_dotenv
 from dotenv import load_dotenv
-from sklearn.base import BaseEstimator
-from sklearn.pipeline import Pipeline
 
 
-def predict_distance(model_selection: str, features: List[float]) -> float:
+def predict_distance(model_selection: str, features: Dict[str, List[Any]]) -> float:
     """Return the predicted distance from the model.
 
     :param model_selection: The model object
     :param features: The features to predict the distance
     :return: The predicted distance
     """
-    # preprocess features
-    model = Pipeline(
-        steps=[
-            ("preprocessor", __get_preprocessor("preprocessor")), 
-            ("estimator", __get_model(model_selection)),
-        ]
-    )
-    return model.predict(features)
-
-
-def __get_model(model: str) -> BaseEstimator:
-    """Return the model object from the path.
-
-    :param model: The name of the model
-    :return: The model object
-    """
-    path = __get_model_path() + model + ".joblib"
-    loaded_model = joblib.load(path)
-    return loaded_model
-
-
-def __get_preprocessor(preprocessor: str) -> BaseEstimator:
-    """Return the model object from the path.
-
-    :param model: The name of the model
-    :return: The model object
-    """
-    path = __get_model_path() + preprocessor + ".joblib"
-    loaded_preprocessor = joblib.load(path)
-    return loaded_preprocessor
+    path = __get_model_path()
+    preprocessor = joblib.load(path + "preprocessor.joblib")
+    model = joblib.load(path + model_selection + ".joblib")
+    data = pd.DataFrame(features)
+    y = preprocessor.transform(data)
+    return model.predict(y)
 
 
 def __get_model_path() -> str:

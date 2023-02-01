@@ -10,11 +10,10 @@ from typing import List
 from typing import Tuple
 from typing import Union
 
-from utm import from_latlon  # type: ignore[import]
-from utm import to_latlon
-
 from helium_api_wrapper.DataObjects import IntegrationHotspot
 from helium_api_wrapper.devices import get_last_integration
+from utm import from_latlon
+from utm import to_latlon
 
 
 def get_integration_hotspots(uuid: str) -> List[IntegrationHotspot]:
@@ -156,8 +155,8 @@ def circle_intersect(
 def get_centres(
     latitude: List[float],
     longitude: List[float],
-    indices=(0, 1, 2),
-) -> Tuple[List[float], List[float], List[float], Tuple[int]]:
+    indices: Tuple[int, int, int] = (0, 1, 2),
+) -> Tuple[List[float], List[float], List[float], Tuple[int, int, int]]:
     """Return latitude/longitude of hotspots from list of indices.
 
     :param latitude: latitudes
@@ -171,14 +170,14 @@ def get_centres(
     :rtype: list of latitudes and longitudes in degree and indices as int
 
     """
-    centre_0 = [latitude[indices[0]].lat, longitude[indices[0]]]
-    centre_1 = [latitude[indices[1]].lat, longitude[indices[1]]]
-    centre_2 = [latitude[indices[2]].lat, longitude[indices[2]]]
+    centre_0 = [latitude[indices[0]], longitude[indices[0]]]
+    centre_1 = [latitude[indices[1]], longitude[indices[1]]]
+    centre_2 = [latitude[indices[2]], longitude[indices[2]]]
 
     return centre_0, centre_1, centre_2, indices
 
 
-def flatten_intersect_lists(input_list: List[List[Iterable[float]]]) -> List[float]:
+def flatten_intersect_lists(input_list: List[Iterable[float]]) -> List[float]:
     """Flattens lists.
 
     :param input_list: List of lists
@@ -187,16 +186,17 @@ def flatten_intersect_lists(input_list: List[List[Iterable[float]]]) -> List[flo
     :return: list
     :rtype: list
     """
+    flattened_list = []
     if len(input_list) != 0:
         if isinstance(input_list[0], list):
             flattened_list = [point for sublist in input_list for point in sublist]
-        else:
-            flattened_list = input_list
-
     return flattened_list
 
 
-def mid(point_1: Iterable[float], point_2: Iterable[float]) -> Tuple[float]:
+def mid(
+    point_1: Union[List[float], Tuple[float, float]],
+    point_2: Union[List[float], Tuple[float, float]],
+) -> Tuple[float, float]:
     """Return midpoint of two points given in lat/long coordinates.
 
     :param point_1: first point

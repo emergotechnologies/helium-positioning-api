@@ -26,5 +26,5 @@ def nearest_neighbor(uuid: str) -> Prediction:
         uuid=uuid,
         lat=neighbor.lat,
         lng=neighbor.lng,
-        timestamp=neighbor.reported_at,
+        # timestamp=neighbor.reported_at,
     )
