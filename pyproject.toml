@@ -28,6 +28,7 @@ python-dotenv = "^0.21.1"
 pandas = "^1.5.3"
 joblib = "^1.2.0"
 scikit-learn = "^1.2.1"
+helium-api-wrapper = "^0.0.1.dev1675239484"
 
 
 [tool.poetry.dev-dependencies]
@@ -52,10 +53,12 @@ pyupgrade = ">=2.29.1"
 safety = ">=1.10.3"
 sphinx = ">=4.3.2"
 sphinx-autobuild = ">=2021.3.14"
-sphinx-click = ">=3.0.2"
+sphinx-click = "^4.4.0"
+sphinx-rtd-theme = "^1.1.1"
 typeguard = ">=2.13.3"
 xdoctest = {extras = ["colors"], version = ">=0.15.10"}
 myst-parser = {version = ">=0.16.1"}
+
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
