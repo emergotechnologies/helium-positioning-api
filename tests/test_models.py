@@ -3,7 +3,7 @@ import json
 from typing import Any
 
 import pytest
-from haversine import Unit  # type: ignore[import]
+from haversine import Unit
 from haversine import haversine
 from helium_api_wrapper import DataObjects as DataObjects
 from pytest_mock import MockFixture

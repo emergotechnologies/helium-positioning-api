@@ -1,5 +1,6 @@
 """Distance prediction module."""
 import os
+from typing import Any
 from typing import Dict
 from typing import List
 
@@ -9,7 +10,8 @@ from dotenv import find_dotenv
 from dotenv import load_dotenv
 
 
-def predict_distance(model: str, features: Dict[str, List]) -> float:
+def predict_distance(model_selection: str, 
+                     features: Dict[str, List[Any]]) -> float:
     """Return the predicted distance from the model.
 
     :param model_selection: The model object
@@ -18,7 +20,7 @@ def predict_distance(model: str, features: Dict[str, List]) -> float:
     """
     path = __get_model_path()
     preprocessor = joblib.load(path + "preprocessor.joblib")
-    model = joblib.load(path + model + ".joblib")
+    model = joblib.load(path + model_selection + ".joblib")
     data = pd.DataFrame(features)
     y = preprocessor.transform(data)
     return model.predict(y)

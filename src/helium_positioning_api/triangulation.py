@@ -105,17 +105,17 @@ def triangulation(uuid: str, model: str) -> Prediction:
         elif len(intersects[i]) == 2:
             two_intersection_points.append(intersects[i])
 
-    if empty_intersects is not None:
+    if len(empty_intersects) != 0:
         empty_intersects = flatten_intersect_lists(empty_intersects)
     else:
         empty_intersects = []
 
-    if singular_points is not None:
+    if len(singular_points) != 0:
         singular_points = flatten_intersect_lists(singular_points)
     else:
         singular_points = []
 
-    if two_intersection_points is None:
+    if len(two_intersection_points) == 0:
         two_intersection_points = []
 
     # estimation proper

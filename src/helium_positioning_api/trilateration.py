@@ -1,6 +1,7 @@
 """Trilateration for the positioning API."""
 
 import logging
+from typing import Any
 from typing import List
 from typing import Tuple
 
@@ -52,7 +53,7 @@ def trilateration(uuid: str, model: str) -> Prediction:
     )
     # estimation proper
     estimated_position = estimate_trilateration(
-        empty_intersects, two_intersection_points, singular_points, centres
+        empty_intersects, two_intersection_points, singular_points, centres, uuid
     )
 
     return Prediction(uuid=uuid, lat=estimated_position[0], lng=estimated_position[1])
@@ -60,7 +61,7 @@ def trilateration(uuid: str, model: str) -> Prediction:
 
 def compile_hotspot_info(
     sorted_hotspots: List[IntegrationHotspot], model: str
-) -> Tuple[List, List, List]:
+) -> Tuple[List[float], List[float], List[float]]:
     """Return estimated distance and locations of hotspots.
 
     :param sorted_hotspots: List of hotspots sorted by signal quality
@@ -88,8 +89,9 @@ def compile_hotspot_info(
 
 
 def do_intersrect(
-    latitude, longitude, distance, indices=(0, 1, 2)
-) -> Tuple[List, List]:
+    latitude: List[float], longitude: List[float], distance: List[float],
+    indices: Tuple[int, int, int] = (0, 1, 2)
+) -> Tuple[List[Any], List[List[Any]]]:
     """Generates intersections of every circle.
 
     :param latitude: List of latitudes
@@ -137,7 +139,7 @@ def do_intersrect(
     return centres, intersects
 
 
-def classify_intersects(intersects: List) -> Tuple[List, List, List]:
+def classify_intersects(intersects: List[List[Any]]) -> Tuple[List[List[Any]], List[List[Any]], List[List[Any]]]:
     """Classifies intersections of circles.
 
     :param intersects: list of intersection points
@@ -155,25 +157,18 @@ def classify_intersects(intersects: List) -> Tuple[List, List, List]:
         elif len(intersects[i]) == 2:
             two_intersection_points.append(intersects[i])
 
-    if empty_intersects is not None:
+    if len(empty_intersects) != 0:
         empty_intersects = flatten_intersect_lists(empty_intersects)
-    else:
-        empty_intersects = []
 
-    if singular_points is not None:
+    if len(singular_points) != 0:
         singular_points = flatten_intersect_lists(singular_points)
-    else:
-        singular_points = []
-
-    if two_intersection_points is None:
-        two_intersection_points = []
 
     return empty_intersects, two_intersection_points, singular_points
 
 
 def estimate_trilateration(
-    empty_intersects, two_intersection_points, singular_points, centres, uuid
-):
+    empty_intersects: List[List[Any]], two_intersection_points: List[List[float]], singular_points: List[List[Any]], centres: List[float], uuid: str
+) -> Tuple[float, float]:
     """Provides position estimate.
 
     :param empty_intersects: list of empty intersects
@@ -204,8 +199,10 @@ def estimate_trilateration(
     return estimated_position
 
 
-def two_singular_handler(singular_points, two_intersection_points):
-    """Calculates estimation when two out of three circles intersect in singular point.
+def two_singular_handler(singular_points: List[List[float]],
+                         two_intersection_points: List[List[float]]
+                         ) -> List[Any]:
+    """Calculate estimation when two out of three circles intersect in singular point.
 
     :param singular_points: points of singular intersection
     :param two_intersection_points: intersection points of circles intersecting in two places
@@ -223,13 +220,14 @@ def two_singular_handler(singular_points, two_intersection_points):
     return estimated_position
 
 
-def three_singular_handler(singular_points):
-    """Calculates estimation when all intersects result in singular point.
+def three_singular_handler(singular_points: List[List[Any]]) -> List[Any]:
+    """Calculate estimation when all intersects result in singular point.
 
     :param singular_points: points of singular intersection
 
     :return: position estimation
     """
+
     if haversine(singular_points[0], singular_points[1], unit=m) < tol:
         first_mid = mid(singular_points[0], singular_points[1])
         if haversine(first_mid, singular_points[2], unit=m) < tol:
@@ -251,13 +249,15 @@ def three_singular_handler(singular_points):
             estimated_position = second_mid
         else:
             estimated_position = first_mid
+    else:
+        estimated_position = mid(singular_points[0], singular_points[1])
     return estimated_position
 
 
 # TODO docstrings, typing, testing
 
 
-def multiple_two_int_handler(two_intersection_points):
+def multiple_two_int_handler(two_intersection_points: List[List[Any]]) -> List[Any]:
     """Calculates estimated position of hotspots using circle intersections.
 
     :param two_intersection_points: intersection points of circles intersecting in two places
@@ -272,28 +272,18 @@ def multiple_two_int_handler(two_intersection_points):
                 candidate_2 = two_intersection_points[i + 1][j]
                 if haversine(candidate_1, candidate_2, unit=m) < tol:
                     candidates.append(mid(candidate_1, candidate_2))
-    if len(candidates) == 2:
+    if len(candidates) > 1:
         estimated_position = mid(candidates[0], candidates[1])
     elif len(candidates) == 1:
         estimated_position = candidates[0]
     elif len(candidates) == 0:
-        all_intersects = sum(two_intersection_points, [])
-        if len(all_intersects) > 1:
-            # Looking for the two intersections with the min distance
-            distance = haversine(all_intersects[0], all_intersects[1], m)
-            first_point = all_intersects[0]
-            second_point = all_intersects[1]
-            for i in range(len(all_intersects)):
-                for j in range(i + 1, len(all_intersects)):
-                    if haversine(all_intersects[i], all_intersects[j], m) < distance:
-                        first_point = all_intersects[i]
-                        second_point = all_intersects[j]
-                        distance = haversine(first_point, second_point, m)
-        estimated_position = mid(first_point, second_point)
+        estimated_position = no_candidate_handler(two_intersection_points)
     return estimated_position
 
 
-def singular_two_int_handler(two_intersection_points, centres):
+def singular_two_int_handler(two_intersection_points: List[List[float]],
+                             centres: List[float]
+                             ) -> List[float]:
     """Calculates estimated position of hotspots using circle intersections and \
         shortest distance to its furthest hotspot.
 
@@ -303,8 +293,8 @@ def singular_two_int_handler(two_intersection_points, centres):
     :return: estimated position of hotspots
     """
     # choose ISP with the shortest distance to its furthest hotspot
-    candidate_1 = two_intersection_points[0][0]
-    candidate_2 = two_intersection_points[0][1]
+    candidate_1 = two_intersection_points[0]
+    candidate_2 = two_intersection_points[1]
 
     distances_1, distances_2 = [], []
     for centre in centres:
@@ -317,4 +307,21 @@ def singular_two_int_handler(two_intersection_points, centres):
         estimated_position = candidate_1
     else:
         estimated_position = candidate_2
+    return estimated_position
+
+
+def no_candidate_handler(two_intersection_points: List[List[Any]]) -> List[Any]:
+    all_intersects: List[Tuple[float, float]] = sum(two_intersection_points, [])
+    if len(all_intersects) > 1:
+        # Looking for the two intersections with the min distance
+        distance = haversine(all_intersects[0], all_intersects[1], m)
+        first_point = all_intersects[0]
+        second_point = all_intersects[1]
+        for i in range(len(all_intersects)):
+            for j in range(i + 1, len(all_intersects)):
+                if haversine(all_intersects[i], all_intersects[j], m) < distance:
+                    first_point = all_intersects[i]
+                    second_point = all_intersects[j]
+                    distance = haversine(first_point, second_point, m)
+    estimated_position = mid(first_point, second_point)
     return estimated_position
