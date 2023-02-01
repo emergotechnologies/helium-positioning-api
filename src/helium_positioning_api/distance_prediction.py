@@ -10,8 +10,7 @@ from dotenv import find_dotenv
 from dotenv import load_dotenv
 
 
-def predict_distance(model_selection: str, 
-                     features: Dict[str, List[Any]]) -> float:
+def predict_distance(model_selection: str, features: Dict[str, List[Any]]) -> float:
     """Return the predicted distance from the model.
 
     :param model_selection: The model object

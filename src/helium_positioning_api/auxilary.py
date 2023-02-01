@@ -193,7 +193,10 @@ def flatten_intersect_lists(input_list: List[Iterable[float]]) -> List[float]:
     return flattened_list
 
 
-def mid(point_1: Union[List[float], Tuple[float, float]], point_2: Union[List[float], Tuple[float, float]]) -> Tuple[float, float]:
+def mid(
+    point_1: Union[List[float], Tuple[float, float]],
+    point_2: Union[List[float], Tuple[float, float]],
+) -> Tuple[float, float]:
     """Return midpoint of two points given in lat/long coordinates.
 
     :param point_1: first point
