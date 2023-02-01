@@ -175,7 +175,7 @@ def estimate_trilateration(
     two_intersection_points: List[List[float]],
     singular_points: List[List[Any]],
     centres: List[float],
-    uuid: str, 
+    uuid: str,
 ) -> Tuple[float, float]:
     """Provides position estimate.
 
