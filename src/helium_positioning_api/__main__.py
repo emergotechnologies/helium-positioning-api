@@ -13,7 +13,7 @@ import uvicorn
 
 from helium_positioning_api.midpoint import midpoint
 from helium_positioning_api.nearest_neighbor import nearest_neighbor
-from helium_positioning_api.triangulation import triangulation
+from helium_positioning_api.trilateration import trilateration
 
 
 @click.command()
@@ -38,10 +38,10 @@ def predict(uuid: str, model: str) -> None:
         prediction = midpoint(uuid)
         print(prediction)
     elif model == "linear_regression":
-        prediction = triangulation(uuid, model="linear_regression")
+        prediction = trilateration(uuid, model="linear_regression")
         print(prediction)
     elif model == "gradient_boosting":
-        prediction = triangulation(uuid, model="gradient_boosting")
+        prediction = trilateration(uuid, model="gradient_boosting")
         print(prediction)
     else:
         raise Exception(f"Model {model} not implemented.")
