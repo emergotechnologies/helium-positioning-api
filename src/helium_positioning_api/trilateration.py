@@ -92,7 +92,7 @@ def do_intersrect(
     latitude: List[float],
     longitude: List[float],
     distance: List[float],
-    indices: Tuple[int, int, int] = (0, 1, 2)
+    indices: Tuple[int, int, int] = (0, 1, 2),
 ) -> Tuple[List[Any], List[List[Any]]]:
     """Generates intersections of every circle.
 
@@ -175,7 +175,7 @@ def estimate_trilateration(
     two_intersection_points: List[List[float]],
     singular_points: List[List[Any]],
     centres: List[float],
-    uuid: str
+    uuid: str, 
 ) -> Tuple[float, float]:
     """Provides position estimate.
 
@@ -318,7 +318,7 @@ def singular_two_int_handler(
 
 
 def no_candidate_handler(two_intersection_points: List[List[Any]]) -> List[Any]:
-    """Calculates estimation position for two intersection handling if there are no suitable candidates. 
+    """Calculates estimation position for two intersection handling if there are no suitable candidates.
 
     :param two_intersection_points: list intersrection points
 
