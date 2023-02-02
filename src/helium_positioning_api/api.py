@@ -55,7 +55,7 @@ async def predict_mp(request: Device) -> Prediction:
 
 
 # trilateration with linear regression
-@app.post("/predict_tl_lin", status_code=200)
+@app.post("/predict_tl_lin/", status_code=200)
 async def predict_tl_lin(request: Device) -> Prediction:
     """Create a prediction with the Trialteratioin model, 
     using a linear regression distance estimator.
@@ -70,7 +70,7 @@ async def predict_tl_lin(request: Device) -> Prediction:
 
 
 # trilateration with gradient boost
-@app.post("/predict_tl_grad", status_code=200)
+@app.post("/predict_tl_grad/", status_code=200)
 async def predict_tl_grad(request: Device) -> Prediction:
     """Create a prediction with the Midpoint model,
     using a gradient boosted regression for distance estimaton.
