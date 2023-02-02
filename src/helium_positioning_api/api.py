@@ -17,6 +17,7 @@ from helium_positioning_api.midpoint import midpoint
 from helium_positioning_api.nearest_neighbor import nearest_neighbor
 from helium_positioning_api.trilateration import trilateration
 
+
 app = FastAPI(title="Helium Positioning API")
 
 
@@ -57,8 +58,7 @@ async def predict_mp(request: Device) -> Prediction:
 # trilateration with linear regression
 @app.post("/predict_tl_lin/", status_code=200)
 async def predict_tl_lin(request: Device) -> Prediction:
-    """Create a prediction with the Trialteratioin model, 
-    using a linear regression distance estimator.
+    """Create a prediction with the Trialteratioin model, using a linear regression distance estimator.
 
     :param request: Device
     :return: predicted coordinates
@@ -72,8 +72,7 @@ async def predict_tl_lin(request: Device) -> Prediction:
 # trilateration with gradient boost
 @app.post("/predict_tl_grad/", status_code=200)
 async def predict_tl_grad(request: Device) -> Prediction:
-    """Create a prediction with the Midpoint model,
-    using a gradient boosted regression for distance estimaton.
+    """Create a prediction with the Midpoint model, using a gradient boosted regression for distance estimaton.
 
     :param request: Device
     :return: predicted coordinates

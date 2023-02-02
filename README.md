@@ -55,23 +55,24 @@ The service allows usage via **command line interface** or locally hosted **REST
 ```
 python -m helium_positioning_api predict --uuid 92f23793-6647-40aa-b255-fa1d4baec75d
 ```
+
 Currently defaults to the "nearest_neighbor" model.
 
-**Advanced Requests** 
+**Advanced Requests**
 
-The location prediction command is 
+The location prediction command is
 ```
 python -m helium_positioning_api predict --uuid 'your uuid' --model 'your model selection'
-```  
+```
 
-See the table below for a list of currently available commands and models. 
+See the table below for a list of currently available commands and models.
 
-| **command**        | **position estimation model**                                       |
-|--------------------|---------------------------------------------------------------------|
-| nearest_neighbor   | location of hotspot with the best      signal                       |
-| midpoint           | point of equal distance from the two hotspots with the best signals |
-| linear_regression  | trilateration with an linear regression distance estimator          |
-| gradient_boosting  | trilateration with a gradient boosted regression distance estimator |
+| **command**       | **position estimation model**                                       |
+| ----------------- | ------------------------------------------------------------------- |
+| nearest_neighbor  | location of hotspot with the best signal                            |
+| midpoint          | point of equal distance from the two hotspots with the best signals |
+| linear_regression | trilateration with an linear regression distance estimator          |
+| gradient_boosting | trilateration with a gradient boosted regression distance estimator |
 
 ### REST-API
 
@@ -80,7 +81,7 @@ See the table below for a list of currently available commands and models.
    python -m helium_positioning_api serve
    ```
 2. Open Browser and navigate to `127.0.0.1:8000/docs`
-3. Click on `predict/{uuid}` endpoint to drop down the endpoint details 
+3. Click on `predict/{uuid}` endpoint to drop down the endpoint details
 4. Click on the `Try it out` button.
 5. Fill in the `uuid` of your device and click on the button `Execute`
 6. You can see the location prediction response in the `Responses` section below.
