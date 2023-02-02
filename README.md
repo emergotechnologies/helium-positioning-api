@@ -56,6 +56,25 @@ The service allows usage via **command line interface** or locally hosted **REST
 python -m helium_positioning_api predict --uuid 92f23793-6647-40aa-b255-fa1d4baec75d
 ```
 
+Currently defaults to the "nearest_neighbor" model.
+
+**Advanced Requests**
+
+The location prediction command is
+
+```
+python -m helium_positioning_api predict --uuid 'your uuid' --model 'your model selection'
+```
+
+See the table below for a list of currently available commands and models.
+
+| **command**       | **position estimation model**                                       |
+| ----------------- | ------------------------------------------------------------------- |
+| nearest_neighbor  | location of hotspot with the best signal                            |
+| midpoint          | point of equal distance from the two hotspots with the best signals |
+| linear_regression | trilateration with an linear regression distance estimator          |
+| gradient_boosting | trilateration with a gradient boosted regression distance estimator |
+
 ### REST-API
 
 1. Start local REST-API (default)

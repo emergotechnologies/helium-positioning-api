@@ -37,6 +37,6 @@ def __get_model_path() -> str:
     model_path = os.getenv("MODEL_PATH")
 
     if not model_path:
-        model_path = "./models/"
+        model_path = "../models/"
 
     return model_path
