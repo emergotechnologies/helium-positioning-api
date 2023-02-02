@@ -61,6 +61,7 @@ Currently defaults to the "nearest_neighbor" model.
 **Advanced Requests**
 
 The location prediction command is
+
 ```
 python -m helium_positioning_api predict --uuid 'your uuid' --model 'your model selection'
 ```

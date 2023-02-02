@@ -63,7 +63,7 @@ async def predict_tl_lin(request: Device) -> Prediction:
     :param request: Device
     :return: predicted coordinates
     """
-    prediction = trilateration(uuid=request.uuid, model='linear_regression')
+    prediction = trilateration(uuid=request.uuid, model="linear_regression")
     if not prediction:
         raise HTTPException(status_code=404, detail="Device not found.")
     return prediction
@@ -77,7 +77,7 @@ async def predict_tl_grad(request: Device) -> Prediction:
     :param request: Device
     :return: predicted coordinates
     """
-    prediction = trilateration(uuid=request.uuid, model='gradient_boosting')
+    prediction = trilateration(uuid=request.uuid, model="gradient_boosting")
     if not prediction:
         raise HTTPException(status_code=404, detail="Device not found.")
     return prediction
