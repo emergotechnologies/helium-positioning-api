@@ -9,7 +9,7 @@ from helium_api_wrapper import DataObjects as DataObjects
 from pytest_mock import MockFixture
 
 from helium_positioning_api.DataObjects import Prediction
-from helium_positioning_api.Models import NearestNeighborModel
+from helium_positioning_api.nearest_neighbor import nearest_neighbor
 
 
 @pytest.fixture
@@ -50,9 +50,7 @@ def test_nearest_neighbor_model(
         autospec=True,
     )
 
-    prediction = NearestNeighborModel().predict(
-        uuid="92f23793-6647-40aa-b255-fa1d4baec75d"
-    )
+    prediction = nearest_neighbor(uuid="92f23793-6647-40aa-b255-fa1d4baec75d")
     print(prediction)
 
     assert prediction == Prediction(
