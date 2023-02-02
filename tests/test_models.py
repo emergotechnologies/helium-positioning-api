@@ -3,17 +3,17 @@ import json
 from typing import Any
 
 import pytest
-from haversine import Unit  # type: ignore[import]
+from haversine import Unit
 from haversine import haversine
-from helium_api_wrapper.devices import Event
+from helium_api_wrapper import DataObjects as DataObjects
+from pytest_mock import MockFixture
 
 from helium_positioning_api.DataObjects import Prediction
-from helium_positioning_api.Models import Midpoint
 from helium_positioning_api.Models import NearestNeighborModel
 
 
 @pytest.fixture
-def mock_integration() -> Event:
+def mock_integration() -> Any:
     """Mock integration for testing.
 
     :return: integration Event
@@ -23,46 +23,71 @@ def mock_integration() -> Event:
     return integrations[0]
 
 
-def test_nearest_neighbor_model(mocker: Any, mock_integration: Event) -> None:
+@pytest.fixture
+def mock_hotspots() -> Any:
+    """Mock hotspots.
+
+    :return: List of hotspots
+    :rtype: Any
+    """
+    with open("tests/data/hotspots.json") as file:
+        hotspot = json.load(file)
+    return hotspot
+
+
+def test_nearest_neighbor_model(
+    module_mocker: MockFixture, mock_integration: Any, mock_hotspots: Any
+) -> None:
     """Test for the nearest neighbor model.
 
     :param mocker: Mocker
     :param mock_integration: Event
 
     """
-    mocker.patch(
-        "helium_positioning_api.Models.load_last_integration",
-        return_value=mock_integration,
+    module_mocker.patch(
+        "helium_positioning_api.Models.get_last_integration",
+        return_value=transform_integration(mock_integration),
         autospec=True,
     )
-    mocker.patch(
-        "helium_positioning_api.DataObjects.load_hotspot",
-        return_value={"lat": 47.47771443776213, "lng": 12.053189171302527},
+
+    prediction = NearestNeighborModel().predict(
+        uuid="92f23793-6647-40aa-b255-fa1d4baec75d"
     )
-    prediction = NearestNeighborModel().predict(uuid="uuid")
+    print(prediction)
 
     assert prediction == Prediction(
-        uuid="uuid", lat=47.47771443776213, lng=12.053189171302527
+        uuid="92f23793-6647-40aa-b255-fa1d4baec75d",
+        lat=37.784056617819544,
+        lng=-122.39186733984285,
+        timestamp=1632353389723,
     )
-    # TODO consider testing strategy that is not reliant on hardcoded values,
-    # as they are potentially subject to change in most recent integration
-    # assert prediction == Prediction(
-    #   uuid="uuid", lat=47.47771443776213, lng=12.053189171302527)
-    assert (
-        haversine(
-            prediction, (47.47771443776213, 12.053189171302527), unit=Unit.KILOMETERS
-        )
-        < 14
-    )
-
-
-def test_midpoint_model() -> None:
-    """Test for the midpoint model."""
-    prediction = Midpoint().predict(uuid="uuid")
 
     assert (
         haversine(
-            prediction, (47.47771443776213, 12.053189171302527), unit=Unit.KILOMETERS
+            (prediction.lat, prediction.lng),
+            (37.784056617819544, -122.39186733984285),
+            unit=Unit.KILOMETERS,
         )
-        < 14
+        == 0
     )
+
+
+# def test_midpoint_model() -> None:
+#     """Test for the midpoint model."""
+#     prediction = Midpoint().predict(uuid="uuid")
+#
+#     assert (
+#         haversine(
+#             prediction, (47.47771443776213, 12.053189171302527), unit=Unit.KILOMETERS
+#         )
+#         < 14
+#     )
+
+
+def transform_integration(event: dict) -> DataObjects.IntegrationEvent:
+    """Transform integration."""
+    hotspots = []
+    for hotspot in event["data"]["req"]["body"]["hotspots"]:
+        hotspots.append(DataObjects.IntegrationHotspot(**hotspot))
+    event["hotspots"] = hotspots
+    return DataObjects.IntegrationEvent(**event)

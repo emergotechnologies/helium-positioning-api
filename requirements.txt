@@ -2,3 +2,5 @@ poetry
 nox
 twine
 helium-api-wrapper
+joblib
+scikit-learn

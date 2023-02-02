@@ -13,8 +13,8 @@ from fastapi import HTTPException
 from pydantic import BaseModel
 
 from helium_positioning_api.DataObjects import Prediction
-from helium_positioning_api.Models import Midpoint
-from helium_positioning_api.Models import NearestNeighborModel
+from helium_positioning_api.midpoint import midpoint
+from helium_positioning_api.nearest_neighbor import nearest_neighbor
 
 
 app = FastAPI(title="Helium Positioning API")
@@ -34,7 +34,7 @@ async def predict_tf(request: Device) -> Prediction:
     :param request: Device
     :return: predicted coordinates
     """
-    prediction = NearestNeighborModel().predict(uuid=request.uuid)
+    prediction = nearest_neighbor(uuid=request.uuid)
     if not prediction:
         raise HTTPException(status_code=404, detail="Device not found.")
     return prediction
@@ -48,7 +48,7 @@ async def predict_mp(request: Device) -> Prediction:
     :param request: Device
     :return: predicted coordinates
     """
-    prediction = Midpoint().predict(uuid=request.uuid)
+    prediction = midpoint(uuid=request.uuid)
     if not prediction:
         raise HTTPException(status_code=404, detail="Device not found.")
     return prediction

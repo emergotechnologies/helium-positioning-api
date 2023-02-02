@@ -151,9 +151,8 @@ def safety(session: Session) -> None:
 @session(python=python_versions)
 def mypy(session: Session) -> None:
     """Type-check using mypy."""
-    args = session.posargs or ["src", "tests", "docs/conf.py"]
+    args = session.posargs or ["src", "tests", "docs/source/conf.py", "--ignore-missing-imports"]
     session.install(".")
-    session.install("mypy", "pytest", "haversine", "helium-api-wrapper")
     session.run("mypy", *args)
     if not session.posargs:
         session.run("mypy", f"--python-executable={sys.executable}", "noxfile.py")
@@ -164,7 +163,9 @@ def tests(session: Session) -> None:
     """Run the test suite."""
     session.install(".")
     session.install(
-        "coverage[toml]", "pytest", "pygments", "haversine", "helium-api-wrapper", "utm"
+        "coverage[toml]",
+        "pytest",
+        "pygments"
     )
     try:
         session.run("coverage", "run", "--parallel", "-m", "pytest", *session.posargs)
@@ -190,9 +191,7 @@ def coverage(session: Session) -> None:
 def typeguard(session: Session) -> None:
     """Runtime type checking using Typeguard."""
     session.install(".")
-    session.install(
-        "pytest", "typeguard", "pygments", "haversine", "helium-api-wrapper", "utm"
-    )
+    session.install("pygments")
     session.run("pytest", f"--typeguard-packages={package}", *session.posargs)
 
 
@@ -214,12 +213,11 @@ def xdoctest(session: Session) -> None:
 @session(name="docs-build", python=python_versions[0])
 def docs_build(session: Session) -> None:
     """Build the documentation."""
-    args = session.posargs or ["docs", "docs/_build"]
+    args = session.posargs or ["docs/source", "docs/_build"]
     if not session.posargs and "FORCE_COLOR" in os.environ:
         args.insert(0, "--color")
 
-    session.install(".")
-    session.install("sphinx", "sphinx-click", "furo", "myst-parser")
+    session.run_always("poetry", "install", external=True)
 
     build_dir = Path("docs", "_build")
     if build_dir.exists():

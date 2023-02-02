@@ -10,13 +10,23 @@ from typing import List
 from typing import Tuple
 from typing import Union
 
-from utm import from_latlon  # type: ignore[import]
+from helium_api_wrapper.DataObjects import IntegrationHotspot
+from helium_api_wrapper.devices import get_last_integration
+from utm import from_latlon
 from utm import to_latlon
 
-from helium_positioning_api.DataObjects import Hotspot
+
+def get_integration_hotspots(uuid: str) -> List[IntegrationHotspot]:
+    """Load hotspots, which interacted with the given device from the last integration event."""
+    integration = get_last_integration(uuid)
+    if len(integration.hotspots) == 0:
+        raise ValueError(f"No hotspots found for device {uuid}")
+    return integration.hotspots
 
 
-def midpoint(point_1: Hotspot, point_2: Hotspot) -> Iterable[Union[float, float]]:
+def get_midpoint(
+    point_1: IntegrationHotspot, point_2: IntegrationHotspot
+) -> Iterable[Union[float, float]]:
     """Return the midpoint coordinates between two hotspots.
 
     :param point_1: first Hotspot
@@ -24,18 +34,23 @@ def midpoint(point_1: Hotspot, point_2: Hotspot) -> Iterable[Union[float, float]
 
     :return: coordinates of midpoint between point_1 and point_2
     """
-    point_1.load_location()
-    point_2.load_location()
-
     # Conversion to radians
     if point_1.lat is not None:
         lat1 = radians(point_1.lat)
-    if point_1.long is not None:
-        lon1 = radians(point_1.long)
+    else:
+        raise ValueError("Latitude of point_1 is None")
+    if point_1.lng is not None:
+        lon1 = radians(point_1.lng)
+    else:
+        raise ValueError("Longitude of point_1 is None")
     if point_2.lat is not None:
         lat2 = radians(point_2.lat)
-    if point_2.long is not None:
-        lon2 = radians(point_2.long)
+    else:
+        raise ValueError("Latitude of point_2 is None")
+    if point_2.lng is not None:
+        lon2 = radians(point_2.lng)
+    else:
+        raise ValueError("Longitude of point_2 is None")
 
     bx = cos(lat2) * cos(lon2 - lon1)
     by = cos(lat2) * sin(lon2 - lon1)
@@ -127,7 +142,81 @@ def circle_intersect(
     # conversion UTM -> lat/lon
     if a_utm is not None:
         a = to_latlon(a_utm[0], a_utm[1], zone, letter)
+    else:
+        raise ValueError("No intersection found")
     if b_utm is not None:
         b = to_latlon(b_utm[0], b_utm[1], zone, letter)
+    else:
+        raise ValueError("No intersection found")
 
     return a, b
+
+
+def get_centres(
+    latitude: List[float],
+    longitude: List[float],
+    indices: Tuple[int, int, int] = (0, 1, 2),
+) -> Tuple[List[float], List[float], List[float], Tuple[int, int, int]]:
+    """Return latitude/longitude of hotspots from list of indices.
+
+    :param latitude: latitudes
+    :type latitude: list of latitudes (floats)
+    :param longitude: longitudes
+    :type longitude: list of longitudes (floats)
+    :param indices: indices of hotspots
+    :type indices: tuple of three integers
+
+    :return: centres of hotspots with the given indices and the indices
+    :rtype: list of latitudes and longitudes in degree and indices as int
+
+    """
+    centre_0 = [latitude[indices[0]], longitude[indices[0]]]
+    centre_1 = [latitude[indices[1]], longitude[indices[1]]]
+    centre_2 = [latitude[indices[2]], longitude[indices[2]]]
+
+    return centre_0, centre_1, centre_2, indices
+
+
+def flatten_intersect_lists(input_list: List[Iterable[float]]) -> List[float]:
+    """Flattens lists.
+
+    :param input_list: List of lists
+    :type input_list: list of lists
+
+    :return: list
+    :rtype: list
+    """
+    flattened_list = []
+    if len(input_list) != 0:
+        if isinstance(input_list[0], list):
+            flattened_list = [point for sublist in input_list for point in sublist]
+    return flattened_list
+
+
+def mid(
+    point_1: Union[List[float], Tuple[float, float]],
+    point_2: Union[List[float], Tuple[float, float]],
+) -> Tuple[float, float]:
+    """Return midpoint of two points given in lat/long coordinates.
+
+    :param point_1: first point
+    :param point_2: second point
+
+    :return: coordinates of midpoint between point_1 and point_2
+    """
+    # Input values as degrees
+
+    # Convert to radians
+    lat1 = radians(point_1[0])
+    lon1 = radians(point_1[1])
+    lat2 = radians(point_2[0])
+    lon2 = radians(point_2[1])
+
+    bx = cos(lat2) * cos(lon2 - lon1)
+    by = cos(lat2) * sin(lon2 - lon1)
+    lat3 = atan2(
+        sin(lat1) + sin(lat2), sqrt((cos(lat1) + bx) * (cos(lat1) + bx) + by**2)
+    )
+    lon3 = lon1 + atan2(by, cos(lat1) + bx)
+
+    return (degrees(lat3), degrees(lon3))
