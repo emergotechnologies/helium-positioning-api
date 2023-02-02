@@ -15,7 +15,7 @@ from pydantic import BaseModel
 from helium_positioning_api.DataObjects import Prediction
 from helium_positioning_api.midpoint import midpoint
 from helium_positioning_api.nearest_neighbor import nearest_neighbor
-
+from helium_positioning_api.trilateration import trilateration
 
 app = FastAPI(title="Helium Positioning API")
 
@@ -49,6 +49,36 @@ async def predict_mp(request: Device) -> Prediction:
     :return: predicted coordinates
     """
     prediction = midpoint(uuid=request.uuid)
+    if not prediction:
+        raise HTTPException(status_code=404, detail="Device not found.")
+    return prediction
+
+
+# trilateration with linear regression
+@app.post("/predict_tl_lin", status_code=200)
+async def predict_tl_lin(request: Device) -> Prediction:
+    """Create a prediction with the Trialteratioin model, 
+    using a linear regression distance estimator.
+
+    :param request: Device
+    :return: predicted coordinates
+    """
+    prediction = trilateration(uuid=request.uuid, model='linear_regression')
+    if not prediction:
+        raise HTTPException(status_code=404, detail="Device not found.")
+    return prediction
+
+
+# trilateration with gradient boost
+@app.post("/predict_tl_grad", status_code=200)
+async def predict_tl_grad(request: Device) -> Prediction:
+    """Create a prediction with the Midpoint model,
+    using a gradient boosted regression for distance estimaton.
+
+    :param request: Device
+    :return: predicted coordinates
+    """
+    prediction = trilateration(uuid=request.uuid, model='gradient_boosting')
     if not prediction:
         raise HTTPException(status_code=404, detail="Device not found.")
     return prediction
