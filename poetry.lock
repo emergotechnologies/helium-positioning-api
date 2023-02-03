@@ -679,14 +679,14 @@ files = [
 
 [[package]]
 name = "helium-api-wrapper"
-version = "0.0.1.dev1675239484"
+version = "0.0.1.dev1675266436"
 description = "Helium Api Wrapper"
 category = "main"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "helium-api-wrapper-0.0.1.dev1675239484.tar.gz", hash = "sha256:85df5d76b2d9a04eb7dbc64ca3e5ccbe0b4ff07a85d8fe43d28875bc295aaa65"},
-    {file = "helium_api_wrapper-0.0.1.dev1675239484-py3-none-any.whl", hash = "sha256:20994ce0dff6280e4596c54e8d092f2fda60880570f7bfa4a27cab0c3e36e7b4"},
+    {file = "helium_api_wrapper-0.0.1.dev1675266436-py3-none-any.whl", hash = "sha256:0161c87bf694677f66db2077217ce5ea475971f8c69b487ccf44ec2379f0368d"},
+    {file = "helium_api_wrapper-0.0.1.dev1675266436.tar.gz", hash = "sha256:c094e1271f30d9d158f387955c8383ce60ced3ff41cb20b921194c5ed59d75b2"},
 ]
 
 [package.dependencies]
