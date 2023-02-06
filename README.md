@@ -23,9 +23,8 @@
 
 ## Features
 
-Prediction of the location of devices belonging to an organization in the [Helium Console](https://console.helium.com/). The implementation of several different methods and models is planned.
-
-Currently, only the **nearest-hotspot-prediction** method is implemented. This method uses the position of the hotspot with the highest signal strength to the corresponding device (RSSI value).
+Prediction of the location of devices belonging to an organization in the [Helium Console](https://console.helium.com/). 
+Several different methods and models are available.
 
 ## Installation
 
