@@ -65,9 +65,9 @@ The location prediction command is
 python -m helium_positioning_api predict --uuid 'your uuid' --model 'your model selection'
 ```
 
-See the table below for a list of currently available commands and models.
+See the table below for a list of currently available models.
 
-| **command**       | **position estimation model**                                       |
+| **model**       | **position estimation explanation**                                   |
 | ----------------- | ------------------------------------------------------------------- |
 | nearest_neighbor  | location of hotspot with the best signal                            |
 | midpoint          | point of equal distance from the two hotspots with the best signals |
@@ -81,16 +81,19 @@ See the table below for a list of currently available commands and models.
    python -m helium_positioning_api serve
    ```
 2. Open Browser and navigate to `127.0.0.1:8000/docs`
-3. Click on `predict/{uuid}` endpoint to drop down the endpoint details
+3. Click on `predict_tf` path to drop down the endpoint details
 4. Click on the `Try it out` button.
-5. Fill in the `uuid` of your device and click on the button `Execute`
+5. Fill in the `uuid` of your device and click on the button `Execute` to get an estimation using the `nearest_neighbor` model
 6. You can see the location prediction response in the `Responses` section below.
 
-You can also just simply get the prediction by navigating to:
+The mapping of available models to paths can be seen in the table below.
 
-```
-https://127.0.0.1:8000/predict/your-uuid
-```
+| **model**         | **path**                                                            |
+| ----------------- | ------------------------------------------------------------------- |
+| nearest_neighbor  | predict_tf                                                          |
+| midpoint          | predict_mp                                                          |
+| linear_regression | predict_tl_lin                                                      |
+| gradient_boosting | predict_tl_grad                                                     |
 
 ## Contributing
 
