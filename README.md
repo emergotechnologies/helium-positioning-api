@@ -67,12 +67,12 @@ python -m helium_positioning_api predict --uuid 'your uuid' --model 'your model 
 
 See the table below for a list of currently available models.
 
-| **model**       | **position estimation explanation**                                   |
-| ----------------- | ------------------------------------------------------------------- |
-| nearest_neighbor  | location of hotspot with the best signal                            |
-| midpoint          | point of equal distance from the two hotspots with the best signals |
-| linear_regression | trilateration with an linear regression distance estimator          |
-| gradient_boosting | trilateration with a gradient boosted regression distance estimator |
+| **Model**                         | **Position estimation explanation**                                 | **Suggested use**                                                                                                                                                             |
+| --------------------------------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| nearest_neighbor                  | Location of hotspot with the best signal                            | Purchase of at most one packet from a device (see [Packet Configurations](https://docs.helium.com/use-the-network/console/multi-packets/) for more details)                   |
+| midpoint                          | Point of equal distance from the two hotspots with the best signals | Purchase of at least two packets from a device (see [Packet Configurations](https://docs.helium.com/use-the-network/console/multi-packets/) for more details)                 |
+| linear_regression (experimental)  | Trilateration with an linear regression distance estimator          | Experimental. Purchase of at least three packets from a device (see [Packet Configurations](https://docs.helium.com/use-the-network/console/multi-packets/) for more details) |
+| gradient_boosting (experimental)  | Trilateration with a gradient boosted regression distance estimator | Experimental. Purchase of at least three packets from a device (see [Packet Configurations](https://docs.helium.com/use-the-network/console/multi-packets/) for more details) |
 
 ### REST-API
 
