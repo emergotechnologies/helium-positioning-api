@@ -1,4 +1,4 @@
-name: Build and publish docker image
+name: Docker build
 
 env:
   REGISTRY: ghcr.io
@@ -8,10 +8,6 @@ on:
   push:
     branches:
       - 'feature/**'
-
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build-and-push-image:
