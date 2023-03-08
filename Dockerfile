@@ -6,6 +6,7 @@ COPY requirements.txt /app/
 COPY README.md /app/
 COPY poetry.lock /app/
 COPY pyproject.toml /app/
+COPY ./models /app/models
 COPY ./src /app/src
 
 WORKDIR /app
