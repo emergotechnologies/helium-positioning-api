@@ -27,7 +27,7 @@ haversine = "^2.7.0"
 python-dotenv = "^0.21.1"
 pandas = "^1.5.3"
 joblib = "^1.2.0"
-scikit-learn = "^1.2.1"
+scikit-learn = "1.0.2"
 helium-api-wrapper = "^0.0.1.dev1675239484"
 
 

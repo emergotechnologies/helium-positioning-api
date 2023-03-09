@@ -3,4 +3,4 @@ nox
 twine
 helium-api-wrapper
 joblib
-scikit-learn
+scikit-learn==1.0.2
