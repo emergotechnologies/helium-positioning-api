@@ -26,6 +26,14 @@
 Prediction of the location of devices belonging to an organization in the [Helium Console](https://console.helium.com/). 
 Several different methods and models are available.
 
+## Docker
+
+The easiest way to run the positioning-API is to prepare an `.env` file (see below for further instructions what should be in it) and run it as docker-container:
+
+```
+docker run -p 8000:8000 --env-file=.env ghcr.io/emergotechnologies/helium-positioning-api:main
+```
+
 ## Installation
 
 ### Developer install
